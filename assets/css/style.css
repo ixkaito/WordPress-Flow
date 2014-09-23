@@ -8033,11 +8033,6 @@ button.close {
     display: none !important;
   }
 }
-/* line 7, ../sass/style.scss */
-body {
-  background: #eeeeee;
-}
-
 /* line 11, ../sass/style.scss */
 .file {
   background: #fff;
