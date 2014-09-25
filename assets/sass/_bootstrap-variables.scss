@@ -402,10 +402,10 @@
 //== Tabs
 // $nav-tabs-border-color:                     #ddd
 
-// $nav-tabs-link-hover-border-color:          $gray-lighter
+$nav-tabs-link-hover-border-color:          $background_hover;
 
 // $nav-tabs-active-link-hover-bg:             $body-bg
-// $nav-tabs-active-link-hover-color:          $gray
+$nav-tabs-active-link-hover-color:          #333;
 // $nav-tabs-active-link-hover-border-color:   #ddd
 
 // $nav-tabs-justified-link-border-color:            #ddd
@@ -781,8 +781,8 @@
 //
 //##
 
-// $code-color:                  #c7254e
-// $code-bg:                     #f9f2f4
+$code-color:                  #fff;
+$code-bg:                     $midnight;
 
 // $kbd-color:                   #fff
 // $kbd-bg:                      #333

@@ -1,9 +1,9 @@
 @charset "UTF-8";
 @import "compass";
+@import "variables";
 @import "bootstrap-compass";
 @import "bootstrap-variables";
 @import "bootstrap";
-@import "variables";
 
 body {
 	background: $background;
@@ -19,12 +19,61 @@ a {
 	}
 }
 
+/*
+================================================================================
+	bootstrap
+================================================================================
+*/
+.nav {
+
+	> li {
+
+		a {
+			color: $gray;
+		}
+
+		// a:hover {
+		// 	border-color: $background_hover $background_hover $nav-tabs-border-color;
+		// }
+
+		// a:hover,
+		// a:focus {
+		// 	background: $background_hover;
+		// }
+	}
+}
+
+.tab-content {
+	padding: $padding 0 0;
+	margin-bottom: $margin;
+}
+
+.tab-pane {
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+code {
+	// font-size: 90%;
+	padding: 3px 6px;
+}
+
+/*
+================================================================================
+	original
+================================================================================
+*/
 .flow {
 	padding: $padding 0;
 }
 
-.file {
+.file,
+.function,
+.redirect_to {
 	background: #fff;
+	margin-bottom: $margin;
 	border: 1px solid $border;
 	border-bottom-width: 2px;
 	@include border-radius(3px);
@@ -34,17 +83,15 @@ a {
 	&:hover {
 		// background: $state-warning-bg;
 	}
-
-	+ .file {
-		margin-top: $margin;
-	}
 }
 
-.file-header {
+.file-header,
+.function-header {
 	margin: 0;
 }
 
-.file-name{
+.file-name,
+.function-name {
 	font-size: $rem * 1.4;
 	line-height: 1;
 	margin: 0;
@@ -53,7 +100,8 @@ a {
 	color: inherit;
 }
 
-a.file-name {
+a.file-name,
+a.function-name {
 
 	&:hover,
 	&:focus,
@@ -65,29 +113,58 @@ a.file-name {
 	}
 }
 
-.file-body {
+.file-body,
+.function-body {
 	padding: $padding;
 	border-top: 1px solid $border;
+
+	> :last-child {
+		margin-bottom: 0;
+	}
 }
 
 .require {
 
-	.file-name {
+	> .file-header {
 
-		&:before {
-			content: "require ";
-			color: $magenta;
+		> .file-name {
+
+			&:before {
+				content: 'require ';
+				color: $magenta;
+			}
 		}
 	}
 }
 
 .require_once {
 
-	.file-name {
+	> .file-header {
 
-		&:before {
-			content: "require_once ";
-			color: $magenta;
+		> .file-name {
+
+			&:before {
+				content: 'require_once ';
+				color: $magenta;
+			}
 		}
+	}
+}
+
+.redirect_to {
+	@extend .function;
+	@extend .function-name;
+
+	&:before {
+		content: 'redirect to ';
+		color: $cyan;
+	}
+}
+
+.at {
+	color: $gray;
+
+	&:before {
+		content: '// ';
 	}
 }
