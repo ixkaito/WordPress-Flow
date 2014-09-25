@@ -366,8 +366,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(/assets/css/fonts/bootstrap/glyphicons-halflings-regular.eot);
-  src: url(/assets/css/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(/assets/css/fonts/bootstrap/glyphicons-halflings-regular.woff) format("woff"), url(/assets/css/fonts/bootstrap/glyphicons-halflings-regular.ttf) format("truetype"), url(/assets/css/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+  src: url(fonts/bootstrap/glyphicons-halflings-regular.eot);
+  src: url(fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"), url(fonts/bootstrap/glyphicons-halflings-regular.woff) format("woff"), url(fonts/bootstrap/glyphicons-halflings-regular.ttf) format("truetype"), url(fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
 }
 
 /* line 25, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/bootstrap-sass-3.2.0.2/assets/stylesheets/bootstrap/_glyphicons.scss */
@@ -8033,17 +8033,32 @@ button.close {
     display: none !important;
   }
 }
-/* line 11, ../sass/style.scss */
+/* line 8, ../sass/style.scss */
+body {
+  background: #eeeeee;
+}
+
+/* line 12, ../sass/style.scss */
+.flow {
+  padding: 20px 0;
+}
+
+/* line 16, ../sass/style.scss */
 .file {
   background: #fff;
-  padding: 15px;
-  border: 1px solid #cccccc;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
+  padding: 20px;
+  border: 1px solid #dddddd;
+  border-bottom-width: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+/* line 29, ../sass/style.scss */
+.file + .file {
+  margin-top: 20px;
 }

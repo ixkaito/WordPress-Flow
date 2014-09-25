@@ -3,19 +3,30 @@
 @import "bootstrap-compass";
 @import "bootstrap-variables";
 @import "bootstrap";
+@import "variables";
 
 body {
-	// background: $gray-lighter;
+	background: $background;
+}
+
+.flow {
+	padding: $padding 0;
 }
 
 .file {
 	background: #fff;
-	padding:  ($grid-gutter-width / 2);
-	border: 1px solid $input-border;
-	@include border-radius(4px);
+	padding: $padding;
+	border: 1px solid $border;
+	border-bottom-width: 2px;
+	@include border-radius(3px);
 	@include box-sizing(border-box);
+	// @include box-shadow(0 0 1px rgba(0, 0, 0, 0.05));
 
 	&:hover {
 		// background: $state-warning-bg;
+	}
+
+	+ .file {
+		margin-top: $margin;
 	}
 }
