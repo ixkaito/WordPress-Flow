@@ -7,6 +7,16 @@
 
 body {
 	background: $background;
+	font-family: Menlo,​ Consolas,​ Courier,​ monospace;
+}
+
+a {
+	color: $cyan;
+
+	&:hover,
+	&:focus {
+		color: $cyan;
+	}
 }
 
 .flow {
@@ -15,7 +25,6 @@ body {
 
 .file {
 	background: #fff;
-	padding: $padding;
 	border: 1px solid $border;
 	border-bottom-width: 2px;
 	@include border-radius(3px);
@@ -28,5 +37,57 @@ body {
 
 	+ .file {
 		margin-top: $margin;
+	}
+}
+
+.file-header {
+	margin: 0;
+}
+
+.file-name{
+	font-size: $rem * 1.4;
+	line-height: 1;
+	margin: 0;
+	display: block;
+	padding: $padding / 2;
+	color: inherit;
+}
+
+a.file-name {
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		background: $background_hover;
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
+.file-body {
+	padding: $padding;
+	border-top: 1px solid $border;
+}
+
+.require {
+
+	.file-name {
+
+		&:before {
+			content: "require ";
+			color: $magenta;
+		}
+	}
+}
+
+.require_once {
+
+	.file-name {
+
+		&:before {
+			content: "require_once ";
+			color: $magenta;
+		}
 	}
 }

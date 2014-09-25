@@ -1,7 +1,24 @@
 @charset "UTF-8";
 
-$background: lighten(#000, 93.5%); // #eee
-$border:     lighten(#000, 86.5%); // #ddd
+// color
+$magenta:      #f92672;
+$cyan:         #1cafcf;
+$orange:       #f0793f;
+$emerald:      #2dbaa6;
+$midnight:     #323a45;
+$gray:         #9ea7b2;
+$gray_light:   #eaedf1;
+$gray_lighter: #f9fafc;
 
+// $background: lighten(#000, 93.5%); // #eee
+$background:       $gray_light;
+$background_hover: $gray_lighter;
+$border:           lighten(#000, 86.5%); // #ddd
+
+// font
+$rem: 10px;
+$line-height: 1.5;
+
+// gutter
 $margin:  20px;
 $padding: $margin;

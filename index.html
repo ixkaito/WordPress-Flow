@@ -17,15 +17,24 @@
 		<div class="col-md-12 flow">
 
 			<div class="file">
-				<div class="file-header">
-					<h1><a href="#index_php" class="collapsed" data-toggle="collapse">index.php</a></h1>
-				</div>
-				<div id="index_php" class="file-body collapse">
-					<div class="require file">
-						<div class="file-header">
-							<h1><a href="#index_php__wp-blog-header_php" data-toggle="collapse">wp-blog-header.php</a></h1>
+				<h1 class="file-header"><a class="file-name" href="#index_php" class="collapsed" data-toggle="collapse">index.php <i class="caret"></i></a></h1>
+				<div id="index_php" class="collapse">
+					<div class="file-body">
+
+						<div class="require file">
+							<h1 class="file-header"><a class="file-name" href="#index_php__wp-blog-header_php" data-toggle="collapse">wp-blog-header.php <i class="caret"></i></a></h1>
+							<div id="index_php__wp-blog-header_php" class="collapse">
+								<div class="file-body">
+
+									<div class="require_once file">
+										<h1 class="file-header"><a href="#index_php__wp-blog-header_php__wp-load_php" class="file-name" data-toggle="collapse">wp-load.php <i class="caret"></i></a></h1>
+										<div id="index_php__wp-blog-header_php__wp-load_php" class="collapse">
+											<div class="file-body"></div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div id="index_php__wp-blog-header_php" class="file-body collapse"></div>
 					</div>
 				</div>
 			</div>
