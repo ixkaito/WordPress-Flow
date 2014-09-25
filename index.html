@@ -32,9 +32,9 @@
 											<div class="file-body">
 
 												<ul class="nav nav-tabs">
-													<li class="active"><a href="#index_php__wp-blog-header_php__wp-load_php__if_file_exists_wp-config_php_1" data-toggle="tab">file_exists('wp-config.php')</a></li>
-													<li><a href="#index_php__wp-blog-header_php__wp-load_php__if_file_exists_wp-config_php_2" data-toggle="tab">file_exists('../wp-config.php') &amp;&amp; !file_exists('../wp-settings.php')</a></li>
-													<li><a href="#index_php__wp-blog-header_php__wp-load_php__if_file_exists_wp-config_php_3" data-toggle="tab">else</a></li>
+													<li class="active"><a href="#index_php__wp-blog-header_php__wp-load_php__if_file_exists_wp-config_php_1" data-toggle="tab"><br />file_exists( ABSPATH . 'wp-config.php' )</a></li>
+													<li><a href="#index_php__wp-blog-header_php__wp-load_php__if_file_exists_wp-config_php_2" data-toggle="tab">file_exists( dirname(ABSPATH) . '/wp-config.php' ) <br />&amp;&amp; ! file_exists( dirname(ABSPATH) . '/wp-settings.php' )</a></li>
+													<li><a href="#index_php__wp-blog-header_php__wp-load_php__if_file_exists_wp-config_php_3" data-toggle="tab"><br />else</a></li>
 												</ul>
 												<div class="tab-content">
 													<div id="index_php__wp-blog-header_php__wp-load_php__if_file_exists_wp-config_php_1" class="tab-pane active in"></div>
