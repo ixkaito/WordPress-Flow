@@ -40,23 +40,32 @@
             var thisUrl   = location.pathname;
             var targetUrl = $el.data('url');
 
-            console.log(thisUrl);
-            console.log(targetUrl);
+            console.log('thisUrl: ' + thisUrl);
+            console.log('targetUrl: ' + targetUrl);
 
             var thisPath   = thisUrl.replace(/[^\/]*$/, '');
             var targetPath = targetUrl.replace(/[^\/]*$/, '');
 
+            console.log('thisPath: ' + thisPath);
+            console.log('targetPath: ' + targetPath);
+
             var lcs  = LCS(thisPath, targetPath);
 
+            console.log('lcs: ' + lcs);
+
             var targetRel = targetUrl.replace(lcs, '');
+
+            console.log('targetRel: ' + targetRel);
 
             var thisRel   = thisPath.replace(lcs, '');
                 thisRel   = thisRel.replace(/[^\/]*$/, '');
                 thisRel   = thisRel.replace(/([^\/]+\/)/ig, '../');
 
+            console.log('thisRel: ' + thisRel);
+
             var url = thisRel + targetRel;
 
-            console.log(thisRel + targetRel);
+            console.log('url: ' + url);
 
             $.ajax({
                 url: url
