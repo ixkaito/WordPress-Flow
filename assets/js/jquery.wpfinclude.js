@@ -36,34 +36,54 @@
         this.each(function(){
 
             var $el = $(this);
+            $el.addClass('including');
 
-            var thisUrl   = location.pathname;
-            var targetUrl = $el.data('url');
+            var parentAbs = $el.parents('.including').data('abs');
+            console.log('parentAbs: ' + parentAbs);
 
+            var thisUrl  = parentAbs ? parentAbs : location.pathname;
             console.log('thisUrl: ' + thisUrl);
+
+            // trim the file name
+            var thisPath = thisUrl.replace(/[^\/]*$/, '');
+            console.log('thisPath: ' + thisPath);
+
+            // trim './'
+            var targetUrl = $el.data('url').replace(/^\.\//, '');
             console.log('targetUrl: ' + targetUrl);
 
-            var thisPath   = thisUrl.replace(/[^\/]*$/, '');
-            var targetPath = targetUrl.replace(/[^\/]*$/, '');
+            // number of '../'
+            var parentLevel = targetUrl.match(/\.\.\//g);
+                parentLevel = parentLevel ? parentLevel.length : 0;
+            console.log('parentLevel: ' + parentLevel);
 
-            console.log('thisPath: ' + thisPath);
+            // trim all '../'
+            var targetPath = targetUrl.replace(/\.\.\//g, '');
             console.log('targetPath: ' + targetPath);
 
-            var lcs  = LCS(thisPath, targetPath);
+            // var lcs  = LCS(thisPath, targetPath);
+            // console.log('lcs: ' + lcs);
 
-            console.log('lcs: ' + lcs);
+            // trim dir from the back * parentLevel
+            var re           = new RegExp('([^\/]+\/){' + parentLevel + '}$');
+            var targetParent = thisPath.replace(re, '');
+            console.log('targetParent: ' + targetParent);
 
-            var targetRel = targetUrl.replace(lcs, '');
+            var url = targetParent + targetPath;
 
-            console.log('targetRel: ' + targetRel);
+            $el.attr('data-abs', url);
 
-            var thisRel   = thisPath.replace(lcs, '');
-                thisRel   = thisRel.replace(/[^\/]*$/, '');
-                thisRel   = thisRel.replace(/([^\/]+\/)/ig, '../');
+            // var targetRel = targetUrl.replace(lcs, '');
 
-            console.log('thisRel: ' + thisRel);
+            // console.log('targetRel: ' + targetRel);
 
-            var url = thisRel + targetRel;
+            // var thisRel   = thisPath.replace(lcs, '');
+            //     thisRel   = thisRel.replace(/[^\/]*$/, '');
+            //     thisRel   = thisRel.replace(/([^\/]+\/)/ig, '../');
+
+            // console.log('thisRel: ' + thisRel);
+
+            // var url = thisRel + targetRel;
 
             console.log('url: ' + url);
 
