@@ -40,6 +40,9 @@
             var thisUrl   = location.pathname;
             var targetUrl = $el.data('url');
 
+            console.log(thisUrl);
+            console.log(targetUrl);
+
             var thisPath   = thisUrl.replace(/[^\/]*$/, '');
             var targetPath = targetUrl.replace(/[^\/]*$/, '');
 
@@ -52,6 +55,8 @@
                 thisRel   = thisRel.replace(/([^\/]+\/)/ig, '../');
 
             var url = thisRel + targetRel;
+
+            console.log(thisRel + targetRel);
 
             $.ajax({
                 url: url
