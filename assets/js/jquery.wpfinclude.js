@@ -37,23 +37,29 @@
 
             var $el = $(this);
 
-            var path = '/a/b/c/d/e/f/test1.php'; // location.pathname;
-            var url  = '/a/b/test2.php'; // $el.data('url');
+            var thisUrl   = location.pathname;
+            var targetUrl = $el.data('url');
 
-            var lcs  = LCS(path, url);
-            console.log(path);
-            console.log(url);
-            console.log(lcs);
+            console.log(thisUrl);
+            console.log(targetUrl);
 
-            var rel = path.replace(lcs, '');
-            rel = rel.replace(/([^\/]+\/)+(.*)$/i, '../$2');
+            var thisPath   = thisUrl.replace(/[^\/]*$/, '');
+            var targetPath = targetUrl.replace(/[^\/]*$/, '');
 
-            console.log(rel);
+            var lcs  = LCS(thisPath, targetPath);
 
+            var targetRel = targetUrl.replace(lcs, '');
+
+            var thisRel   = thisPath.replace(lcs, '');
+                thisRel   = thisRel.replace(/[^\/]*$/, '');
+                thisRel   = thisRel.replace(/([^\/]+\/)/ig, '../');
+
+            var url = thisRel + targetRel;
+
+            console.log(thisRel + targetRel);
 
             $.ajax({
                 url: url
-
             }).done(function(data){
                 var html = $(data).find('#file').html();
                 $el.append(html);
