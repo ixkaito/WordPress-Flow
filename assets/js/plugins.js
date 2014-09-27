@@ -2,6 +2,11 @@
 
     "use strict";
 
+    /*
+    ================================================================================
+        wpfinclude
+    ================================================================================
+    */
     $.fn.wpfinclude = function(option){
 
         // Longest-common subsequence
@@ -105,12 +110,16 @@
         return this;
     };
 
+    /*
+    ================================================================================
+        wpfredirect
+    ================================================================================
+    */
     $.fn.wpfredirect = function(option){
 
         this.each(function(){
 
             var $el = $(this);
-            $el.addClass('including');
 
             var parentAbs = $el.parents('.including').data('abs');
             console.log('parentAbs: ' + parentAbs);
@@ -123,7 +132,7 @@
             console.log('thisPath: ' + thisPath);
 
             // trim './'
-            var targetUrl = $el.data('url').replace(/^\.\//, '');
+            var targetUrl = $el.attr('href').replace(/^\.\//, '');
             console.log('targetUrl: ' + targetUrl);
 
             // number of '../'
@@ -135,50 +144,19 @@
             var targetPath = targetUrl.replace(/\.\.\//g, '');
             console.log('targetPath: ' + targetPath);
 
-            // var lcs  = LCS(thisPath, targetPath);
-            // console.log('lcs: ' + lcs);
-
             // trim dir from the back * parentLevel
             var re           = new RegExp('([^\/]+\/){' + parentLevel + '}$');
             var targetParent = thisPath.replace(re, '');
             console.log('targetParent: ' + targetParent);
 
             var url = targetParent + targetPath;
-
-            $el.attr('data-abs', url);
-
-            // var targetRel = targetUrl.replace(lcs, '');
-
-            // console.log('targetRel: ' + targetRel);
-
-            // var thisRel   = thisPath.replace(lcs, '');
-            //     thisRel   = thisRel.replace(/[^\/]*$/, '');
-            //     thisRel   = thisRel.replace(/([^\/]+\/)/ig, '../');
-
-            // console.log('thisRel: ' + thisRel);
-
-            // var url = thisRel + targetRel;
-
             console.log('url: ' + url);
 
-            $.ajax({
-                url: url
-            }).done(function(data){
-                var html = $(data).find('#file').html();
-                $el.append(html);
-
-            }).fail(function(){
-                console.log('Error!');
-
-            }).always(function(){
-                console.log('Complete!');
-            });
+            $el.attr('href', url);
 
         });
 
         return this;
     };
-
-
 
 })(jQuery);
