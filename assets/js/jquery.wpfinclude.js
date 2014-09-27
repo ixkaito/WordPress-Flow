@@ -5,33 +5,33 @@
     $.fn.wpfinclude = function(option){
 
         // Longest-common subsequence
-        function LCS(stringX, stringY) {
-            var matchfound = 0;
-            var lcslen = stringX.length;
-            var lcsos, re, temp, result;
-            for (lcsi = 0; lcsi < stringX.length; lcsi++) {
-                lcsos = 0;
-                for (lcsj = 0; lcsj < lcsi + 1; lcsj++) {
-                    re = new RegExp("(?:.{" + lcsos + "})(.{" + lcslen + "})", "i");
-                    temp = re.test(stringX);
+        // function LCS(stringX, stringY) {
+        //     var matchfound = 0;
+        //     var lcslen = stringX.length;
+        //     var lcsos, re, temp, result;
+        //     for (lcsi = 0; lcsi < stringX.length; lcsi++) {
+        //         lcsos = 0;
+        //         for (lcsj = 0; lcsj < lcsi + 1; lcsj++) {
+        //             re = new RegExp("(?:.{" + lcsos + "})(.{" + lcslen + "})", "i");
+        //             temp = re.test(stringX);
 
-                    re = new RegExp("(" + RegExp.$1 + ")", "i");
-                    if (re.test(stringY)) {
-                        matchfound = 1;
-                        result = RegExp.$1;
-                        break;
-                    }
-                    lcsos = lcsos + 1;
-                }
-                if (matchfound == 1) {
-                    return result;
-                    // break;
-                }
-                lcslen = lcslen - 1;
-            }
-            result = '';
-            return result;
-        }
+        //             re = new RegExp("(" + RegExp.$1 + ")", "i");
+        //             if (re.test(stringY)) {
+        //                 matchfound = 1;
+        //                 result = RegExp.$1;
+        //                 break;
+        //             }
+        //             lcsos = lcsos + 1;
+        //         }
+        //         if (matchfound == 1) {
+        //             return result;
+        //             // break;
+        //         }
+        //         lcslen = lcslen - 1;
+        //     }
+        //     result = '';
+        //     return result;
+        // }
 
         this.each(function(){
 
