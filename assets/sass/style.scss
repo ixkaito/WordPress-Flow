@@ -85,23 +85,18 @@ code {
 	}
 }
 
-.file-header,
-.function-header {
-	margin: 0;
-}
-
 .file-name,
 .function-name {
 	font-size: $rem * 1.4;
-	line-height: 1;
+	line-height: $line-height-base;
 	margin: 0;
 	display: block;
 	padding: $padding / 2;
 	color: inherit;
 }
 
-a.file-name,
-a.function-name {
+.collapse-toggle {
+	cursor: pointer;
 
 	&:hover,
 	&:focus,
@@ -125,28 +120,24 @@ a.function-name {
 
 .require {
 
-	> .file-header {
+	> .file-name,
+	> .collapse-toggle > .file-name {
 
-		> .file-name {
-
-			&:before {
-				content: 'require ';
-				color: $magenta;
-			}
+		&:before {
+			content: 'require ';
+			color: $magenta;
 		}
 	}
 }
 
 .require_once {
 
-	> .file-header {
+	> .file-name,
+	> .collapse-toggle > .file-name {
 
-		> .file-name {
-
-			&:before {
-				content: 'require_once ';
-				color: $magenta;
-			}
+		&:before {
+			content: 'require_once ';
+			color: $magenta;
 		}
 	}
 }
@@ -154,6 +145,7 @@ a.function-name {
 .redirect_to {
 	@extend .function;
 	@extend .function-name;
+	@extend .collapse-toggle;
 
 	&:before {
 		content: 'redirect to ';
