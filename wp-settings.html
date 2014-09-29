@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>wp-blog-header.php</title>
+<title>wp-settings.php</title>
 <link rel="stylesheet" href="./assets/css/style.css" type="text/css" media="all" />
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">window.jQuery || document.write( '<script src="./assets/js/jquery-1.11.1.min.js" type="text/javascript"><\/script>' )</script>
@@ -19,12 +19,14 @@
 
 			<div id="file" class="file">
 				<div class="collapse-toggle">
-					<h1 class="file-name">wp-blog-header.php <i class="caret"></i></h1>
+					<h1 class="file-name">wp-settings.php <i class="caret"></i></h1>
 				</div>
 				<div class="collapse in">
 					<div class="file-body">
 
-						<div id="wp-load_php" class="require_once file" data-url="wp-load.html"><script type="text/javascript">$('#wp-load_php').wpfinclude();</script></div>
+						<div id="wp-includes--load_php" class="require file" data-url="./wp-includes/load.html"><script type="text/javascript">$('#wp-includes--load_php').wpfinclude();</script></div>
+
+						<div id="wp-includes--default-constants_php" class="require file" data-url="./wp-includes/default-constants.html"><script type="text/javascript">$('#wp-includes--default-constants_php').wpfinclude();</script></div>
 
 					</div>
 				</div>
