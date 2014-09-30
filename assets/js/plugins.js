@@ -92,12 +92,22 @@
 
             console.log('url: ' + url);
 
+            var isFunction = $el.hasClass('function');
+            var targetEl   = isFunction ? $el.data('function') : 'file';
+
             $.ajax({
                 url: url
             }).done(function(data){
-                var html = $(data).find('#file').html();
+                var html     = $(data).find('#' + targetEl).html();
+
                 $el.append(html);
-                $('.if').wpfcheckbox();
+
+                if (isFunction) {
+                    var $funcname = $el.find('.function-name');
+                    var filename  = data.match(/<title.*>(.*)<\/title>/);
+                        filename  = filename[1];
+                    $funcname.append(' <span class="at">' + filename + '</span>');
+                }
 
             }).fail(function(){
                 console.log('Error!');
