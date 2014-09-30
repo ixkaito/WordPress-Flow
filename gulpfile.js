@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var haml = require('gulp-haml');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
@@ -13,14 +12,6 @@ gulp.task('browser', function() {
       baseDir: './'
     }
   });
-});
-
-gulp.task('haml', function() {
-  gulp.src('assets/haml/**/*haml')
-    .pipe(haml({
-      compiler: 'visionmedia'
-    }))
-    .pipe(gulp.dest('./'));
 });
 
 gulp.task('html', function() {
@@ -60,7 +51,6 @@ gulp.task('compass', function(){
 
 gulp.task('watch', function() {
   // gulp.watch('sass/**/*.scss', ['sass']);
-  gulp.watch('assets/haml/**/*.haml', ['haml']);
   gulp.watch('assets/js/**/*.js', ['js']);
   gulp.watch('assets/sass/**/*.scss', ['compass']);
   gulp.watch('./**/*.html', ['html']);
