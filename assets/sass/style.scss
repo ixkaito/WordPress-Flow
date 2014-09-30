@@ -55,6 +55,11 @@ a {
 	}
 }
 
+.checkbox {
+	// padding: $padding / 2 0;
+	margin: $margin 0;
+}
+
 code {
 	// font-size: 90%;
 	padding: 3px 6px;
@@ -73,7 +78,7 @@ code {
 .function,
 .redirect_to {
 	background: #fff;
-	margin-bottom: $margin;
+	margin: $margin 0;
 	border: 1px solid $border;
 	border-bottom-width: 2px;
 	@include border-radius(3px);
@@ -110,11 +115,15 @@ code {
 
 .file-body,
 .function-body {
-	padding: $padding;
+	padding: 0 $padding;
 	border-top: 1px solid $border;
 
+	> :first-child {
+		margin-top: $margin;
+	}
+
 	> :last-child {
-		margin-bottom: 0;
+		margin-bottom: $margin;
 	}
 }
 
@@ -141,6 +150,29 @@ code {
 		}
 	}
 }
+.include {
+
+	> .file-name,
+	> .collapse-toggle > .file-name {
+
+		&:before {
+			content: 'include ';
+			color: $magenta;
+		}
+	}
+}
+
+.include_once {
+
+	> .file-name,
+	> .collapse-toggle > .file-name {
+
+		&:before {
+			content: 'include_once ';
+			color: $magenta;
+		}
+	}
+}
 
 .redirect_to {
 	@extend .function;
@@ -153,10 +185,22 @@ code {
 	}
 }
 
+.if-content {
+	display: none;
+
+	&.in {
+		display: block;
+	}
+}
+
 .at {
 	color: $gray;
 
 	&:before {
 		content: '// ';
 	}
+}
+
+.comment {
+	color: $gray;
 }

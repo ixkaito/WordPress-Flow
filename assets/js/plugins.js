@@ -7,7 +7,7 @@
         wpfinclude
     ================================================================================
     */
-    $.fn.wpfinclude = function(option){
+    $.fn.wpfinclude = function(option) {
 
         // Longest-common subsequence
         // function LCS(stringX, stringY) {
@@ -38,7 +38,7 @@
         //     return result;
         // }
 
-        this.each(function(){
+        this.each(function() {
 
             var $el = $(this);
             $el.addClass('including');
@@ -97,6 +97,7 @@
             }).done(function(data){
                 var html = $(data).find('#file').html();
                 $el.append(html);
+                $('.if').wpfcheckbox();
 
             }).fail(function(){
                 console.log('Error!');
@@ -115,7 +116,7 @@
         wpfredirect
     ================================================================================
     */
-    $.fn.wpfredirect = function(option){
+    $.fn.wpfredirect = function(option) {
 
         this.each(function(){
 
@@ -157,6 +158,48 @@
         });
 
         return this;
+    };
+
+    /*
+    ================================================================================
+        wpfcheckbox
+    ================================================================================
+    */
+    $.fn.wpfcheckbox = function(option) {
+
+        this.each(function() {
+            var $el = $(this);
+
+            $el.addClass('wpfcheckbox');
+
+            check();
+
+            $el.on('click', function() {
+                check();
+            });
+
+            function check() {
+
+                var href = $el.data('href');
+                var rel  = $el.attr('rel');
+                var n    = 0;
+
+                $('.wpfcheckbox').each(function() {
+                    if ($(this).data('href') === href && $(this).is(':checked')) {
+                        n++;
+                    }
+                });
+
+                if (n > 0) {
+                    $('.' + rel).removeClass('in');
+                    $(href).addClass('in');
+                } else {
+                    $('.' + rel).addClass('in');
+                    $(href).removeClass('in');
+                }
+
+            }
+        });
     };
 
 })(jQuery);

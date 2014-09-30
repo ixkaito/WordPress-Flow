@@ -8061,6 +8061,11 @@ a:hover, a:focus {
 }
 
 /* line 58, ../sass/style.scss */
+.checkbox {
+  margin: 20px 0;
+}
+
+/* line 63, ../sass/style.scss */
 code {
   padding: 3px 6px;
 }
@@ -8070,18 +8075,18 @@ code {
 	original
 ================================================================================
 */
-/* line 68, ../sass/style.scss */
+/* line 73, ../sass/style.scss */
 .flow {
   padding: 20px 0;
 }
 
-/* line 72, ../sass/style.scss */
+/* line 77, ../sass/style.scss */
 .file,
 .function,
 .redirect_to,
 .redirect_to {
   background: #fff;
-  margin-bottom: 20px;
+  margin: 20px 0;
   border: 1px solid #dddddd;
   border-bottom-width: 2px;
   -moz-border-radius: 3px;
@@ -8092,7 +8097,7 @@ code {
   box-sizing: border-box;
 }
 
-/* line 88, ../sass/style.scss */
+/* line 93, ../sass/style.scss */
 .file-name,
 .function-name,
 .redirect_to {
@@ -8104,30 +8109,35 @@ code {
   color: inherit;
 }
 
-/* line 98, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
 .collapse-toggle, .redirect_to {
   cursor: pointer;
 }
-/* line 101, ../sass/style.scss */
+/* line 106, ../sass/style.scss */
 .collapse-toggle:hover, .redirect_to:hover, .collapse-toggle:focus, .redirect_to:focus, .collapse-toggle:active, .redirect_to:active, .collapse-toggle.active, .active.redirect_to {
   background: #f9fafc;
   text-decoration: none;
   color: inherit;
 }
 
-/* line 111, ../sass/style.scss */
+/* line 116, ../sass/style.scss */
 .file-body,
 .function-body {
-  padding: 20px;
+  padding: 0 20px;
   border-top: 1px solid #dddddd;
 }
-/* line 116, ../sass/style.scss */
+/* line 121, ../sass/style.scss */
+.file-body > :first-child,
+.function-body > :first-child {
+  margin-top: 20px;
+}
+/* line 125, ../sass/style.scss */
 .file-body > :last-child,
 .function-body > :last-child {
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
-/* line 126, ../sass/style.scss */
+/* line 135, ../sass/style.scss */
 .require > .file-name:before,
 .require > .collapse-toggle > .file-name:before,
 .require > .redirect_to > .file-name:before {
@@ -8135,7 +8145,7 @@ code {
   color: #f92672;
 }
 
-/* line 138, ../sass/style.scss */
+/* line 147, ../sass/style.scss */
 .require_once > .file-name:before,
 .require_once > .collapse-toggle > .file-name:before,
 .require_once > .redirect_to > .file-name:before {
@@ -8143,17 +8153,47 @@ code {
   color: #f92672;
 }
 
-/* line 150, ../sass/style.scss */
+/* line 158, ../sass/style.scss */
+.include > .file-name:before,
+.include > .collapse-toggle > .file-name:before,
+.include > .redirect_to > .file-name:before {
+  content: 'include ';
+  color: #f92672;
+}
+
+/* line 170, ../sass/style.scss */
+.include_once > .file-name:before,
+.include_once > .collapse-toggle > .file-name:before,
+.include_once > .redirect_to > .file-name:before {
+  content: 'include_once ';
+  color: #f92672;
+}
+
+/* line 182, ../sass/style.scss */
 .redirect_to:before {
   content: 'redirect to ';
   color: #1cafcf;
 }
 
-/* line 156, ../sass/style.scss */
+/* line 188, ../sass/style.scss */
+.if-content {
+  display: none;
+}
+/* line 191, ../sass/style.scss */
+.if-content.in {
+  display: block;
+}
+
+/* line 196, ../sass/style.scss */
 .at {
   color: #9ea7b2;
 }
-/* line 159, ../sass/style.scss */
+/* line 199, ../sass/style.scss */
 .at:before {
   content: '// ';
+}
+
+/* line 204, ../sass/style.scss */
+.comment {
+  color: #9ea7b2;
 }
