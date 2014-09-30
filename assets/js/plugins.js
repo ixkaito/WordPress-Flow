@@ -4,10 +4,10 @@
 
     /*
     ================================================================================
-        wpfinclude
+        wpfload
     ================================================================================
     */
-    $.fn.wpfinclude = function(option) {
+    $.fn.wpfload = function(option) {
 
         // Longest-common subsequence
         // function LCS(stringX, stringY) {

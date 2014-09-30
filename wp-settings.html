@@ -25,15 +25,15 @@
 					<div class="file-body">
 
 						<div id="wp-includes--load_php" class="require file" data-url="./wp-includes/load.html">
-							<script type="text/javascript">$('#wp-includes--load_php').wpfinclude();</script>
+							<script type="text/javascript">$('#wp-includes--load_php').wpfload();</script>
 						</div>
 
 						<div id="wp-includes--default-constants_php" class="require file" data-url="./wp-includes/default-constants.html">
-							<script type="text/javascript">$('#wp-includes--default-constants_php').wpfinclude();</script>
+							<script type="text/javascript">$('#wp-includes--default-constants_php').wpfload();</script>
 						</div>
 
 						<div id="wp-includes--version_php" class="require file" data-url="./wp-includes/version.html">
-							<script type="text/javascript">$('#wp-includes--version_php').wpfinclude();</script>
+							<script type="text/javascript">$('#wp-includes--version_php').wpfload();</script>
 						</div>
 
 						<div class="function">
@@ -69,7 +69,7 @@
 
 									<div class="AolbyK8I if-content">
 										<div id="_maintenance" class="include file" data-url="maintenance.html">
-											<script type="text/javascript">$('#_maintenance').wpfinclude();</script>
+											<script type="text/javascript">$('#_maintenance').wpfload();</script>
 										</div>
 
 										<div class="checkbox">
@@ -84,11 +84,17 @@
 
 										<div id="MK8YES9Z" class="MK8YES9Z if-content">
 											<div id="wp-content--maintenance_php" class="require_once file" data-url="wp-content/maintenance.php">
-												<script type="text/javascript">$('#wp-content--maintenance_php').wpfinclude();</script>
+												<script type="text/javascript">$('#wp-content--maintenance_php').wpfload();</script>
 											</div>
 										</div>
 
-										<div class="MK8YES9Z if-content"></div>
+										<div class="MK8YES9Z if-content">
+
+											<div class="function">
+												<div class="function-name"><code>wp_load_translations_early()</code> <span class="at">wp-includes/load.php</span></div>
+											</div>
+
+										</div>
 									</div>
 
 								</div>
