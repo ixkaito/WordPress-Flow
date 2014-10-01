@@ -63,6 +63,14 @@ a {
 code {
 	// font-size: 90%;
 	padding: 3px 6px;
+
+	.red {
+		color: lighten($monokai-tag_name, 5%);
+	}
+
+	.blue {
+		color: $monokai-strage_type;
+	}
 }
 
 /*
@@ -76,6 +84,7 @@ code {
 
 .file,
 .function,
+.class,
 .redirect_to {
 	background: #fff;
 	margin: $margin 0;
@@ -91,13 +100,19 @@ code {
 }
 
 .file-name,
-.function-name {
+.function-name,
+.class-name {
 	font-size: $rem * 1.4;
 	line-height: $line-height-base;
 	margin: 0;
 	display: block;
 	padding: $padding / 2;
 	color: inherit;
+}
+
+.function-name,
+.class-name {
+	// background: $midnight;
 }
 
 .collapse-toggle {
@@ -114,7 +129,8 @@ code {
 }
 
 .file-body,
-.function-body {
+.function-body,
+.class-body {
 	padding: 0 $padding;
 	border-top: 1px solid $border;
 

@@ -92,8 +92,15 @@
 
             console.log('url: ' + url);
 
+            var targetEl   = 'file';
             var isFunction = $el.hasClass('function');
-            var targetEl   = isFunction ? $el.data('function') : 'file';
+            var isClass    = $el.hasClass('class');
+
+            if (isFunction) {
+                targetEl = $el.data('function');
+            } else if (isClass) {
+                targetEl = $el.data('class');
+            }
 
             $.ajax({
                 url: url
@@ -102,11 +109,19 @@
 
                 $el.append(html);
 
-                if (isFunction) {
-                    var $funcname = $el.find('.function-name');
+                if (isFunction || isClass) {
+                    var $funcname = isFunction ? $el.find('.function-name') : $el.find('.class-name');
                     var filename  = data.match(/<title.*>(.*)<\/title>/);
                         filename  = filename[1];
                     $funcname.append(' <span class="at">' + filename + '</span>');
+
+                    if (isClass) {
+                        var variable = $el.data('var');
+                            variable = variable ? variable + '<span class="red"> = </span>' : '';
+                        var params   = $el.data('params');
+                            params   = params ? '( ' + params + ' )' : '';
+                        $funcname.find('code').prepend(variable).append(params);
+                    }
                 }
 
             }).fail(function(){

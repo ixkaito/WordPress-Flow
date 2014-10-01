@@ -1,7 +1,16 @@
 @charset "UTF-8";
 
 // color
-$magenta:      #f92672;
+$monokai-tag_name:          #f92672;
+$monokai-function_argument: #a6e22e;
+$monokai-tag_attribute:     #fd971f;
+$monokai-strage_type:       #66d9ef;
+$monokai-constant:          #ae81ff;
+$monokai-string:            #e6db74;
+$monokai-commnet:           #75715e;
+$monokai-background:        #272822;
+
+$magenta:      $monokai-tag_name;
 $cyan:         #1cafcf;
 $orange:       #f0793f;
 $emerald:      #2dbaa6;
