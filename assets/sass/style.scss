@@ -111,6 +111,15 @@ code {
 	color: inherit;
 }
 
+label {
+
+	.file-name,
+	.function-name,
+	.class-name {
+		padding: 0;
+	}
+}
+
 .function-name,
 .class-name {
 	// background: $midnight;

@@ -44,27 +44,27 @@
             $el.addClass('including');
 
             var parentAbs = $el.parents('.including').data('abs');
-            console.log('parentAbs: ' + parentAbs);
+            // console.log('parentAbs: ' + parentAbs);
 
             var thisUrl  = parentAbs ? parentAbs : location.pathname;
-            console.log('thisUrl: ' + thisUrl);
+            // console.log('thisUrl: ' + thisUrl);
 
             // trim the file name
             var thisPath = thisUrl.replace(/[^\/]*$/, '');
-            console.log('thisPath: ' + thisPath);
+            // console.log('thisPath: ' + thisPath);
 
             // trim './'
             var targetUrl = $el.data('url').replace(/^\.\//, '');
-            console.log('targetUrl: ' + targetUrl);
+            // console.log('targetUrl: ' + targetUrl);
 
             // number of '../'
             var parentLevel = targetUrl.match(/\.\.\//g);
                 parentLevel = parentLevel ? parentLevel.length : 0;
-            console.log('parentLevel: ' + parentLevel);
+            // console.log('parentLevel: ' + parentLevel);
 
             // trim all '../'
             var targetPath = targetUrl.replace(/\.\.\//g, '');
-            console.log('targetPath: ' + targetPath);
+            // console.log('targetPath: ' + targetPath);
 
             // var lcs  = LCS(thisPath, targetPath);
             // console.log('lcs: ' + lcs);
@@ -72,7 +72,7 @@
             // trim dir from the back * parentLevel
             var re           = new RegExp('([^\/]+\/){' + parentLevel + '}$');
             var targetParent = thisPath.replace(re, '');
-            console.log('targetParent: ' + targetParent);
+            // console.log('targetParent: ' + targetParent);
 
             var url = targetParent + targetPath;
 
@@ -90,12 +90,13 @@
 
             // var url = thisRel + targetRel;
 
-            console.log('url: ' + url);
+            // console.log('url: ' + url);
 
             var targetEl   = 'file';
-            var isFunction = $el.hasClass('function');
-            var isClass    = $el.hasClass('class');
-            var hasMethod  = $el.hasClass('method');
+            var isFunction = $el.data('function');
+            var isClass    = $el.data('class');
+            var hasParams  = $el.data('params');
+            var hasMethod  = $el.data('method');
 
             if (isFunction) {
                 targetEl = $el.data('function');
@@ -113,22 +114,30 @@
                 $el.append(html);
 
                 if (isFunction || isClass) {
+                    // Show which file the function or class exists
                     var $funcname = isFunction ? $el.find('.function-name') : $el.find('.class-name');
                     var filename  = data.match(/<title.*>(.*)<\/title>/);
                         filename  = filename[1];
+                    var variable, params, funcname;
                     $funcname.append(' <span class="at">' + filename + '</span>');
 
+                    if (isFunction && hasParams) {
+                        funcname = $funcname.find('code').text();
+                        params   = $el.data('params');
+                        $funcname.find('code').text(funcname.replace('()', '( ' + params + ' )'));
+                    }
+
                     if (isClass) {
-                        var variable = $el.data('var');
+                        variable = $el.data('var');
 
                         if (hasMethod) {
                             variable = variable ? variable + '<span class="red">-&gt;</span>' : '';
                             $funcname.find('code').prepend(variable);
 
                         } else {
-                            variable  = variable ? variable + '<span class="red"> = </span>' : '';
-                            var params    = $el.data('params');
-                                params    = params ? '( ' + params + ' )' : '';
+                            variable = variable ? variable + '<span class="red"> = </span>' : '';
+                            params   = $el.data('params');
+                            params   = params ? '( ' + params + ' )' : '';
                             $funcname.find('code').prepend(variable).append(params);
                         }
 
@@ -136,10 +145,10 @@
                 }
 
             }).fail(function(){
-                console.log('Error!');
+                // console.log('Error!');
 
             }).always(function(){
-                console.log('Complete!');
+                // console.log('Complete!');
             });
 
         });
@@ -159,35 +168,35 @@
             var $el = $(this);
 
             var parentAbs = $el.parents('.including').data('abs');
-            console.log('parentAbs: ' + parentAbs);
+            // console.log('parentAbs: ' + parentAbs);
 
             var thisUrl  = parentAbs ? parentAbs : location.pathname;
-            console.log('thisUrl: ' + thisUrl);
+            // console.log('thisUrl: ' + thisUrl);
 
             // trim the file name
             var thisPath = thisUrl.replace(/[^\/]*$/, '');
-            console.log('thisPath: ' + thisPath);
+            // console.log('thisPath: ' + thisPath);
 
             // trim './'
             var targetUrl = $el.attr('href').replace(/^\.\//, '');
-            console.log('targetUrl: ' + targetUrl);
+            // console.log('targetUrl: ' + targetUrl);
 
             // number of '../'
             var parentLevel = targetUrl.match(/\.\.\//g);
                 parentLevel = parentLevel ? parentLevel.length : 0;
-            console.log('parentLevel: ' + parentLevel);
+            // console.log('parentLevel: ' + parentLevel);
 
             // trim all '../'
             var targetPath = targetUrl.replace(/\.\.\//g, '');
-            console.log('targetPath: ' + targetPath);
+            // console.log('targetPath: ' + targetPath);
 
             // trim dir from the back * parentLevel
             var re           = new RegExp('([^\/]+\/){' + parentLevel + '}$');
             var targetParent = thisPath.replace(re, '');
-            console.log('targetParent: ' + targetParent);
+            // console.log('targetParent: ' + targetParent);
 
             var url = targetParent + targetPath;
-            console.log('url: ' + url);
+            // console.log('url: ' + url);
 
             $el.attr('href', url);
 
