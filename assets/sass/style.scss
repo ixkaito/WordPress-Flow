@@ -79,7 +79,8 @@ code {
 ================================================================================
 */
 .flow {
-	padding: $padding 0;
+	padding-top: $padding;
+	padding-bottom: $padding;
 }
 
 .file,
@@ -219,4 +220,44 @@ code {
 
 .comment {
 	color: $gray;
+}
+
+/*
+================================================================================
+	narrow
+================================================================================
+*/
+@media (max-width: 768px) {
+
+	.flow {
+		padding: $padding / 2;
+	}
+
+	.file,
+	.function,
+	.class,
+	.redirect_to {
+		margin: ($margin / 2) 0;
+	}
+
+	.file-name,
+	.function-name,
+	.class-name {
+		// padding: $padding / 2;
+	}
+
+	.file-body,
+	.function-body,
+	.class-body {
+		padding: 0 ($padding / 2);
+
+		> :first-child {
+			margin-top: $margin / 2;
+		}
+
+		> :last-child {
+			margin-bottom: $margin / 2;
+		}
+	}
+
 }

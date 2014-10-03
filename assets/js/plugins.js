@@ -95,9 +95,12 @@
             var targetEl   = 'file';
             var isFunction = $el.hasClass('function');
             var isClass    = $el.hasClass('class');
+            var hasMethod  = $el.hasClass('method');
 
             if (isFunction) {
                 targetEl = $el.data('function');
+            } else if (isClass && hasMethod) {
+                targetEl = $el.data('class') + '-' + $el.data('method');
             } else if (isClass) {
                 targetEl = $el.data('class');
             }
@@ -117,10 +120,18 @@
 
                     if (isClass) {
                         var variable = $el.data('var');
-                            variable = variable ? variable + '<span class="red"> = </span>' : '';
-                        var params   = $el.data('params');
-                            params   = params ? '( ' + params + ' )' : '';
-                        $funcname.find('code').prepend(variable).append(params);
+
+                        if (hasMethod) {
+                            variable = variable ? variable + '<span class="red">-&gt;</span>' : '';
+                            $funcname.find('code').prepend(variable);
+
+                        } else {
+                            variable  = variable ? variable + '<span class="red"> = </span>' : '';
+                            var params    = $el.data('params');
+                                params    = params ? '( ' + params + ' )' : '';
+                            $funcname.find('code').prepend(variable).append(params);
+                        }
+
                     }
                 }
 

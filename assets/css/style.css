@@ -8085,10 +8085,11 @@ code .blue {
 */
 /* line 81, ../sass/style.scss */
 .flow {
-  padding: 20px 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-/* line 85, ../sass/style.scss */
+/* line 86, ../sass/style.scss */
 .file,
 .function,
 .redirect_to,
@@ -8106,7 +8107,7 @@ code .blue {
   box-sizing: border-box;
 }
 
-/* line 102, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
 .file-name,
 .function-name,
 .redirect_to,
@@ -8119,38 +8120,38 @@ code .blue {
   color: inherit;
 }
 
-/* line 118, ../sass/style.scss */
+/* line 119, ../sass/style.scss */
 .collapse-toggle, .redirect_to {
   cursor: pointer;
 }
-/* line 121, ../sass/style.scss */
+/* line 122, ../sass/style.scss */
 .collapse-toggle:hover, .redirect_to:hover, .collapse-toggle:focus, .redirect_to:focus, .collapse-toggle:active, .redirect_to:active, .collapse-toggle.active, .active.redirect_to {
   background: #f9fafc;
   text-decoration: none;
   color: inherit;
 }
 
-/* line 131, ../sass/style.scss */
+/* line 132, ../sass/style.scss */
 .file-body,
 .function-body,
 .class-body {
   padding: 0 20px;
   border-top: 1px solid #dddddd;
 }
-/* line 137, ../sass/style.scss */
+/* line 138, ../sass/style.scss */
 .file-body > :first-child,
 .function-body > :first-child,
 .class-body > :first-child {
   margin-top: 20px;
 }
-/* line 141, ../sass/style.scss */
+/* line 142, ../sass/style.scss */
 .file-body > :last-child,
 .function-body > :last-child,
 .class-body > :last-child {
   margin-bottom: 20px;
 }
 
-/* line 151, ../sass/style.scss */
+/* line 152, ../sass/style.scss */
 .require > .file-name:before,
 .require > .collapse-toggle > .file-name:before,
 .require > .redirect_to > .file-name:before {
@@ -8158,7 +8159,7 @@ code .blue {
   color: #f92672;
 }
 
-/* line 163, ../sass/style.scss */
+/* line 164, ../sass/style.scss */
 .require_once > .file-name:before,
 .require_once > .collapse-toggle > .file-name:before,
 .require_once > .redirect_to > .file-name:before {
@@ -8166,7 +8167,7 @@ code .blue {
   color: #f92672;
 }
 
-/* line 174, ../sass/style.scss */
+/* line 175, ../sass/style.scss */
 .include > .file-name:before,
 .include > .collapse-toggle > .file-name:before,
 .include > .redirect_to > .file-name:before {
@@ -8174,7 +8175,7 @@ code .blue {
   color: #f92672;
 }
 
-/* line 186, ../sass/style.scss */
+/* line 187, ../sass/style.scss */
 .include_once > .file-name:before,
 .include_once > .collapse-toggle > .file-name:before,
 .include_once > .redirect_to > .file-name:before {
@@ -8182,31 +8183,71 @@ code .blue {
   color: #f92672;
 }
 
-/* line 198, ../sass/style.scss */
+/* line 199, ../sass/style.scss */
 .redirect_to:before {
   content: 'redirect to ';
   color: #1cafcf;
 }
 
-/* line 204, ../sass/style.scss */
+/* line 205, ../sass/style.scss */
 .if-content {
   display: none;
 }
-/* line 207, ../sass/style.scss */
+/* line 208, ../sass/style.scss */
 .if-content.in {
   display: block;
 }
 
-/* line 212, ../sass/style.scss */
+/* line 213, ../sass/style.scss */
 .at {
   color: #9ea7b2;
 }
-/* line 215, ../sass/style.scss */
+/* line 216, ../sass/style.scss */
 .at:before {
   content: '// ';
 }
 
-/* line 220, ../sass/style.scss */
+/* line 221, ../sass/style.scss */
 .comment {
   color: #9ea7b2;
+}
+
+/*
+================================================================================
+	narrow
+================================================================================
+*/
+@media (max-width: 768px) {
+  /* line 232, ../sass/style.scss */
+  .flow {
+    padding: 10px;
+  }
+
+  /* line 236, ../sass/style.scss */
+  .file,
+  .function,
+  .redirect_to,
+  .class,
+  .redirect_to {
+    margin: 10px 0;
+  }
+
+  /* line 249, ../sass/style.scss */
+  .file-body,
+  .function-body,
+  .class-body {
+    padding: 0 10px;
+  }
+  /* line 254, ../sass/style.scss */
+  .file-body > :first-child,
+  .function-body > :first-child,
+  .class-body > :first-child {
+    margin-top: 10px;
+  }
+  /* line 258, ../sass/style.scss */
+  .file-body > :last-child,
+  .function-body > :last-child,
+  .class-body > :last-child {
+    margin-bottom: 10px;
+  }
 }
