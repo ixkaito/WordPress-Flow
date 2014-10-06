@@ -92,8 +92,10 @@
 
             console.log('url: ' + url);
 
+            var filters = ['apply_filters', 'add_filter', 'do_action', 'add_action'];
+
             var targetEl     = 'file';
-            var isFilters    = ($el.data('function') === 'apply_filters') ? true : false;
+            var isHook       = ($.inArray($el.data('function'), filters) > -1) ? true : false;
             var isFunction   = $el.data('function');
             var isClass      = $el.data('class');
             var hasParams    = $el.data('params');
@@ -122,10 +124,19 @@
                     var variable, params, funcname;
                     $funcname.append(' <span class="at">' + filename + '</span>');
 
-                    if (isFunction && hasParams) {
+                    if (isFunction && (hasParams || isHook)) {
                         funcname = $funcname.find('code').text();
-                        params   = $el.data('params');
-                        $funcname.find('code').text(funcname.replace('()', '( ' + params + ' )'));
+
+                        if (hasParams) {
+                            params   = $el.data('params');
+                            $funcname.find('code').text(funcname.replace('()', '( ' + params + ' )'));
+                        } else {
+                            $funcname.find('code').text(funcname.replace('()', ''));
+                            var tag      = $el.data('tag');
+                            var callback = $el.data('callback');
+                            $funcname.find('code').append('( <span class="yellow">\'' + tag + '\'</span>, ' +
+                                '<span class="yellow">\'' + callback + '\'</span> )');
+                        }
                     }
 
                     if (isClass) {
