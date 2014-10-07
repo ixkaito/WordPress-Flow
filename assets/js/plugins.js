@@ -40,128 +40,132 @@
 
         this.each(function() {
 
-            var $el = $(this);
-            $el.addClass('including');
+            if (!$(this).hasClass('including')) {
 
-            var parentAbs = $el.parents('.including').data('abs');
-            console.log('parentAbs: ' + parentAbs);
+                var $el = $(this);
+                $el.addClass('including');
 
-            var thisUrl  = parentAbs ? parentAbs : location.pathname;
-            console.log('thisUrl: ' + thisUrl);
+                var parentAbs = $el.parents('.including').data('abs');
+                // console.log('parentAbs: ' + parentAbs);
 
-            // trim the file name
-            var thisPath = thisUrl.replace(/[^\/]*$/, '');
-            console.log('thisPath: ' + thisPath);
+                var thisUrl  = parentAbs ? parentAbs : location.pathname;
+                // console.log('thisUrl: ' + thisUrl);
 
-            // trim './'
-            var targetUrl = $el.data('url').replace(/^\.\//, '');
-            console.log('targetUrl: ' + targetUrl);
+                // trim the file name
+                var thisPath = thisUrl.replace(/[^\/]*$/, '');
+                // console.log('thisPath: ' + thisPath);
 
-            // number of '../'
-            var parentLevel = targetUrl.match(/\.\.\//g);
-                parentLevel = parentLevel ? parentLevel.length : 0;
-            console.log('parentLevel: ' + parentLevel);
+                // trim './'
+                var targetUrl = $el.data('url').replace(/^\.\//, '');
+                // console.log('targetUrl: ' + targetUrl);
 
-            // trim all '../'
-            var targetPath = targetUrl.replace(/\.\.\//g, '');
-            console.log('targetPath: ' + targetPath);
+                // number of '../'
+                var parentLevel = targetUrl.match(/\.\.\//g);
+                    parentLevel = parentLevel ? parentLevel.length : 0;
+                // console.log('parentLevel: ' + parentLevel);
 
-            // var lcs  = LCS(thisPath, targetPath);
-            // console.log('lcs: ' + lcs);
+                // trim all '../'
+                var targetPath = targetUrl.replace(/\.\.\//g, '');
+                // console.log('targetPath: ' + targetPath);
 
-            // trim dir from the back * parentLevel
-            var re           = new RegExp('([^\/]+\/){' + parentLevel + '}$');
-            var targetParent = thisPath.replace(re, '');
-            console.log('targetParent: ' + targetParent);
+                // var lcs  = LCS(thisPath, targetPath);
+                // console.log('lcs: ' + lcs);
 
-            var url = targetParent + targetPath;
+                // trim dir from the back * parentLevel
+                var re           = new RegExp('([^\/]+\/){' + parentLevel + '}$');
+                var targetParent = thisPath.replace(re, '');
+                // console.log('targetParent: ' + targetParent);
 
-            $el.attr('data-abs', url);
+                var url = targetParent + targetPath;
 
-            // var targetRel = targetUrl.replace(lcs, '');
+                $el.attr('data-abs', url);
 
-            // console.log('targetRel: ' + targetRel);
+                // var targetRel = targetUrl.replace(lcs, '');
 
-            // var thisRel   = thisPath.replace(lcs, '');
-            //     thisRel   = thisRel.replace(/[^\/]*$/, '');
-            //     thisRel   = thisRel.replace(/([^\/]+\/)/ig, '../');
+                // console.log('targetRel: ' + targetRel);
 
-            // console.log('thisRel: ' + thisRel);
+                // var thisRel   = thisPath.replace(lcs, '');
+                //     thisRel   = thisRel.replace(/[^\/]*$/, '');
+                //     thisRel   = thisRel.replace(/([^\/]+\/)/ig, '../');
 
-            // var url = thisRel + targetRel;
+                // console.log('thisRel: ' + thisRel);
 
-            console.log('url: ' + url);
+                // var url = thisRel + targetRel;
 
-            var filters = ['apply_filters', 'add_filter', 'do_action', 'add_action'];
+                // console.log('url: ' + url);
 
-            var targetEl     = 'file';
-            var isHook       = ($.inArray($el.data('function'), filters) > -1) ? true : false;
-            var isFunction   = $el.data('function');
-            var isClass      = $el.data('class');
-            var hasParams    = $el.data('params');
-            var hasMethod    = $el.data('method');
+                var filters = ['apply_filters', 'add_filter', 'do_action', 'add_action'];
 
-            if (isFunction) {
-                targetEl = $el.data('function');
-            } else if (isClass && hasMethod) {
-                targetEl = $el.data('class') + '-' + $el.data('method');
-            } else if (isClass) {
-                targetEl = $el.data('class');
-            }
+                var targetEl     = 'file';
+                var isHook       = ($.inArray($el.data('function'), filters) > -1) ? true : false;
+                var isFunction   = $el.data('function');
+                var isClass      = $el.data('class');
+                var hasParams    = $el.data('params');
+                var hasMethod    = $el.data('method');
 
-            $.ajax({
-                url: url
-            }).done(function(data){
-                var html     = $(data).find('#' + targetEl).html();
-
-                $el.append(html);
-
-                if (isFunction || isClass) {
-                    // Show which file the function or class exists
-                    var $funcname = isFunction ? $el.find('.function-name') : $el.find('.class-name');
-                    var filename  = data.match(/<title.*>(.*)<\/title>/);
-                        filename  = filename[1];
-                    var variable, params, funcname;
-                    $funcname.append(' <span class="at">' + filename + '</span>');
-
-                    if (isFunction && (hasParams || isHook)) {
-                        funcname = $funcname.find('code').text();
-
-                        if (hasParams) {
-                            params   = $el.data('params');
-                            $funcname.find('code').text(funcname.replace('()', '( ' + params + ' )'));
-                        } else {
-                            $funcname.find('code').text(funcname.replace('()', ''));
-                            var tag      = $el.data('tag');
-                            var callback = $el.data('callback');
-                            $funcname.find('code').append('( <span class="yellow">\'' + tag + '\'</span>, ' +
-                                '<span class="yellow">\'' + callback + '\'</span> )');
-                        }
-                    }
-
-                    if (isClass) {
-                        variable = $el.data('var');
-
-                        if (hasMethod) {
-                            variable = variable ? variable + '<span class="red">-&gt;</span>' : '';
-                            $funcname.find('code').prepend(variable);
-
-                        } else {
-                            variable = variable ? variable + '<span class="red"> = </span>' : '';
-                            params   = $el.data('params');
-                            params   = params ? '( ' + params + ' )' : '()';
-                            $funcname.find('code').prepend(variable).append(params);
-                        }
-
-                    }
+                if (isFunction) {
+                    targetEl = $el.data('function');
+                } else if (isClass && hasMethod) {
+                    targetEl = $el.data('class') + '-' + $el.data('method');
+                } else if (isClass) {
+                    targetEl = $el.data('class');
                 }
 
-            }).fail(function(){
-                // console.log('Error!');
+                $.ajax({
+                    url: url
+                }).done(function(data){
+                    var html     = $(data).find('#' + targetEl).html();
 
-            }).always(function(){
-                // console.log('Complete!');
-            });
+                    $el.append(html);
+
+                    if (isFunction || isClass) {
+                        // Show which file the function or class exists
+                        var $funcname = isFunction ? $el.find('.function-name') : $el.find('.class-name');
+                        var filename  = data.match(/<title.*>(.*)<\/title>/);
+                            filename  = filename[1];
+                        var variable, params, funcname;
+                        $funcname.append(' <span class="at">' + filename + '</span>');
+
+                        if (isFunction && (hasParams || isHook)) {
+                            funcname = $funcname.find('code').text();
+
+                            if (hasParams) {
+                                params   = $el.data('params');
+                                $funcname.find('code').text(funcname.replace('()', '( ' + params + ' )'));
+                            } else {
+                                $funcname.find('code').text(funcname.replace('()', ''));
+                                var tag      = $el.data('tag');
+                                var callback = $el.data('callback');
+                                $funcname.find('code').append('( <span class="yellow">\'' + tag + '\'</span>, ' +
+                                    '<span class="yellow">\'' + callback + '\'</span> )');
+                            }
+                        }
+
+                        if (isClass) {
+                            variable = $el.data('var');
+
+                            if (hasMethod) {
+                                variable = variable ? variable + '<span class="red">-&gt;</span>' : '';
+                                $funcname.find('code').prepend(variable);
+
+                            } else {
+                                variable = variable ? variable + '<span class="red"> = </span>' : '';
+                                params   = $el.data('params');
+                                params   = params ? '( ' + params + ' )' : '()';
+                                $funcname.find('code').prepend(variable).append(params);
+                            }
+
+                        }
+                    }
+
+                }).fail(function(){
+                    // console.log('Error!');
+
+                }).always(function(){
+                    // console.log('Complete!');
+                });
+
+            }
 
         });
 
