@@ -149,7 +149,7 @@
                         } else {
                             variable = variable ? variable + '<span class="red"> = </span>' : '';
                             params   = $el.data('params');
-                            params   = params ? '( ' + params + ' )' : '';
+                            params   = params ? '( ' + params + ' )' : '()';
                             $funcname.find('code').prepend(variable).append(params);
                         }
 
