@@ -119,12 +119,30 @@ code {
 	color: inherit;
 }
 
-label {
+.checkbox {
 
-	.file-name,
-	.function-name,
-	.class-name {
-		padding: 0;
+	label {
+		vertical-align: top;
+
+		input[type="checkbox"] {
+			cursor: pointer;
+
+			&.if-function {
+				position: relative;
+				margin-top: 14px;
+			}
+		}
+
+		.file-name,
+		.function-name,
+		.class-name {
+			// padding: 0;
+		}
+	}
+
+	.function {
+		display: inline-block;
+		margin: 0;
 	}
 }
 
@@ -221,6 +239,17 @@ label {
 
 .if-content {
 	display: none;
+	background: rgba($yellow, 0.1);
+	@include border-radius(3px);
+	padding: 20px;
+
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
 
 	&.in {
 		display: block;
