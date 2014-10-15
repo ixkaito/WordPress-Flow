@@ -136,8 +136,12 @@
                                 $funcname.find('code').text(funcname.replace('()', ''));
                                 var tag      = $el.data('tag');
                                 var callback = $el.data('callback');
-                                $funcname.find('code').append('( <span class="yellow">\'' + tag + '\'</span>, ' +
-                                    '<span class="yellow">\'' + callback + '\'</span> )');
+                                if (tag && callback) {
+                                    params = '( <span class="yellow">\'' + tag + '\'</span>, ' + '<span class="yellow">\'' + callback + '\'</span> )';
+                                } else {
+                                    params = '()';
+                                }
+                                $funcname.find('code').append(params);
                             }
                         }
 
