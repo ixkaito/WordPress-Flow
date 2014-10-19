@@ -127,19 +127,24 @@
 
 							<ul class="nav nav-tabs">
 								<li>
-									<a href="#crzL2UdG-1" data-toggle="tab">is_multisite</a>
+									<a href="#crzL2UdG-1" data-toggle="tab">
+										<div class="is_multisite function" data-function="is_multisite" data-url="./wp-includes/load.html">
+											<script type="text/javascript">$('.is_multisite').wpfload();</script>
+										</div>
+									</a>
 								</li>
 								<li class="active">
 									<a href="#crzL2UdG-2" data-toggle="tab">! defined( 'MULTISITE' )</a>
 								</li>
-								<li>
-									<a href="#crzL2UdG-3" data-toggle="tab">else</a>
-								</li>
 							</ul>
 							<div class="tab-content">
-								<div id="crzL2UdG-1" class="tab-pane">//1</div>
-								<div id="crzL2UdG-2" class="tab-pane active in">//2</div>
-								<div id="crzL2UdG-3" class="tab-pane">//3</div>
+								<div id="crzL2UdG-1" class="tab-pane">
+									// require( ABSPATH . WPINC . '/ms-blogs.php' );<br />
+									// require( ABSPATH . WPINC . '/ms-settings.php' );
+								</div>
+								<div id="crzL2UdG-2" class="tab-pane active in">
+									define( 'MULTISITE', false );
+								</div>
 							</div><!-- .tab-content -->
 
 						</div><!-- AolbyK8I -->

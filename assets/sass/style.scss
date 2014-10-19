@@ -24,12 +24,34 @@ a {
 	bootstrap
 ================================================================================
 */
-.nav {
+.nav-tabs {
+	margin-top: 20px;
 
 	> li {
 
 		a {
 			color: $gray;
+
+			// .file,
+			.function,
+			.class {
+				background: transparent;
+				margin: 0;
+				border: 0;
+				@include border-radius(0);
+				@include box-sizing(border-box);
+				// @include box-shadow(0 0 1px rgba(0, 0, 0, 0.05));
+
+				&:hover {
+					// background: $state-warning-bg;
+				}
+			}
+
+			.file-name,
+			.function-name,
+			.class-name {
+				padding: 0;
+			}
 		}
 
 		// a:hover {
