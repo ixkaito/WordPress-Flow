@@ -26,6 +26,7 @@ a {
 */
 .nav-tabs {
 	margin-top: 20px;
+	border-bottom: 0;
 
 	> li {
 
@@ -66,8 +67,13 @@ a {
 }
 
 .tab-content {
-	padding: $padding 0 0;
+	background: #fff;
+	padding: $padding;
 	margin-bottom: $margin;
+	border: 1px solid $border;
+	// border-top: 0;
+	border-bottom-width: 2px;
+	@include border-radius(3px);
 }
 
 .tab-pane {
