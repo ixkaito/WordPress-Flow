@@ -8161,8 +8161,24 @@ code .yellow {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+/* line 138, ../sass/style.scss */
+.file.action,
+.function.action,
+.action.redirect_to,
+.class.action,
+.redirect_to.action {
+  border-color: #fdbbd3;
+}
+/* line 142, ../sass/style.scss */
+.file.filter,
+.function.filter,
+.filter.redirect_to,
+.class.filter,
+.redirect_to.filter {
+  border-color: #94e0f0;
+}
 
-/* line 141, ../sass/style.scss */
+/* line 149, ../sass/style.scss */
 .file-name,
 .function-name,
 .redirect_to,
@@ -8175,57 +8191,57 @@ code .yellow {
   color: inherit;
 }
 
-/* line 152, ../sass/style.scss */
+/* line 160, ../sass/style.scss */
 .checkbox label {
   vertical-align: top;
 }
-/* line 155, ../sass/style.scss */
+/* line 163, ../sass/style.scss */
 .checkbox label input[type="checkbox"] {
   cursor: pointer;
 }
-/* line 158, ../sass/style.scss */
+/* line 166, ../sass/style.scss */
 .checkbox label input[type="checkbox"].if-function {
   position: relative;
   margin-top: 14px;
 }
-/* line 171, ../sass/style.scss */
+/* line 179, ../sass/style.scss */
 .checkbox .function, .checkbox .redirect_to {
   display: inline-block;
   margin: 0;
 }
 
-/* line 182, ../sass/style.scss */
+/* line 190, ../sass/style.scss */
 .collapse-toggle, .redirect_to {
   cursor: pointer;
 }
-/* line 188, ../sass/style.scss */
+/* line 196, ../sass/style.scss */
 .collapse-toggle:hover, .redirect_to:hover, .collapse-toggle:focus, .redirect_to:focus, .collapse-toggle:active, .redirect_to:active, .collapse-toggle.active, .active.redirect_to {
   background: #f9fafc;
   text-decoration: none;
   color: inherit;
 }
 
-/* line 197, ../sass/style.scss */
+/* line 205, ../sass/style.scss */
 .file-body,
 .function-body,
 .class-body {
   padding: 0 20px;
   border-top: 1px solid #dddddd;
 }
-/* line 201, ../sass/style.scss */
+/* line 209, ../sass/style.scss */
 .file-body > :first-child,
 .function-body > :first-child,
 .class-body > :first-child {
   margin-top: 20px;
 }
-/* line 205, ../sass/style.scss */
+/* line 213, ../sass/style.scss */
 .file-body > :last-child,
 .function-body > :last-child,
 .class-body > :last-child {
   margin-bottom: 20px;
 }
 
-/* line 215, ../sass/style.scss */
+/* line 223, ../sass/style.scss */
 .require > .file-name:before,
 .require > .collapse-toggle > .file-name:before,
 .require > .redirect_to > .file-name:before {
@@ -8233,7 +8249,7 @@ code .yellow {
   color: #f92672;
 }
 
-/* line 227, ../sass/style.scss */
+/* line 235, ../sass/style.scss */
 .require_once > .file-name:before,
 .require_once > .collapse-toggle > .file-name:before,
 .require_once > .redirect_to > .file-name:before {
@@ -8241,7 +8257,7 @@ code .yellow {
   color: #f92672;
 }
 
-/* line 238, ../sass/style.scss */
+/* line 246, ../sass/style.scss */
 .include > .file-name:before,
 .include > .collapse-toggle > .file-name:before,
 .include > .redirect_to > .file-name:before {
@@ -8249,7 +8265,7 @@ code .yellow {
   color: #f92672;
 }
 
-/* line 250, ../sass/style.scss */
+/* line 258, ../sass/style.scss */
 .include_once > .file-name:before,
 .include_once > .collapse-toggle > .file-name:before,
 .include_once > .redirect_to > .file-name:before {
@@ -8257,13 +8273,13 @@ code .yellow {
   color: #f92672;
 }
 
-/* line 262, ../sass/style.scss */
+/* line 270, ../sass/style.scss */
 .redirect_to:before {
   content: 'redirect to ';
   color: #1cafcf;
 }
 
-/* line 268, ../sass/style.scss */
+/* line 276, ../sass/style.scss */
 .if-content {
   display: none;
   background: rgba(241, 196, 15, 0.1);
@@ -8274,29 +8290,29 @@ code .yellow {
   border-radius: 3px;
   padding: 20px;
 }
-/* line 274, ../sass/style.scss */
+/* line 282, ../sass/style.scss */
 .if-content > :first-child {
   margin-top: 0;
 }
-/* line 278, ../sass/style.scss */
+/* line 286, ../sass/style.scss */
 .if-content > :last-child {
   margin-bottom: 0;
 }
-/* line 282, ../sass/style.scss */
+/* line 290, ../sass/style.scss */
 .if-content.in {
   display: block;
 }
 
-/* line 287, ../sass/style.scss */
+/* line 295, ../sass/style.scss */
 .at {
   color: #9ea7b2;
 }
-/* line 290, ../sass/style.scss */
+/* line 298, ../sass/style.scss */
 .at:before {
   content: '// ';
 }
 
-/* line 295, ../sass/style.scss */
+/* line 303, ../sass/style.scss */
 .comment {
   color: #9ea7b2;
 }
@@ -8307,12 +8323,12 @@ code .yellow {
 ================================================================================
 */
 @media (max-width: 768px) {
-  /* line 306, ../sass/style.scss */
+  /* line 314, ../sass/style.scss */
   .flow {
     padding: 10px;
   }
 
-  /* line 313, ../sass/style.scss */
+  /* line 321, ../sass/style.scss */
   .file,
   .function,
   .redirect_to,
@@ -8321,19 +8337,19 @@ code .yellow {
     margin: 10px 0;
   }
 
-  /* line 325, ../sass/style.scss */
+  /* line 333, ../sass/style.scss */
   .file-body,
   .function-body,
   .class-body {
     padding: 0 10px;
   }
-  /* line 328, ../sass/style.scss */
+  /* line 336, ../sass/style.scss */
   .file-body > :first-child,
   .function-body > :first-child,
   .class-body > :first-child {
     margin-top: 10px;
   }
-  /* line 332, ../sass/style.scss */
+  /* line 340, ../sass/style.scss */
   .file-body > :last-child,
   .function-body > :last-child,
   .class-body > :last-child {

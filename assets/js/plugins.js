@@ -138,6 +138,8 @@
                                 var callback = $el.data('callback');
                                 if (tag && callback) {
                                     params = '( <span class="yellow">\'' + tag + '\'</span>, ' + '<span class="yellow">\'' + callback + '\'</span> )';
+                                } else if (tag) {
+                                    params = '( <span class="yellow">\'' + tag + '\'</span> )';
                                 } else {
                                     params = '()';
                                 }

@@ -24,6 +24,8 @@ $gray_lighter: #f9fafc;
 $background:       $gray_light;
 $background_hover: $gray_lighter;
 $border:           lighten(#000, 86.5%); // #ddd
+$border_action:    lighten($magenta, 30%);
+$border_filter:    lighten($cyan, 30%);
 
 // font
 $rem: 10px;

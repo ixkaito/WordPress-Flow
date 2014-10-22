@@ -409,6 +409,32 @@
 					<h1 class="function-name"><code>is_multisite()</code></h1>
 				</div>
 
+				<!--
+				// function shutdown_action_hook(){}
+				-->
+				<div id="shutdown_action_hook" class="function">
+					<div class="collapse-toggle">
+						<h1 class="function-name"><code>shutdown_action_hook()</code> <i class="caret"></i></h1>
+					</div>
+					<div class="collapse in">
+						<div class="function-body">
+
+							<div class="function do_action" data-function="do_action" data-tag="shutdown" data-url="../wp-includes/plugin.html">
+								<script type="text/javascript">$('.do_action').wpfload();</script>
+							</div>
+
+							<div class="function wp_ob_end_flush_all action" data-function="wp_ob_end_flush_all" data-url="../wp-includes/functions.html">
+								<script type="text/javascript">$('.wp_ob_end_flush_all').wpfload();</script>
+							</div>
+
+							<div class="function wp_cache_close" data-function="wp_cache_close" data-url="../wp-includes/cache.html">
+								<script type="text/javascript">$('.wp_cache_close').wpfload();</script>
+							</div>
+
+						</div><!-- /.function-body -->
+					</div><!-- /.collapse -->
+				</div><!-- /#shutdown_action_hook.function -->
+
 			</div><!-- /.hidden -->
 
 		</div><!-- /.col-md-12 -->

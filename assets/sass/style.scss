@@ -134,6 +134,14 @@ code {
 	&:hover {
 		// background: $state-warning-bg;
 	}
+
+	&.action {
+		border-color: $border_action;
+	}
+
+	&.filter {
+		border-color: $border_filter;
+	}
 }
 
 .file-name,
