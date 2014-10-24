@@ -290,6 +290,12 @@ code {
 	&.in {
 		display: block;
 	}
+
+	&.style_none {
+		background: transparent;
+		@include border-radius(0);
+		padding: 0;
+	}
 }
 
 .at {

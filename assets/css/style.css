@@ -8302,17 +8302,27 @@ code .yellow {
 .if-content.in {
   display: block;
 }
+/* line 294, ../sass/style.scss */
+.if-content.style_none {
+  background: transparent;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  padding: 0;
+}
 
-/* line 295, ../sass/style.scss */
+/* line 301, ../sass/style.scss */
 .at {
   color: #9ea7b2;
 }
-/* line 298, ../sass/style.scss */
+/* line 304, ../sass/style.scss */
 .at:before {
   content: '// ';
 }
 
-/* line 303, ../sass/style.scss */
+/* line 309, ../sass/style.scss */
 .comment {
   color: #9ea7b2;
 }
@@ -8323,12 +8333,12 @@ code .yellow {
 ================================================================================
 */
 @media (max-width: 768px) {
-  /* line 314, ../sass/style.scss */
+  /* line 320, ../sass/style.scss */
   .flow {
     padding: 10px;
   }
 
-  /* line 321, ../sass/style.scss */
+  /* line 327, ../sass/style.scss */
   .file,
   .function,
   .redirect_to,
@@ -8337,19 +8347,19 @@ code .yellow {
     margin: 10px 0;
   }
 
-  /* line 333, ../sass/style.scss */
+  /* line 339, ../sass/style.scss */
   .file-body,
   .function-body,
   .class-body {
     padding: 0 10px;
   }
-  /* line 336, ../sass/style.scss */
+  /* line 342, ../sass/style.scss */
   .file-body > :first-child,
   .function-body > :first-child,
   .class-body > :first-child {
     margin-top: 10px;
   }
-  /* line 340, ../sass/style.scss */
+  /* line 346, ../sass/style.scss */
   .file-body > :last-child,
   .function-body > :last-child,
   .class-body > :last-child {
