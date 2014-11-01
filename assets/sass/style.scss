@@ -24,6 +24,10 @@ a {
 	bootstrap
 ================================================================================
 */
+.caret {
+	border-top-color: $gray;
+}
+
 .nav-tabs {
 	margin-top: $margin;
 	border-bottom: 0;
@@ -195,10 +199,26 @@ code {
 
 	&.action {
 		border-color: $border_action;
+
+		.class-name,
+		.function-name {
+
+			code {
+				background: $cyan;
+			}
+		}
 	}
 
 	&.filter {
 		border-color: $border_filter;
+
+		.class-name,
+		.function-name {
+
+			code {
+				background: $emerald;
+			}
+		}
 	}
 }
 
@@ -214,14 +234,41 @@ code {
 
 .collapse-toggle {
 	cursor: pointer;
+}
 
-	&:hover,
-	&:focus,
-	&:active,
-	&.active {
-		background: $background_hover;
-		text-decoration: none;
-		color: inherit;
+.file {
+
+	> .collapse-toggle {
+
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+			background: $background_hover;
+			text-decoration: none;
+			color: inherit;
+		}
+	}
+}
+
+.class,
+.function {
+
+	> .collapse-toggle {
+
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+
+			.class-name,
+			.function-name {
+
+				code {
+					@include opacity(0.8);
+				}
+			}
+		}
 	}
 }
 
@@ -327,9 +374,17 @@ code {
 }
 
 .redirect_to {
-	@extend .function;
-	@extend .function-name;
-	@extend .collapse-toggle;
+	@extend .file;
+	@extend .file-name;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		background: $background_hover;
+		text-decoration: none;
+		color: inherit;
+	}
 
 	&:before {
 		content: 'redirect to ';
@@ -342,6 +397,7 @@ code {
 	background: rgba($yellow, 0.1);
 	@include border-radius(3px);
 	padding: $padding;
+	margin: $margin 0;
 
 	> :first-child {
 		margin-top: 0;
