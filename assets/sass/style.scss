@@ -34,8 +34,8 @@ a {
 			color: $gray;
 
 			// .file,
-			.function,
-			.class {
+			.class,
+			.function {
 				display: inline-block;
 				vertical-align: top;
 				background: transparent;
@@ -47,14 +47,6 @@ a {
 
 				&:hover {
 					// background: $state-warning-bg;
-				}
-
-				.collapse {
-					background: $gray_light;
-
-					.function-body {
-						border: 0;
-					}
 				}
 			}
 
@@ -98,8 +90,30 @@ a {
 }
 
 .checkbox {
-	// padding: $padding / 2 0;
 	margin: $margin 0;
+	padding-left: 20px;
+	// padding: $padding / 2 0;
+
+	label {
+		vertical-align: top;
+		margin-left: -20px;
+
+		input[type="checkbox"] {
+			cursor: pointer;
+
+			// &.if-function {
+			// 	position: relative;
+			// 	margin-top: 14px;
+			// }
+		}
+	}
+
+	.class,
+	.function {
+		display: inline-block;
+		margin: 0;
+		vertical-align: top;
+	}
 }
 
 code {
@@ -129,10 +143,10 @@ code {
 	padding-bottom: $padding;
 }
 
-.file,
-.function,
-.class,
-.redirect_to {
+// .function,
+// .class,
+// .redirect_to,
+.file {
 	background: #fff;
 	margin: $margin 0;
 	border: 1px solid $border;
@@ -144,6 +158,20 @@ code {
 	&:hover {
 		// background: $state-warning-bg;
 	}
+}
+
+.file-name {
+	font-size: $rem * 1.4;
+	line-height: $line-height-base;
+	margin: 0;
+	display: block;
+	padding: $padding / 2;
+	color: inherit;
+}
+
+.class,
+.function {
+	margin: $margin 0;
 
 	&.action {
 		border-color: $border_action;
@@ -154,47 +182,14 @@ code {
 	}
 }
 
-.file-name,
-.function-name,
-.class-name {
+.class-name,
+.function-name {
 	font-size: $rem * 1.4;
 	line-height: $line-height-base;
 	margin: 0;
 	display: block;
-	padding: $padding / 2;
+	// padding: $padding / 2;
 	color: inherit;
-}
-
-.checkbox {
-
-	label {
-		vertical-align: top;
-
-		input[type="checkbox"] {
-			cursor: pointer;
-
-			&.if-function {
-				position: relative;
-				margin-top: 14px;
-			}
-		}
-
-		.file-name,
-		.function-name,
-		.class-name {
-			// padding: 0;
-		}
-	}
-
-	.function {
-		display: inline-block;
-		margin: 0;
-	}
-}
-
-.function-name,
-.class-name {
-	// background: $midnight;
 }
 
 .collapse-toggle {
@@ -210,11 +205,50 @@ code {
 	}
 }
 
-.file-body,
-.function-body,
-.class-body {
+// .function-body,
+// .class-body,
+.file-body {
 	padding: 0 $padding;
 	border-top: 1px solid $border;
+
+	> :first-child {
+		margin-top: $margin;
+	}
+
+	> :last-child {
+		margin-bottom: $margin;
+	}
+}
+
+.class-body,
+.function-body {
+	@extend .file;
+	margin: ($margin / 2) 0 0;
+	padding: 0 $padding;
+	position: relative;
+
+	&:before,
+	&:after {
+		position: absolute;
+		bottom: 100%;
+		content: ' ';
+		height: 0;
+		width: 0;
+		border: solid transparent;
+		pointer-events: none;
+	}
+
+	&:before {
+		left: 10px;
+		border-bottom-color: $border;
+		border-width: 6px;
+	}
+
+	&:after {
+		left: 12px;
+		border-bottom-color: #fff;
+		border-width: 4px;
+	}
 
 	> :first-child {
 		margin-top: $margin;
@@ -331,17 +365,11 @@ code {
 		padding: $padding / 2;
 	}
 
-	.file,
-	.function,
-	.class,
-	.redirect_to {
+	// .function,
+	// .class,
+	// .redirect_to,
+	.file {
 		margin: ($margin / 2) 0;
-	}
-
-	.file-name,
-	.function-name,
-	.class-name {
-		// padding: $padding / 2;
 	}
 
 	.file-body,
