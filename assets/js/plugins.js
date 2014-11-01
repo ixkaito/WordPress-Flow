@@ -122,9 +122,10 @@
             // Show which file the function or class exists
             var $funcname = isFunction ? $el.find('.function-name') : $el.find('.class-name');
             var filename  = data.match(/<title.*>(.*)<\/title>/);
-              filename  = filename[1];
+                filename  = filename[1];
             var variable, params, funcname;
-            $funcname.append(' <span class="at">' + filename + '</span>');
+            // $funcname.append(' <span class="at">' + filename + '</span>');
+            $funcname.find('code').attr('title', filename);
 
             if (isFunction && (hasParams || isHook)) {
               funcname = $funcname.find('code').text();
@@ -164,6 +165,13 @@
             }
 
           }
+
+          $('.function-name code').tooltip({
+            placement: 'right'
+          });
+          $('.class-name code').tooltip({
+            placement: 'right'
+          });
 
         }).fail(function(){
           // console.log('Error!');

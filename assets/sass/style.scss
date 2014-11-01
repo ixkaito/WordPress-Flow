@@ -116,6 +116,26 @@ a {
 	}
 }
 
+.tooltip {
+
+	&.in {
+		@include opacity(1);
+	}
+
+	&.right {
+
+		.tooltip-arrow {
+			border-right-color: $gray_light;
+		}
+	}
+}
+
+.tooltip-inner {
+	max-width: 400px;
+	background: $gray_light;
+	color: $gray;
+}
+
 code {
 	// font-size: 90%;
 	padding: 3px 6px;
