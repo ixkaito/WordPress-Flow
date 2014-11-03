@@ -44,8 +44,25 @@
 				// class WP_Embed
 				-->
 				<div id="WP_Embed" class="class">
-					<h1 class="class-name"><code><span class="red">new</span> <span class="blue">WP_Embed</span></code></h1>
-				</div>
+					<div class="collapse-toggle">
+						<h1 class="class-name"><code><span class="red">new</span> <span class="blue">WP_Embed</span></code> <i class="caret"></i></h1>
+					</div>
+					<div class="collapse in">
+						<div class="class-body">
+
+							<div class="function WP_Embed_load" data-function="add_filter" data-tag="the_content" data-array-first="$this" data-callback="run_shortcode" data-url="../wp-includes/plugin.html"></div>
+
+							<div class="function WP_Embed_load" data-function="add_filter" data-tag="the_content" data-array-first="$this" data-callback="autoembed" data-url="../wp-includes/plugin.html"></div>
+
+							<div class="function WP_Embed_load" data-function="add_shortcode" data-params="<span class='yellow'>'embed'</span>, <span class='yellow'>'__return_false'</span>" data-url="../wp-includes/plugin.html"></div>
+
+							<div class="function WP_Embed_load" data-function="add_action" data-tag="edit_form_advanced" data-array-first="$this" data-callback="maybe_run_ajax_cache" data-url="../wp-includes/plugin.html"></div>
+
+							<script type="text/javascript">$('.WP_Embed_load').wpfload();</script>
+
+						</div><!-- /.class-body -->
+					</div><!-- /.collapse -->
+				</div><!-- /#WP_Embed.class -->
 
 			</div><!-- //.hidden -->
 

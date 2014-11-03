@@ -96,12 +96,13 @@
 
         var filters = ['apply_filters', 'add_filter', 'do_action', 'add_action'];
 
-        var targetEl     = 'file';
-        var isHook       = ($.inArray($el.data('function'), filters) > -1) ? true : false;
-        var isFunction   = $el.data('function');
-        var isClass      = $el.data('class');
-        var hasParams    = $el.data('params');
-        var hasMethod    = $el.data('method');
+        var targetEl      = 'file';
+        var isHook        = ($.inArray($el.data('function'), filters) > -1) ? true : false;
+        var isFunction    = $el.data('function');
+        var isClass       = $el.data('class');
+        var hasArrayFirst = $el.data('array-first');
+        var hasParams     = $el.data('params');
+        var hasMethod     = $el.data('method');
 
         if (isFunction) {
           targetEl = $el.data('function');
@@ -116,62 +117,74 @@
         }).done(function(data){
           var html     = $(data).find('#' + targetEl).html();
 
-          $el.append(html);
+          if (html) {
 
-          if (isFunction || isClass) {
-            // Show which file the function or class exists
-            var $funcname = isFunction ? $el.find('.function-name') : $el.find('.class-name');
-            var filename  = data.match(/<title.*>(.*)<\/title>/);
-                filename  = filename[1];
-            var variable, params, funcname;
-            // $funcname.append(' <span class="at">' + filename + '</span>');
-            $funcname.find('code').attr('title', filename);
+            $el.append(html);
 
-            if (isFunction && (hasParams || isHook)) {
-              funcname = $funcname.find('code').text();
+            if (isFunction || isClass) {
+              // Show which file the function or class exists
+              var $funcname = isFunction ? $el.find('.function-name') : $el.find('.class-name');
+              var filename  = data.match(/<title.*>(.*)<\/title>/);
+                  filename  = filename[1];
+              var variable, params, funcname;
+              // $funcname.append(' <span class="at">' + filename + '</span>');
+              $funcname.find('code').attr('title', filename);
 
-              if (hasParams) {
-                params   = $el.data('params');
-                $funcname.find('code').text(funcname.replace('()', '( ' + params + ' )'));
-              } else {
-                $funcname.find('code').text(funcname.replace('()', ''));
-                var tag      = $el.data('tag');
-                var callback = $el.data('callback');
-                if (tag && callback) {
-                  params = '( <span class="yellow">\'' + tag + '\'</span>, ' + '<span class="yellow">\'' + callback + '\'</span> )';
-                } else if (tag) {
-                  params = '( <span class="yellow">\'' + tag + '\'</span> )';
+              if (isFunction && (hasParams || isHook)) {
+                funcname = $funcname.find('code').text();
+
+                if (hasParams) {
+                  params   = $el.data('params');
+                  $funcname.find('code').text(funcname.replace('()', '( ' + params + ' )'));
                 } else {
-                  params = '()';
+                  $funcname.find('code').text(funcname.replace('()', ''));
+                  var tag        = $el.data('tag');
+                  var callback   = $el.data('callback');
+                  var arrayFirst = $el.data('array-first');
+                  if (tag && callback) {
+                    params  = '( <span class="yellow">\'' + tag + '\'</span>, ';
+                    params += hasArrayFirst ? '<span class="blue">array</span>( ' + arrayFirst +  ', ' : '';
+                    params += '<span class="yellow">\'' + callback + '\'</span> )';
+                    params += hasArrayFirst ? ' )' : '';
+                  } else if (tag) {
+                    params = '( <span class="yellow">\'' + tag + '\'</span> )';
+                  } else {
+                    params = '()';
+                  }
+                  $funcname.find('code').append(params);
                 }
-                $funcname.find('code').append(params);
-              }
-            }
-
-            if (isClass) {
-              variable = $el.data('var');
-
-              if (hasMethod) {
-                variable = variable ? variable + '<span class="red">-&gt;</span>' : '';
-                $funcname.find('code').prepend(variable);
-
-              } else {
-                variable = variable ? variable + '<span class="red"> = </span>' : '';
-                params   = $el.data('params');
-                params   = params ? '( ' + params + ' )' : '()';
-                $funcname.find('code').prepend(variable).append(params);
               }
 
+              if (isClass) {
+                variable = $el.data('var');
+
+                if (hasMethod) {
+                  variable = variable ? variable + '<span class="red">-&gt;</span>' : '';
+                  $funcname.find('code').prepend(variable);
+
+                } else {
+                  variable = variable ? variable + '<span class="red"> = </span>' : '';
+                  params   = $el.data('params');
+                  params   = params ? '( ' + params + ' )' : '()';
+                  $funcname.find('code').prepend(variable).append(params);
+                }
+
+              }
+
             }
 
-          }
+            $('.function-name code').tooltip({
+              placement: 'right'
+            });
+            $('.class-name code').tooltip({
+              placement: 'right'
+            });
 
-          $('.function-name code').tooltip({
-            placement: 'right'
-          });
-          $('.class-name code').tooltip({
-            placement: 'right'
-          });
+          } else {
+            if (isFunction) {
+              $el.append('Fatal error: Call to undefined function ' + targetEl + '()');
+            }
+          } // end if (html)
 
         }).fail(function(){
           // console.log('Error!');
