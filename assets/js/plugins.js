@@ -135,7 +135,7 @@
 
                 if (hasParams) {
                   params   = $el.data('params');
-                  $funcname.find('code').text(funcname.replace('()', '( ' + params + ' )'));
+                  $funcname.find('code').text(funcname.replace('()', '')).append('( ' + params + ' )');
                 } else {
                   $funcname.find('code').text(funcname.replace('()', ''));
                   var tag        = $el.data('tag');
