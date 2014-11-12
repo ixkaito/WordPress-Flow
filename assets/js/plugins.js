@@ -187,6 +187,7 @@
           } // end if (html)
 
         }).fail(function(){
+          $el.append('Warning: require(' + url + '): failed to open stream: No such file or directory.');
           // console.log('Error!');
 
         }).always(function(){
