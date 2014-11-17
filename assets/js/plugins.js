@@ -260,7 +260,7 @@
     this.each(function() {
       var $el = $(this);
 
-      $el.addClass('wpfcheckbox');
+      // $el.addClass('wpfcheckbox');
 
       check();
 
@@ -270,22 +270,38 @@
 
       function check() {
 
-        var href = $el.data('href');
-        var rel  = $el.attr('rel');
-        var n    = 0;
+        if ($el.data('condition')) {
 
-        $('.wpfcheckbox').each(function() {
-          if ($(this).data('href') === href && $(this).is(':checked')) {
-            n++;
+          var condition = $el.data('condition');
+          // var rel  = $el.attr('rel');
+          // var n    = 0;
+
+          // $('.wpfcheckbox').each(function() {
+          //   if ($(this).data('href') === href && $(this).is(':checked')) {
+          //     n++;
+          //   }
+          // });
+
+          if ($el.is(':checked')) {
+            $('.' + condition + '.isFalse').removeClass('in');
+            $('.' + condition + '.isTrue').addClass('in');
+          } else {
+            $('.' + condition + '.isTrue').removeClass('in');
+            $('.' + condition + '.isFalse').addClass('in');
           }
-        });
 
-        if (n > 0) {
-          $('.' + rel).removeClass('in');
-          $(href).addClass('in');
         } else {
-          $('.' + rel).addClass('in');
-          $(href).removeClass('in');
+
+          var $block = $el.closest('.if-block');
+
+          if ($el.is(':checked')) {
+            $block.children('.isFalse').removeClass('in');
+            $block.children('.isTrue').addClass('in');
+          } else {
+            $block.children('.isTrue').removeClass('in');
+            $block.children('.isFalse').addClass('in');
+          }
+
         }
 
       }
