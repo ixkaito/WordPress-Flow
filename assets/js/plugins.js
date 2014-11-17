@@ -258,9 +258,9 @@
   $.fn.wpfcheckbox = function(option) {
 
     this.each(function() {
-      var $el = $(this);
-
-      // $el.addClass('wpfcheckbox');
+      var $el       = $(this);
+      var condition = $el.data('condition');
+      var $block    = $el.parent('label').parent('.checkbox').parent('.if-block');
 
       check();
 
@@ -270,17 +270,7 @@
 
       function check() {
 
-        if ($el.data('condition')) {
-
-          var condition = $el.data('condition');
-          // var rel  = $el.attr('rel');
-          // var n    = 0;
-
-          // $('.wpfcheckbox').each(function() {
-          //   if ($(this).data('href') === href && $(this).is(':checked')) {
-          //     n++;
-          //   }
-          // });
+        if (condition) {
 
           if ($el.is(':checked')) {
             $('.' + condition + '.isFalse').removeClass('in');
@@ -290,9 +280,7 @@
             $('.' + condition + '.isFalse').addClass('in');
           }
 
-        } else {
-
-          var $block = $el.closest('.if-block');
+        } else if ($block) {
 
           if ($el.is(':checked')) {
             $block.children('.isFalse').removeClass('in');
