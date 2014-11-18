@@ -34,32 +34,56 @@ a {
 
 	> li {
 
-		a {
-			color: $gray;
+		color: $gray;
+		cursor: pointer;
+		// @see bootstrap .nav-tabs > li > a
+		border: 1px solid transparent;
+		@include border-radius(4px 4px 0 0);
+		line-height: 1.42857;
+		margin-right: 4px;
+		// @see bootstrap .nav > li > a
+		padding: 10px 15px;
+		position: relative;
 
-			// .file,
-			.class,
-			.function {
-				display: inline-block;
-				vertical-align: top;
-				background: transparent;
-				margin: 0;
-				border: 0;
-				// @include border-radius(0);
-				@include box-sizing(border-box);
-				// @include box-shadow(0 0 1px rgba(0, 0, 0, 0.05));
+		&:hover,
+		&:focus {
+			background: $background_hover;
+			border-color: $background_hover $background_hover $border;
+		}
 
-				&:hover {
-					// background: $state-warning-bg;
-				}
-			}
+		&.active {
+			background-color: #fff;
+			border-color: $border $border transparent;
+			border-image: none;
+			border-style: solid;
+			border-width: 1px;
+			color: #333;
+			cursor: default;
+		}
 
-			.file-name,
-			.function-name,
-			.class-name {
-				padding: 0;
+		// .file,
+		.class,
+		.function {
+			display: inline-block;
+			vertical-align: top;
+			background: transparent;
+			margin: 0;
+			border: 0;
+			// @include border-radius(0);
+			@include box-sizing(border-box);
+			// @include box-shadow(0 0 1px rgba(0, 0, 0, 0.05));
+
+			&:hover {
+				// background: $state-warning-bg;
 			}
 		}
+
+		.file-name,
+		.function-name,
+		.class-name {
+			padding: 0;
+		}
+		// }
 
 		// a:hover {
 		// 	border-color: $background_hover $background_hover $nav-tabs-border-color;
