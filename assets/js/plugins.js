@@ -180,6 +180,10 @@
               placement: 'right'
             });
 
+            // recall necessary methods;
+            $('.if').wpfcheckbox();
+            $('.nav-tabs > li').wpftab();
+
           } else {
             if (isFunction) {
               $el.append('Fatal error: Call to undefined function ' + targetEl + '()');
@@ -270,7 +274,9 @@
 
       function check() {
 
-        if (condition) {
+        console.log($el.is(':checked'));
+
+        if (condition) { // To control contents out of the function or file
 
           if ($el.is(':checked')) {
             $('.' + condition + '.isFalse').removeClass('in');
@@ -294,6 +300,39 @@
 
       }
     });
+
+    return this;
+  };
+
+  /*
+  ================================================================================
+    wpftab
+  ================================================================================
+  */
+  $.fn.wpftab = function (option) {
+
+    this.each(function() {
+      var $el      = $(this);
+      var index    = $el.index();
+      var href     = $el.attr('href');
+      var target   = $el.attr('target');
+      var $tabs    = $el.parent('.nav-tabs');
+      var $block   = $tabs.parent('.tab-block');
+      var $tabPane = $tabs.next('.tab-content').children('.tab-pane');
+
+      if (href || target) {
+        $el.tab('show');
+      } else if ($block) {
+        $el.on('click', function() {
+          $tabs.children().removeClass('active');
+          $el.addClass('active');
+          $tabPane.removeClass('in').removeClass('active');
+          $tabPane.eq(index).addClass('in').addClass('active');
+        });
+      }
+
+    });
+
   };
 
 })(jQuery);

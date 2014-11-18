@@ -4,4 +4,6 @@
   });
 
   $('.if').wpfcheckbox();
+  $('.nav-tabs > li').wpftab();
+
 })(jQuery);
