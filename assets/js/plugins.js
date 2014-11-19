@@ -274,16 +274,14 @@
 
       function check() {
 
-        console.log($el.is(':checked'));
-
         if (condition) { // To control contents out of the function or file
 
           if ($el.is(':checked')) {
-            $('.' + condition + '.isFalse').removeClass('in');
-            $('.' + condition + '.isTrue').addClass('in');
+            $('#' + condition + '.isFalse').removeClass('in');
+            $('#' + condition + '.isTrue').addClass('in');
           } else {
-            $('.' + condition + '.isTrue').removeClass('in');
-            $('.' + condition + '.isFalse').addClass('in');
+            $('#' + condition + '.isTrue').removeClass('in');
+            $('#' + condition + '.isFalse').addClass('in');
           }
 
         } else if ($block) {
@@ -332,6 +330,8 @@
       }
 
     });
+
+    return this;
 
   };
 

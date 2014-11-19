@@ -68,7 +68,6 @@
 						<div class="function-body">
 							<div class="checkbox">
 								<label><input class="if" type="checkbox" data-condition="AolbyK8I" checked /> ! file_exists( ABSPATH . '.maintenance' ) || defined( 'WP_INSTALLING' ) </label>
-								<script type="text/javascript">$('.if').wpfcheckbox();</script>
 							</div>
 
 							<div class="AolbyK8I isFalse">
@@ -105,7 +104,7 @@
 
 								</div> -->
 							</div>
-
+							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->
 					</div><!-- /.collapse -->
 				</div><!-- /#wp_maintenance.function -->
@@ -120,35 +119,27 @@
 					<div class="collapse in">
 						<div class="function-body">
 
-							<div class="checkbox">
-								<label><input class="if" type="checkbox" data-href="#vOFkwVbV" rel="vOFkwVbV" checked /> function_exists( 'did_action' ) &amp;&amp; did_action( 'init' ) </label>
-								<script type="text/javascript">$('.if').wpfcheckbox();</script>
-							</div>
-
-							<div id="vOFkwVbV" class="vOFkwVbV if-content">
-
-								<div id="P708I6No" class="require file" data-url="../wp-includes/version.html">
-									<script type="text/javascript">$('#P708I6No').wpfload();</script>
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if" type="checkbox" checked /> function_exists( 'did_action' ) &amp;&amp; did_action( 'init' ) </label>
 								</div>
 
-								<div id="jvYUizcP" class="require_once file" data-url="../wp-includes/pomo/mo.html">
-									<script type="text/javascript">$('#jvYUizcP').wpfload();</script>
-								</div>
+								<div class="isTrue">
 
-								<div id="s61N09Hy" class="require_once file" data-url="../wp-includes/l10n.html">
-									<script type="text/javascript">$('#s61N09Hy').wpfload();</script>
-								</div>
+									<div class="require" data-url="../wp-includes/version.html"></div>
 
-								<div id="qanZwOEZ" class="require_once file" data-url="../wp-includes/locale.html">
-									<script type="text/javascript">$('#qanZwOEZ').wpfload();</script>
-								</div>
+									<div class="require_once" data-url="../wp-includes/pomo/mo.html"></div>
 
-								<div id="GCakTU39" class="require_once file" data-url="../wp-includes/plugin.html">
-									<script type="text/javascript">$('#GCakTU39').wpfload();</script>
-								</div>
+									<div class="require_once" data-url="../wp-includes/l10n.html"></div>
 
-							</div><!-- /#vOFkwVbV.if-content -->
+									<div class="require_once" data-url="../wp-includes/locale.html"></div>
 
+									<div class="require_once" data-url="../wp-includes/plugin.html"></div>
+
+								</div><!-- /.isTrue -->
+							</div><!-- /.if-block -->
+
+							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->
 					</div><!-- /.collapse -->
 				</div><!-- /#wp_load_translations_early.function -->
@@ -184,32 +175,31 @@
 					<div class="collapse in">
 						<div class="function-body">
 
-							<div id="gK69I3IF" class="require_once file" data-url="../wp-includes/wp-db.html">
-								<script type="text/javascript">$('#gK69I3IF').wpfload();</script>
-							</div>
+							<div class="require_once file" data-url="../wp-includes/wp-db.html"></div>
 
-							<div class="checkbox">
-								<label><input class="if" type="checkbox" data-href="#d9fFkgz5" rel="d9fFkgz5" /> file_exists( WP_CONTENT_DIR . '/db.php' ) </label>
-								<script type="text/javascript">$('.if').wpfcheckbox();</script>
-							</div>
-
-							<div id="d9fFkgz5" class="d9fFkgz5 if-content">
-								// <!-- <div id="dmo0LbjA" class="require_once file" data-url="../wp-content/db.html">
-									<script type="text/javascript">$('#dmo0LbjA').wpfload();</script>
-								</div> -->
-							</div><!-- #d9fFkgz5.if-content -->
-
-							<div class="checkbox">
-								<label><input class="if" type="checkbox" data-href="#YNA11OoU" rel="YNA11OoU" /> isset( $wpdb ) </label>
-								<script type="text/javascript">$('.if').wpfcheckbox();</script>
-							</div>
-
-							<div class="YNA11OoU if-content">
-								<div id="P7KjpZSs" class="class" data-class="wpdb" data-var="$wpdb" data-params="DB_USER, DB_PASSWORD, DB_NAME, DB_HOST" data-url="../wp-includes/wp-db.html">
-									<script type="text/javascript">$('#P7KjpZSs').wpfload();</script>
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if" type="checkbox" /> file_exists( WP_CONTENT_DIR . '/db.php' ) </label>
 								</div>
-							</div><!-- /#YNA11OoU.if-content -->
 
+								<div class="isTrue">
+									// <!-- <div id="dmo0LbjA" class="require_once file" data-url="../wp-content/db.html">
+										<script type="text/javascript">$('#dmo0LbjA').wpfload();</script>
+									</div> -->
+								</div><!-- /.isTrue -->
+							</div>
+
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if" type="checkbox" /> isset( $wpdb ) </label>
+								</div>
+
+								<div class="isFalse">
+									<div class="class" data-class="wpdb" data-var="$wpdb" data-params="DB_USER, DB_PASSWORD, DB_NAME, DB_HOST" data-url="../wp-includes/wp-db.html"></div>
+								</div><!-- /.isFalse -->
+							</div><!-- /.if-block -->
+
+							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->
 					</div><!-- /.collapse -->
 				</div><!-- /#require_wp_db.function -->
@@ -224,45 +214,44 @@
 					<div class="collapse in">
 						<div class="function-body">
 
-							<div class="checkbox">
-								<label><input class="if" type="checkbox" data-href="#h5e4SQJN" rel="h5e4SQJN" /> ! empty( $wpdb->error ) </label>
-								<script type="text/javascript">$('.if').wpfcheckbox();</script>
-							</div>
-
-							<div id="h5e4SQJN" class="h5e4SQJN if-content">
-								// <!-- <div id="zb6LVITX" class="function" data-function="dead_db" data-url="../wp-includes/functions.html">
-									<script type="text/javascript">$('#zb6LVITX').wpfload();</script>
-								</div> -->
-							</div><!-- /#h5e4SQJN.if-content -->
-
-							<div id="rgf7ATAM" class="class method" data-class="wpdb" data-var="$wpdb" data-method="set_prefix" data-url="../wp-includes/wp-db.html">
-								<script type="text/javascript">$('#rgf7ATAM').wpfload();</script>
-							</div>
-
-							<div class="checkbox">
-								<label><input class="if if-function" type="checkbox" data-href="#mrMV804B" rel="mrMV804B" /></label><!--
-								--><div id="oBtnBUSM" class="function" data-function="is_wp_error" data-params="$prefix" data-url="../wp-includes/class-wp-error.html">
-									<script type="text/javascript">$('#oBtnBUSM').wpfload();</script>
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if" type="checkbox" /> ! empty( $wpdb->error ) </label>
 								</div>
-								<script type="text/javascript">$('.if').wpfcheckbox();</script>
-							</div>
 
-							<div id="mrMV804B" class="mrMV804B if-content">
+								<div class="isTrue">
+									// <!-- <div id="zb6LVITX" class="function" data-function="dead_db" data-url="../wp-includes/functions.html">
+										<script type="text/javascript">$('#zb6LVITX').wpfload();</script>
+									</div> -->
+								</div><!-- /.isTrue -->
+							</div><!-- /.if-block -->
+
+							<div class="class method" data-class="wpdb" data-var="$wpdb" data-method="set_prefix" data-url="../wp-includes/wp-db.html"></div>
+
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if if-function" type="checkbox" /></label><!--
+									--><div class="function" data-function="is_wp_error" data-params="$prefix" data-url="../wp-includes/class-wp-error.html"></div>
+								</div>
+
+								<div class="isTrue">
 
 // <!-- 								<div id="fW5DSmRw" class="function" data-function="wp_load_translations_early" data-url="../wp-includes/load.html">
-									<script type="text/javascript">$('#fW5DSmRw').wpfload();</script>
-								</div>
+										<script type="text/javascript">$('#fW5DSmRw').wpfload();</script>
+									</div>
 
-								<div id="asdf" class="function" data-function="apply_filters" data-url="../wp-includes/plugin.html">
-									<script type="text/javascript">$('#asdf').wpfload();</script>
-								</div>
+									<div id="asdf" class="function" data-function="apply_filters" data-url="../wp-includes/plugin.html">
+										<script type="text/javascript">$('#asdf').wpfload();</script>
+									</div>
 
-								<div id="ZTVJD7D2" class="function" data-function="wp_die" data-url="../wp-includes/functions.html">
-									<script type="text/javascript">$('#ZTVJD7D2').wpfload();</script>
-								</div>
- -->
-							</div><!-- /#mrMV804B.if-content -->
+									<div id="ZTVJD7D2" class="function" data-function="wp_die" data-url="../wp-includes/functions.html">
+										<script type="text/javascript">$('#ZTVJD7D2').wpfload();</script>
+									</div>
+-->
+								</div><!-- /.isTrue -->
+							</div><!-- /.if-block -->
 
+							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->
 					</div><!-- /.collapse -->
 				</div><!-- /#wp_set_wpdb_vars.function -->
@@ -277,97 +266,93 @@
 					<div class="collapse in">
 						<div class="function-body">
 
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#WXLpn6R1-1" data-toggle="tab"><br />
-									! function_exists( 'wp_cache_init' )</a></li>
-								<li><a href="#WXLpn6R1-2" data-toggle="tab">! wp_using_ext_object_cache() <br />
-									&amp;&amp; file_exists( WP_CONTENT_DIR . '/object-cache.php' )</a></li>
-								<li><a href="#WXLpn6R1-3" data-toggle="tab"><br />
-									else</a></li>
-							</ul>
-							<div class="tab-content">
-								<div id="WXLpn6R1-1" class="tab-pane active in">
+							<div class="tab-block">
+								<ul class="nav nav-tabs">
+									<li class="active"><br />
+										! function_exists( 'wp_cache_init' )</li>
+									<li>! wp_using_ext_object_cache() <br />
+										&amp;&amp; file_exists( WP_CONTENT_DIR . '/object-cache.php' )</li>
+									<li><br />
+										else</li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane active in">
 
-									<div class="checkbox">
-										<label><input class="if" type="checkbox" data-href="#EAgObRvk" rel="EAgObRvk" /> file_exists( WP_CONTENT_DIR . '/object-cache.php' ) </label>
-										<script type="text/javascript">$('.if').wpfcheckbox();</script>
-									</div>
-
-									<div id="EAgObRvk" class="EAgObRvk if-content">
-
-										// <!-- <div id="XFPptezL" class="require_once file" data-url="../wp-content/object-cache.html">
-											<script type="text/javascript">$('#XFPptezL').wpfload();</script>
-										</div>
-
-										<div class="checkbox">
-											<label><input class="if" type="checkbox" data-href="#AV0QO_XU" rel="AV0QO_XU" /> function_exists( 'wp_cache_init' ) </label>
-											<script type="text/javascript">$('.if').wpfcheckbox();</script>
-										</div>
-
-										<div id="AV0QO_XU" class="AV0QO_XU if-content">
-											<div id="N2N1Ipw5" class="function" data-function="wp_using_ext_object_cache" data-url="../wp-content/object-cache.html">
-												<script type="text/javascript">$('#N2N1Ipw5').wpfload();</script>
+										<div class="if-block">
+											<div class="checkbox">
+												<label><input class="if" type="checkbox" /> file_exists( WP_CONTENT_DIR . '/object-cache.php' ) </label>
 											</div>
-										</div>--><!-- /#AV0QO_XU.if-content -->
 
-									</div><!-- /#EAgObRvk.if-content -->
+											<div class="isTrue">
 
+												// <!-- <div id="XFPptezL" class="require_once file" data-url="../wp-content/object-cache.html">
+													<script type="text/javascript">$('#XFPptezL').wpfload();</script>
+												</div>
+
+												<div class="checkbox">
+													<label><input class="if" type="checkbox" data-href="#AV0QO_XU" rel="AV0QO_XU" /> function_exists( 'wp_cache_init' ) </label>
+													<script type="text/javascript">$('.if').wpfcheckbox();</script>
+												</div>
+
+												<div id="AV0QO_XU" class="AV0QO_XU if-content">
+													<div id="N2N1Ipw5" class="function" data-function="wp_using_ext_object_cache" data-url="../wp-content/object-cache.html">
+														<script type="text/javascript">$('#N2N1Ipw5').wpfload();</script>
+													</div>
+												</div>--><!-- /#AV0QO_XU.if-content -->
+
+											</div><!-- /.isTrue -->
+										</div><!-- /.if-block -->
+
+									</div>
+									<div class="tab-pane">
+										// <!-- <div id="e4FjwVDp" class="function" data-function="wp_using_ext_object_cache" data-url="../wp-includes/load.html">
+											<script type="text/javascript">$('#e4FjwVDp').wpfload();</script>
+										</div> -->
+									</div>
+									<div class="tab-pane"></div>
 								</div>
-								<div id="WXLpn6R1-2" class="tab-pane">
-									// <!-- <div id="e4FjwVDp" class="function" data-function="wp_using_ext_object_cache" data-url="../wp-includes/load.html">
-										<script type="text/javascript">$('#e4FjwVDp').wpfload();</script>
-									</div> -->
-								</div>
-								<div id="WXLpn6R1-3" class="tab-pane"></div>
-							</div>
+							</div><!-- /.tab-block -->
 
 							<div class="if-block">
 								<div class="checkbox">
 									<label><input class="if" type="checkbox" checked /></label><!--
-									-->! <div class="function wp_using_ext_object_cache" data-function="wp_using_ext_object_cache" data-url="../wp-includes/load.html">
-										<script type="text/javascript">$('.wp_using_ext_object_cache').wpfload();</script>
+									-->! <div class="function" data-function="wp_using_ext_object_cache" data-url="../wp-includes/load.html">
 									</div>
-									<script type="text/javascript">$('.if').wpfcheckbox();</script>
 								</div>
-
-								<div class="if-true">
-									<div id="L_ZwEghX" class="require_once file" data-url="../wp-includes/cache.html">
-										<script type="text/javascript">$('#L_ZwEghX').wpfload();</script>
-									</div>
-								</div><!-- /.if-true -->
+								<div class="isTrue">
+									<div class="require_once" data-url="../wp-includes/cache.html"></div>
+								</div><!-- /.isTrue -->
 							</div><!-- /.if-block -->
 
-							<ul class="nav nav-tabs">
-								<li><a href="#scUBq2kI-1" data-toggle="tab">! $first_init &amp;&amp; function_exists( 'wp_cache_switch_to_blog' )</a></li>
-								<li class="active"><a href="#scUBq2kI-2" data-toggle="tab">function_exists( 'wp_cache_init' )</a></li>
-								<li><a href="#scUBq2kI-3" data-toggle="tab">else</a></li>
-							</ul>
-
-							<div class="tab-content">
-								<div id="scUBq2kI-1" class="tab-pane">
-									// <!-- <div id="oHPNhiW0" class="function" data-function="wp_cache_switch_to_blog" data-url="">
-										<script type="text/javascript">$('#oHPNhiW0').wpfload();</script>
-									</div> -->
-								</div>
-								<div id="scUBq2kI-2" class="tab-pane active in">
-									<div id="oRakT1cN" class="function" data-function="wp_cache_init" data-url="../wp-includes/cache.html">
-										<script type="text/javascript">$('#oRakT1cN').wpfload();</script>
+							<div class="tab-block">
+								<ul class="nav nav-tabs">
+									<li>! $first_init &amp;&amp; function_exists( 'wp_cache_switch_to_blog' )</li>
+									<li class="active">function_exists( 'wp_cache_init' )</li>
+									<li>else</li>
+								</ul><!-- /.nav.nav-tabs -->
+								<div class="tab-content">
+									<div class="tab-pane">
+										// <!-- <div id="oHPNhiW0" class="function" data-function="wp_cache_switch_to_blog" data-url="">
+											<script type="text/javascript">$('#oHPNhiW0').wpfload();</script>
+										</div> -->
 									</div>
+									<div class="tab-pane active in">
+										<div class="function" data-function="wp_cache_init" data-url="../wp-includes/cache.html"></div>
+									</div>
+									<div class="tab-pane"></div>
 								</div>
-								<div id="scUBq2kI-3" class="tab-pane"></div>
-							</div>
+							</div><!-- /.tab-block -->
 
 							<div class="if-block">
 								<div class="checkbox">
 									<label><input class="if" type="checkbox" /> function_exists( 'wp_cache_add_global_groups' ) </label>
-									<script type="text/javascript">$('.if').wpfcheckbox();</script>
 								</div>
-
-								<div class="if-true">
+								<div class="isTrue">
 									//
-								</div><!-- /.if-true -->
+								</div><!-- /.isTrue -->
 							</div><!-- /.if-block -->
 
+							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->
 					</div><!-- /.collapse -->
 				</div><!-- /#wp_start_object_cache.function -->
@@ -389,23 +374,20 @@
 					<div class="collapse">
 						<div class="function-body">
 
-							<ul class="nav nav-tabs">
-								<li>
-									<a href="#YA5KB8cR-1" data-toggle="tab">isset( $GLOBAL['current_screen'] )</a>
-								</li>
-								<li>
-										<a href="#YA5KB8cR-2" data-toggle="tab">defined( 'WP_ADMIN' )</a>
-									</li>
-								<li class="active">
-									<a href="#YA5KB8cR-3" data-toggle="tab">else</a>
-								</li>
-							</ul>
-							<div class="tab-content">
-								<div id="YA5KB8cR-1" class="tab-pane">//</div>
-								<div id="YA5KB8cR-2" class="tab-pane">//</div>
-								<div id="YA5KB8cR-3" class="tab-pane active in"></div>
-							</div><!-- .tab-content -->
+							<div class="tab-block">
+								<ul class="nav nav-tabs">
+									<li>isset( $GLOBAL['current_screen'] )</li>
+									<li>defined( 'WP_ADMIN' )</li>
+									<li class="active">else</li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane">//</div>
+									<div class="tab-pane">//</div>
+									<div class="tab-pane active in"><span class="comment">// Do nothing.</span></div>
+								</div><!-- .tab-content -->
+							</div><!-- /.tab-block -->
 
+							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->
 					</div><!-- /.collapse -->
 				</div><!-- /#is_admin.function -->
@@ -427,18 +409,13 @@
 					<div class="collapse in">
 						<div class="function-body">
 
-							<div class="function do_action" data-function="do_action" data-tag="shutdown" data-url="../wp-includes/plugin.html">
-								<script type="text/javascript">$('.do_action').wpfload();</script>
-							</div>
+							<div class="function" data-function="do_action" data-tag="shutdown" data-url="../wp-includes/plugin.html"></div>
 
-							<div class="function wp_ob_end_flush_all action" data-function="wp_ob_end_flush_all" data-url="../wp-includes/functions.html">
-								<script type="text/javascript">$('.wp_ob_end_flush_all').wpfload();</script>
-							</div>
+							<div class="function action" data-function="wp_ob_end_flush_all" data-url="../wp-includes/functions.html"></div>
 
-							<div class="function wp_cache_close" data-function="wp_cache_close" data-url="../wp-includes/cache.html">
-								<script type="text/javascript">$('.wp_cache_close').wpfload();</script>
-							</div>
+							<div class="function" data-function="wp_cache_close" data-url="../wp-includes/cache.html"></div>
 
+							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->
 					</div><!-- /.collapse -->
 				</div><!-- /#shutdown_action_hook.function -->
@@ -459,27 +436,25 @@
 										<div class="function is_multisite" data-function="is_multisite" data-url="../wp-includes/load.html">
 											<script type="text/javascript">$('.is_multisite').wpfload();</script>
 										</div><br />
-										<br />
-									</li>
+										<br /></li>
 									<li>
 										! <div class="function is_blog_installed" data-function="is_blog_installed" data-url="../wp-includes/functions.html">
 											<script type="text/javascript">$('.is_blog_installed').wpfload();</script>
 										</div> <br />
 										&amp;&amp; false === strpos( $_SERVER['PHP_SELF'], 'install.php' ) <br />
-										&amp;&amp; !defined( 'WP_INSTALLING' )
-									</li>
+										&amp;&amp; !defined( 'WP_INSTALLING' )</li>
 									<li class="active"><br />
 										else<br />
-										<br />
-									</li>
+										<br /></li>
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane">// 1</div>
 									<div class="tab-pane">// 2</div>
-									<div class="tab-pane active in"><span class="comment">// Nothing happened...</span></div>
+									<div class="tab-pane active in"><span class="comment">// Do nothing.</span></div>
 								</div><!-- .tab-content -->
 							</div><!-- .tab-block -->
 
+							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->
 					</div><!-- /.collapse -->
 				</div><!-- /#wp_not_installed.function -->

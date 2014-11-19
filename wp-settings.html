@@ -24,11 +24,11 @@
 				<div class="collapse in">
 					<div class="file-body">
 
-						<div class="require file" data-url="wp-includes/load.html"></div>
+						<div class="require" data-url="wp-includes/load.html"></div>
 
-						<div class="require file" data-url="wp-includes/default-constants.html"></div>
+						<div class="require" data-url="wp-includes/default-constants.html"></div>
 
-						<div class="require file" data-url="wp-includes/version.html"></div>
+						<div class="require" data-url="wp-includes/version.html"></div>
 
 						<div class="function" data-function="wp_initial_constants" data-url="./wp-includes/default-constants.html"></div>
 
@@ -42,7 +42,7 @@
 
 						<div class="function" data-function="wp_maintenance" data-url="wp-includes/load.html"></div>
 
-						<div class="AolbyK8I isTrue">
+						<div id="AolbyK8I" class="isTrue">
 
 							<div class="function" data-function="timer_start" data-url="wp-includes/load.html"></div>
 
@@ -62,17 +62,17 @@
 
 							<div class="function" data-function="wp_set_lang_dir" data-url="wp-includes/load.html"></div>
 
-							<div class="require file" data-url="wp-includes/compat.html"></div>
+							<div class="require" data-url="wp-includes/compat.html"></div>
 
-							<div class="require file" data-url="wp-includes/functions.html"></div>
+							<div class="require" data-url="wp-includes/functions.html"></div>
 
-							<div class="require file" data-url="wp-includes/class-wp.html"></div>
+							<div class="require" data-url="wp-includes/class-wp.html"></div>
 
-							<div class="require file" data-url="wp-includes/class-wp-error.html"></div>
+							<div class="require" data-url="wp-includes/class-wp-error.html"></div>
 
-							<div class="require file" data-url="wp-includes/plugin.html"></div>
+							<div class="require" data-url="wp-includes/plugin.html"></div>
 
-							<div class="require file" data-url="wp-includes/pomo/mo.html"></div>
+							<div class="require" data-url="wp-includes/pomo/mo.html"></div>
 
 							<div class="function" data-function="require_wp_db" data-url="wp-includes/load.html"></div>
 
@@ -80,7 +80,7 @@
 
 							<div class="function" data-function="wp_start_object_cache" data-url="./wp-includes/load.html"></div>
 
-							<div class="require file" data-url="./wp-includes/default-filters.html"></div>
+							<div class="require" data-url="./wp-includes/default-filters.html"></div>
 
 							<div class="tab-block">
 								<ul class="nav nav-tabs">
@@ -102,239 +102,80 @@
 								</div><!-- .tab-content -->
 							</div><!-- .tab-block -->
 
-							<div class="function shutdown_action_hook" data-function="shutdown_action_hook" data-url="./wp-includes/load.html">
-								<script type="text/javascript">$('.shutdown_action_hook').wpfload();</script>
-							</div>
+							<div class="function" data-function="shutdown_action_hook" data-url="./wp-includes/load.html"></div>
 
 							<div class="checkbox">
-								<label><input class="if" type="checkbox" data-href="#cW1T7mrq" rel="cW1T7mrq" /> SHORTINIT </label>
-								<script type="text/javascript">$('.if').wpfcheckbox();</script>
+								<label><input class="if" type="checkbox" data-condition="cW1T7mrq" /> SHORTINIT </label>
 							</div>
 
-							<div id="cW1T7mrq" class="cW1T7mrq if-content">
+							<div id="cW1T7mrq" class="isTrue">
 								<span class="comment">// Stop most of WordPress from being loaded if we just want the basics.</span>
 							</div><!-- /#cW1T7mrq.if-content -->
 
-							<div class="cW1T7mrq if-content style_none">
+							<div id="cW1T7mrq" class="isFalse style_none">
 
-								<div id="l10n" class="require_once file" data-url="./wp-includes/l10n.html">
-									<script type="text/javascript">$('#l10n').wpfload();</script>
-								</div>
+								<div class="require_once" data-url="./wp-includes/l10n.html"></div>
 
-								<div class="function is_blog_installed" data-function="is_blog_installed" data-url="./wp-includes/functions.html">
-									<script type="text/javascript">$('.is_blog_installed').wpfload();</script>
-								</div>
-								<div class="function is_blog_installed" data-function="is_blog_installed" data-url="./wp-includes/functions.html">
-									<script type="text/javascript">$('.is_blog_installed').wpfload();</script>
-								</div>
+								<div class="function" data-function="wp_not_installed" data-url="./wp-includes/load.html"></div>
 
-								<div class="function wp_not_installed" data-function="wp_not_installed" data-url="./wp-includes/load.html">
-									<script type="text/javascript">$('.wp_not_installed').wpfload();</script>
-								</div>
+								<div class="require" data-url="./wp-includes/class-wp-walker.html"></div>
+								<div class="require" data-url="./wp-includes/class-wp-ajax-response.html"></div>
+								<div class="require" data-url="./wp-includes/formatting.html"></div>
+								<div class="require" data-url="./wp-includes/capabilities.html"></div>
+								<div class="require" data-url="./wp-includes/query.html"></div>
+								<div class="require" data-url="./wp-includes/date.html"></div>
+								<div class="require" data-url="./wp-includes/theme.html"></div>
+								<div class="require" data-url="./wp-includes/class-wp-theme.html"></div>
+								<div class="require" data-url="./wp-includes/template.html"></div>
+								<div class="require" data-url="./wp-includes/user.html"></div>
+								<div class="require" data-url="./wp-includes/session.html"></div>
+								<div class="require" data-url="./wp-includes/meta.html"></div>
+								<div class="require" data-url="./wp-includes/general-template.html"></div>
+								<div class="require" data-url="./wp-includes/link-template.html"></div>
+								<div class="require" data-url="./wp-includes/author-template.html"></div>
+								<div class="require" data-url="./wp-includes/post.html"></div>
+								<div class="require" data-url="./wp-includes/post-template.html"></div>
+								<div class="require" data-url="./wp-includes/revision.html"></div>
+								<div class="require" data-url="./wp-includes/post-formats.html"></div>
+								<div class="require" data-url="./wp-includes/post-thumbnail-template.html"></div>
+								<div class="require" data-url="./wp-includes/category.html"></div>
+								<div class="require" data-url="./wp-includes/category-template.html"></div>
+								<div class="require" data-url="./wp-includes/comment.html"></div>
+								<div class="require" data-url="./wp-includes/comment-template.html"></div>
+								<div class="require" data-url="./wp-includes/rewrite.html"></div>
+								<div class="require" data-url="./wp-includes/feed.html"></div>
+								<div class="require" data-url="./wp-includes/bookmark.html"></div>
+								<div class="require" data-url="./wp-includes/bookmark-template.html"></div>
+								<div class="require" data-url="./wp-includes/kses.html"></div>
+								<div class="require" data-url="./wp-includes/cron.html"></div>
+								<div class="require" data-url="./wp-includes/deprecated.html"></div>
+								<div class="require" data-url="./wp-includes/script-loader.html"></div>
+								<div class="require" data-url="./wp-includes/taxonomy.html"></div>
+								<div class="require" data-url="./wp-includes/update.html"></div>
+								<div class="require" data-url="./wp-includes/canonical.html"></div>
+								<div class="require" data-url="./wp-includes/shortcodes.html"></div>
+								<div class="require" data-url="./wp-includes/class-wp-embed.html"></div>
+								<div class="require" data-url="./wp-includes/media.html"></div>
+								<div class="require" data-url="./wp-includes/http.html"></div>
+								<div class="require" data-url="./wp-includes/class-http.html"></div>
+								<div class="require" data-url="./wp-includes/widgets.html"></div>
+								<div class="require" data-url="./wp-includes/nav-menu.html"></div>
+								<div class="require" data-url="./wp-includes/nav-menu-template.html"></div>
+								<div class="require" data-url="./wp-includes/admin-bar.html"></div>
 
-								<div id="class-wp-walker" class="require file" data-url="./wp-includes/class-wp-walker.html">
-									<script type="text/javascript">$('#class-wp-walker').wpfload();</script>
-								</div>
-
-								<div id="class-wp-ajax-response" class="require file" data-url="./wp-includes/class-wp-ajax-response.html">
-									<script type="text/javascript">$('#class-wp-ajax-response').wpfload();</script>
-								</div>
-
-								<div id="formatting" class="require file" data-url="./wp-includes/formatting.html">
-									<script type="text/javascript">$('#formatting').wpfload();</script>
-								</div>
-
-								<div id="capabilities" class="require file" data-url="./wp-includes/capabilities.html">
-									<script type="text/javascript">$('#capabilities').wpfload();</script>
-								</div>
-
-								<div id="query" class="require file" data-url="./wp-includes/query.html">
-									<script type="text/javascript">$('#query').wpfload();</script>
-								</div>
-
-								<div id="date" class="require file" data-url="./wp-includes/date.html">
-									<script type="text/javascript">$('#date').wpfload();</script>
-								</div>
-
-								<div id="theme" class="require file" data-url="./wp-includes/theme.html">
-									<script type="text/javascript">$('#theme').wpfload();</script>
-								</div>
-
-								<div id="class-wp-theme" class="require file" data-url="./wp-includes/class-wp-theme.html">
-									<script type="text/javascript">$('#class-wp-theme').wpfload();</script>
-								</div>
-
-								<div id="template" class="require file" data-url="./wp-includes/template.html">
-									<script type="text/javascript">$('#template').wpfload();</script>
-								</div>
-
-								<div id="user" class="require file" data-url="./wp-includes/user.html">
-									<script type="text/javascript">$('#user').wpfload();</script>
-								</div>
-
-								<div id="session" class="require file" data-url="./wp-includes/session.html">
-									<script type="text/javascript">$('#session').wpfload();</script>
-								</div>
-
-								<div id="meta" class="require file" data-url="./wp-includes/meta.html">
-									<script type="text/javascript">$('#meta').wpfload();</script>
-								</div>
-
-								<div id="general-template" class="require file" data-url="./wp-includes/general-template.html">
-									<script type="text/javascript">$('#general-template').wpfload();</script>
-								</div>
-
-								<div id="link-template" class="require file" data-url="./wp-includes/link-template.html">
-									<script type="text/javascript">$('#link-template').wpfload();</script>
-								</div>
-
-								<div id="author-template" class="require file" data-url="./wp-includes/author-template.html">
-									<script type="text/javascript">$('#author-template').wpfload();</script>
-								</div>
-
-								<div id="post" class="require file" data-url="./wp-includes/post.html">
-									<script type="text/javascript">$('#post').wpfload();</script>
-								</div>
-
-								<div id="post-template" class="require file" data-url="./wp-includes/post-template.html">
-									<script type="text/javascript">$('#post-template').wpfload();</script>
-								</div>
-
-								<div id="revision" class="require file" data-url="./wp-includes/revision.html">
-									<script type="text/javascript">$('#revision').wpfload();</script>
-								</div>
-
-								<div id="post-formats" class="require file" data-url="./wp-includes/post-formats.html">
-									<script type="text/javascript">$('#post-formats').wpfload();</script>
-								</div>
-
-								<div id="post-thumbnail-template" class="require file" data-url="./wp-includes/post-thumbnail-template.html">
-									<script type="text/javascript">$('#post-thumbnail-template').wpfload();</script>
-								</div>
-
-								<div id="category" class="require file" data-url="./wp-includes/category.html">
-									<script type="text/javascript">$('#category').wpfload();</script>
-								</div>
-
-								<div id="category-template" class="require file" data-url="./wp-includes/category-template.html">
-									<script type="text/javascript">$('#category-template').wpfload();</script>
-								</div>
-
-								<div id="comment" class="require file" data-url="./wp-includes/comment.html">
-									<script type="text/javascript">$('#comment').wpfload();</script>
-								</div>
-
-								<div id="comment-template" class="require file" data-url="./wp-includes/comment-template.html">
-									<script type="text/javascript">$('#comment-template').wpfload();</script>
-								</div>
-
-								<div id="rewrite" class="require file" data-url="./wp-includes/rewrite.html">
-									<script type="text/javascript">$('#rewrite').wpfload();</script>
-								</div>
-
-								<div id="feed" class="require file" data-url="./wp-includes/feed.html">
-									<script type="text/javascript">$('#feed').wpfload();</script>
-								</div>
-
-								<div id="bookmark" class="require file" data-url="./wp-includes/bookmark.html">
-									<script type="text/javascript">$('#bookmark').wpfload();</script>
-								</div>
-
-								<div id="bookmark-template" class="require file" data-url="./wp-includes/bookmark-template.html">
-									<script type="text/javascript">$('#bookmark-template').wpfload();</script>
-								</div>
-
-								<div id="kses" class="require file" data-url="./wp-includes/kses.html">
-									<script type="text/javascript">$('#kses').wpfload();</script>
-								</div>
-
-								<div id="cron" class="require file" data-url="./wp-includes/cron.html">
-									<script type="text/javascript">$('#cron').wpfload();</script>
-								</div>
-
-								<div id="deprecated" class="require file" data-url="./wp-includes/deprecated.html">
-									<script type="text/javascript">$('#deprecated').wpfload();</script>
-								</div>
-
-								<div id="script-loader" class="require file" data-url="./wp-includes/script-loader.html">
-									<script type="text/javascript">$('#script-loader').wpfload();</script>
-								</div>
-
-								<div id="taxonomy" class="require file" data-url="./wp-includes/taxonomy.html">
-									<script type="text/javascript">$('#taxonomy').wpfload();</script>
-								</div>
-
-								<div id="update" class="require file" data-url="./wp-includes/update.html">
-									<script type="text/javascript">$('#update').wpfload();</script>
-								</div>
-
-								<div id="canonical" class="require file" data-url="./wp-includes/canonical.html">
-									<script type="text/javascript">$('#canonical').wpfload();</script>
-								</div>
-
-								<div id="shortcodes" class="require file" data-url="./wp-includes/shortcodes.html">
-									<script type="text/javascript">$('#shortcodes').wpfload();</script>
-								</div>
-
-								<div id="class-wp-embed" class="require file" data-url="./wp-includes/class-wp-embed.html">
-									<script type="text/javascript">$('#class-wp-embed').wpfload();</script>
-								</div>
-
-								<div id="media" class="require file" data-url="./wp-includes/media.html">
-									<script type="text/javascript">$('#media').wpfload();</script>
-								</div>
-
-								<div id="http" class="require file" data-url="./wp-includes/http.html">
-									<script type="text/javascript">$('#http').wpfload();</script>
-								</div>
-
-								<div id="class-http" class="require file" data-url="./wp-includes/class-http.html">
-									<script type="text/javascript">$('#class-http').wpfload();</script>
-								</div>
-
-								<div id="widgets" class="require file" data-url="./wp-includes/widgets.html">
-									<script type="text/javascript">$('#widgets').wpfload();</script>
-								</div>
-
-								<div id="nav-menu" class="require file" data-url="./wp-includes/nav-menu.html">
-									<script type="text/javascript">$('#nav-menu').wpfload();</script>
-								</div>
-
-								<div id="nav-menu-template" class="require file" data-url="./wp-includes/nav-menu-template.html">
-									<script type="text/javascript">$('#nav-menu-template').wpfload();</script>
-								</div>
-
-								<div id="admin-bar" class="require file" data-url="./wp-includes/admin-bar.html">
-									<script type="text/javascript">$('#admin-bar').wpfload();</script>
-								</div>
-
-								<div class="checkbox">
-									<label><input class="if" type="checkbox" data-href="#Sg8UHSGy" rel="Sg8UHSGy" /></label><!--
-									--><div class="function is_multisite" data-function="is_multisite" data-url="./wp-includes/load.html">
-										<script type="text/javascript">$('.is_multisite').wpfload();</script>
+								<div class="if-block">
+									<div class="checkbox">
+										<label><input class="if" type="checkbox" /></label><!--
+										--><div class="function" data-function="is_multisite" data-url="./wp-includes/load.html"></div>
 									</div>
-									<script type="text/javascript">$('.if').wpfcheckbox();</script>
-								</div>
+									<div class="isTrue">
+										<div class="require" data-url="./wp-includes/ms-functions.php"></div>
+										<div class="require" data-url="./wp-includes/ms-default-filters.php"></div>
+										<div class="require" data-url="./wp-includes/ms-deprecated.php"></div>
+									</div><!-- /.isTrue -->
+								</div><!-- /.if-block -->
 
-								<div id="Sg8UHSGy" class="Sg8UHSGy if-content">
-
-									<div class="ms-functions" class="require file" data-url="./wp-includes/ms-functions.php">
-										<script type="text/javascript">$('.ms-functions').wpfload();</script>
-									</div>
-
-									<div class="ms-default-filters" class="require file" data-url="./wp-includes/ms-default-filters.php">
-										<script type="text/javascript">$('.ms-default-filters').wpfload();</script>
-									</div>
-
-									<div class="ms-deprecated" class="require file" data-url="./wp-includes/ms-deprecated.php">
-										<script type="text/javascript">$('.ms-deprecated').wpfload();</script>
-									</div>
-
-								</div><!-- /#Sg8UHSGy.if-content -->
-
-								<div class="function wp_plugin_directory_constants" data-function="wp_plugin_directory_constants" data-url="./wp-includes/default-constants.html">
-									<script type="text/javascript">$('.wp_plugin_directory_constants').wpfload();</script>
-								</div>
+								<div class="function" data-function="wp_plugin_directory_constants" data-url="./wp-includes/default-constants.html"></div>
 
 								// now here
 
@@ -342,7 +183,7 @@
 
 						</div><!-- AolbyK8I -->
 
-						<script type="text/javascript">$('.require').wpfload();$('.require_once').wpfload();$('.include').wpfload();$('.include_once').wpfload();$('.function').wpfload();$('.class').wpfload();</script>
+						<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 					</div><!-- /.file-body -->
 				</div>
 			</div><!-- /#file -->

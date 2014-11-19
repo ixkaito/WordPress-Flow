@@ -195,9 +195,18 @@ code {
 	padding-bottom: $padding;
 }
 
+
+.collapse-toggle {
+	cursor: pointer;
+}
+
 // .function,
 // .class,
 // .redirect_to,
+.require,
+.require_once,
+.include,
+.include_once,
 .file {
 	background: #fff;
 	margin: $margin 0;
@@ -210,6 +219,18 @@ code {
 	&:hover {
 		// background: $state-warning-bg;
 	}
+
+	> .collapse-toggle {
+
+		&:hover,
+		&:focus,
+		&:active,
+		&.active {
+			background: $background_hover;
+			text-decoration: none;
+			color: inherit;
+		}
+	}
 }
 
 .file-name {
@@ -219,6 +240,21 @@ code {
 	display: block;
 	padding: $padding / 2;
 	color: inherit;
+}
+
+// .function-body,
+// .class-body,
+.file-body {
+	padding: 0 $padding;
+	border-top: 1px solid $border;
+
+	> :first-child {
+		margin-top: $margin;
+	}
+
+	> :last-child {
+		margin-bottom: $margin;
+	}
 }
 
 .class,
@@ -248,39 +284,6 @@ code {
 			}
 		}
 	}
-}
-
-.class-name,
-.function-name {
-	font-size: $rem * 1.4;
-	line-height: $line-height-base;
-	margin: 0;
-	display: block;
-	// padding: $padding / 2;
-	color: inherit;
-}
-
-.collapse-toggle {
-	cursor: pointer;
-}
-
-.file {
-
-	> .collapse-toggle {
-
-		&:hover,
-		&:focus,
-		&:active,
-		&.active {
-			background: $background_hover;
-			text-decoration: none;
-			color: inherit;
-		}
-	}
-}
-
-.class,
-.function {
 
 	> .collapse-toggle {
 
@@ -300,19 +303,14 @@ code {
 	}
 }
 
-// .function-body,
-// .class-body,
-.file-body {
-	padding: 0 $padding;
-	border-top: 1px solid $border;
-
-	> :first-child {
-		margin-top: $margin;
-	}
-
-	> :last-child {
-		margin-bottom: $margin;
-	}
+.class-name,
+.function-name {
+	font-size: $rem * 1.4;
+	line-height: $line-height-base;
+	margin: 0;
+	display: block;
+	// padding: $padding / 2;
+	color: inherit;
 }
 
 .class-body,
@@ -377,6 +375,7 @@ code {
 		}
 	}
 }
+
 .include {
 
 	> .file-name,
@@ -474,6 +473,10 @@ code {
 	// .function,
 	// .class,
 	// .redirect_to,
+	.require,
+	.require_once,
+	.include,
+	.include_once,
 	.file {
 		margin: ($margin / 2) 0;
 	}
@@ -492,6 +495,8 @@ code {
 		}
 	}
 
+	.isTrue,
+	.isFalse,
 	.if-content {
 		padding: $padding / 2;
 	}

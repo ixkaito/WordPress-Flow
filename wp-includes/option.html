@@ -39,48 +39,47 @@
 					<div class="collapse in">
 						<div class="function-body">
 
-							<div class="function get_option_load" data-function="apply_filters" data-params="<span class='yellow'>'pre_option'</span> . $option, <span class='purple'>false</span>" data-callback="" data-url="../wp-includes/plugin.html"></div>
+							<div class="function" data-function="apply_filters" data-params="<span class='yellow'>'pre_option'</span> . $option, <span class='purple'>false</span>" data-callback="" data-url="../wp-includes/plugin.html"></div>
 
-							<div class="checkbox">
-								<label><input class="if" type="checkbox" data-href="#Cohx7WtA" rel="Cohx7WtA" /> empty( $option ) </label>
-								<script type="text/javascript">$('.if').wpfcheckbox();</script>
-							</div>
-
-							<div class="Cohx7WtA if-content">
-
+							<div class="if-block">
 								<div class="checkbox">
-									<label><input class="if" type="checkbox" data-href="#oq1dZfLP" rel="oq1dZfLP" /> false !== $pre </label>
-									<script type="text/javascript">$('.if').wpfcheckbox();</script>
+									<label><input class="if" type="checkbox" /> empty( $option ) </label>
 								</div>
+								<div class="isFalse">
 
-								<div class="oq1dZfLP if-content">
-
-									<div class="checkbox">
-										<label><input class="if" type="checkbox" data-href="#AbpUMPd8" rel="AbpUMPd8" checked /> defined( 'WP_SETUP_CONFIG' ) </label>
-										<script type="text/javascript">$('.if').wpfcheckbox();</script>
-									</div>
-
-									<div class="AbpUMPd8 if-content">
-
+									<div class="if-block">
 										<div class="checkbox">
-											<label><input class="if" type="checkbox" data-href="#FpwymmAh" rel="FpwymmAh" checked /> ! defined( 'WP_INSTALLING' ) </label>
-											<script type="text/javascript">$('.if').wpfcheckbox();</script>
+											<label><input class="if" type="checkbox" /> false !== $pre </label>
 										</div>
 
-										<div id="FpwymmAh" class="FpwymmAh if-content">
-											<div class="function wp_cache_get" data-function="wp_cache_get" data-url="../wp-includes/cache.html">
-												<script type="text/javascript">$('.wp_cache_get').wpfload();</script>
-											</div>
-										</div><!-- /#FpwymmAh.if-content -->
+										<div class="isFalse">
 
-									</div><!-- /.AbpUMPd8.if-content -->
+											<div class="if-block">
+												<div class="checkbox">
+													<label><input class="if" type="checkbox" checked /> defined( 'WP_SETUP_CONFIG' ) </label>
+												</div>
 
-								</div><!-- /.oq1dZfLP.if-content -->
+												<div class="isFalse">
 
-							</div><!-- /.Cohx7WtA.if-content -->
+													<div class="if-block">
+														<div class="checkbox">
+															<label><input class="if" type="checkbox" checked /> ! defined( 'WP_INSTALLING' ) </label>
+														</div>
+														<div class="isTrue">
+															<div class="function" data-function="wp_cache_get" data-url="../wp-includes/cache.html"></div>
+														</div><!-- /.isTrue -->
+													</div><!-- /.if-block -->
 
-							<script type="text/javascript">$('.get_option_load').wpfload();</script>
+												</div><!-- /.isFalse -->
+											</div><!-- /.if-block -->
 
+										</div><!-- /.isFalse -->
+									</div><!-- /.if-block -->
+
+								</div><!-- /.isFalse -->
+							</div><!-- /.if-block -->
+
+							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->
 					</div><!-- /.collapse -->
 				</div><!-- /#get_option.function -->

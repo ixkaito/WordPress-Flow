@@ -27,56 +27,40 @@
 				<div class="collapse">
 					<div class="file-body">
 
-						<div class="checkbox">
-							<label><input class="if if-function" type="checkbox" data-href="#mR2zQ1mj" rel="mR2zQ1mj" /></label><!--
-								-->( ! <div class="function is_main_site" data-function="is_main_site" data-url="../wp-includes/functions.html">
-									<script type="text/javascript">$('.is_main_site').wpfload();</script>
-								</div> &amp;&amp; ! <div class="function is_network_admin" data-function="is_network_admin" data-url="../wp-includes/load.html">
-									<script type="text/javascript">$('.is_network_admin').wpfload();</script>
-								</div> ) || ( defined( 'DOING_AJAX' ) &amp;&amp; DOING_AJAX )
-							<script type="text/javascript">$('.if').wpfcheckbox();</script>
-						</div>
+						<div class="if-block">
+							<div class="checkbox">
+								<label><input class="if if-function" type="checkbox" /></label><!--
+									-->( ! <div class="function" data-function="is_main_site" data-url="../wp-includes/functions.html"></div> &amp;&amp; ! <div class="function" data-function="is_network_admin" data-url="../wp-includes/load.html"></div> ) || ( defined( 'DOING_AJAX' ) &amp;&amp; DOING_AJAX )
+							</div>
 
-						<div class="mR2zQ1mj if-content">
+							<div class="isFalse">
 
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="admin_init" data-callback="_maybe_update_core" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="admin_init" data-callback="_maybe_update_core" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="wp_version_check" data-callback="wp_version_check" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="upgrader_process_complete" data-callback="wp_version_check" data-url="../wp-includes/plugin.html"></div>
 
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="wp_version_check" data-callback="wp_version_check" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="load-plugins.php" data-callback="wp_update_plugins" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="load-update.php" data-callback="wp_update_plugins" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="load-update-core.php" data-callback="wp_update_plugins" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="admin_init" data-callback="_maybe_update_plugins" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="wp_update_plugins" data-callback="wp_update_plugins" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="upgrader_process_complete" data-callback="wp_update_plugins" data-url="../wp-includes/plugin.html"></div>
 
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="upgrader_process_complete" data-callback="wp_version_check" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="load-themes.php" data-callback="wp_update_themes" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="load-update.php" data-callback="wp_update_themes" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="load-update-core.php" data-callback="wp_update_themes" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="admin_init" data-callback="_maybe_update_themes" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="wp_update_themes" data-callback="wp_update_themes" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="upgrader_process_complete" data-callback="wp_update_themes" data-url="../wp-includes/plugin.html"></div>
 
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="load-plugins.php" data-callback="wp_update_plugins" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="wp_maybe_auto_update" data-callback="wp_maybe_auto_update" data-url="../wp-includes/plugin.html"></div>
 
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="load-update.php" data-callback="wp_update_plugins" data-url="../wp-includes/plugin.html"></div>
+								<div class="function" data-function="add_action" data-tag="init" data-callback="wp_schedule_update_checks" data-url="../wp-includes/plugin.html"></div>
 
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="load-update-core.php" data-callback="wp_update_plugins" data-url="../wp-includes/plugin.html"></div>
+							</div><!-- /.isFalse -->
+						</div><!-- /.if-block -->
 
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="admin_init" data-callback="_maybe_update_plugins" data-url="../wp-includes/plugin.html"></div>
-
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="wp_update_plugins" data-callback="wp_update_plugins" data-url="../wp-includes/plugin.html"></div>
-
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="upgrader_process_complete" data-callback="wp_update_plugins" data-url="../wp-includes/plugin.html"></div>
-
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="load-themes.php" data-callback="wp_update_themes" data-url="../wp-includes/plugin.html"></div>
-
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="load-update.php" data-callback="wp_update_themes" data-url="../wp-includes/plugin.html"></div>
-
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="load-update-core.php" data-callback="wp_update_themes" data-url="../wp-includes/plugin.html"></div>
-
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="admin_init" data-callback="_maybe_update_themes" data-url="../wp-includes/plugin.html"></div>
-
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="wp_update_themes" data-callback="wp_update_themes" data-url="../wp-includes/plugin.html"></div>
-
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="upgrader_process_complete" data-callback="wp_update_themes" data-url="../wp-includes/plugin.html"></div>
-
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="wp_maybe_auto_update" data-callback="wp_maybe_auto_update" data-url="../wp-includes/plugin.html"></div>
-
-							<div class="function zWYPEOdB" data-function="add_action" data-tag="init" data-callback="wp_schedule_update_checks" data-url="../wp-includes/plugin.html"></div>
-
-						</div><!-- /#mR2zQ1mj.if-content -->
-
-						<script type="text/javascript">$('.zWYPEOdB').wpfload();</script>
-
+						<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 					</div>
 				</div>
 			</div>
