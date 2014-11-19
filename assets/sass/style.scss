@@ -419,6 +419,18 @@ code {
 	}
 }
 
+.if-block {
+	margin: $margin 0;
+
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
 .isTrue,
 .isFalse,
 .if-content {
