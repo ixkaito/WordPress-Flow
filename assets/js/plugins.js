@@ -40,12 +40,12 @@
 
     this.each(function() {
 
-      if (!$(this).hasClass('including')) {
+      var $el = $(this);
+      if (!$el.hasClass('wpfloading')) {
 
-        var $el = $(this);
-        $el.addClass('including');
+        $el.addClass('wpfloading');
 
-        var parentAbs = $el.parents('.including').data('abs');
+        var parentAbs = $el.parents('.wpfloading').data('abs');
         // console.log('parentAbs: ' + parentAbs);
 
         var thisUrl  = parentAbs ? parentAbs : location.pathname;
@@ -183,6 +183,7 @@
             // recall necessary methods;
             $('.if').wpfcheckbox();
             $('.nav-tabs > li').wpftab();
+            $('.redirect_to').wpfredirect();
 
           } else {
             if (isFunction) {
@@ -216,39 +217,45 @@
 
       var $el = $(this);
 
-      var parentAbs = $el.parents('.including').data('abs');
-      // console.log('parentAbs: ' + parentAbs);
+      if (!$el.hasClass('wpfredirect_ok')) {
 
-      var thisUrl  = parentAbs ? parentAbs : location.pathname;
-      // console.log('thisUrl: ' + thisUrl);
+        var parentAbs = $el.parents('.wpfloading').data('abs');
+        // console.log('parentAbs: ' + parentAbs);
 
-      // trim the file name
-      var thisPath = thisUrl.replace(/[^\/]*$/, '');
-      // console.log('thisPath: ' + thisPath);
+        var thisUrl  = parentAbs ? parentAbs : location.pathname;
+        // console.log('thisUrl: ' + thisUrl);
 
-      // trim './'
-      var targetUrl = $el.attr('href').replace(/^\.\//, '');
-      // console.log('targetUrl: ' + targetUrl);
+        // trim the file name
+        var thisPath = thisUrl.replace(/[^\/]*$/, '');
+        // console.log('thisPath: ' + thisPath);
 
-      // number of '../'
-      var parentLevel = targetUrl.match(/\.\.\//g);
-        parentLevel = parentLevel ? parentLevel.length : 0;
-      // console.log('parentLevel: ' + parentLevel);
+        // trim './'
+        var targetUrl = $el.attr('href').replace(/^\.\//, '');
+        // console.log('targetUrl: ' + targetUrl);
 
-      // trim all '../'
-      var targetPath = targetUrl.replace(/\.\.\//g, '');
-      // console.log('targetPath: ' + targetPath);
+        // number of '../'
+        var parentLevel = targetUrl.match(/\.\.\//g);
+            parentLevel = parentLevel ? parentLevel.length : 0;
+        // console.log('parentLevel: ' + parentLevel);
 
-      // trim dir from the back * parentLevel
-      var re           = new RegExp('([^\/]+\/){' + parentLevel + '}$');
-      var targetParent = thisPath.replace(re, '');
-      // console.log('targetParent: ' + targetParent);
+        // trim all '../'
+        var targetPath = targetUrl.replace(/\.\.\//g, '');
+        // console.log('targetPath: ' + targetPath);
 
-      var url = targetParent + targetPath;
-      // console.log('url: ' + url);
+        // trim dir from the back * parentLevel
+        var re           = new RegExp('([^\/]+\/){' + parentLevel + '}$');
+        var targetParent = thisPath.replace(re, '');
+        // console.log('targetParent: ' + targetParent);
 
-      $el.attr('href', url);
+        var url = targetParent + targetPath;
+        // console.log('url: ' + url);
 
+        $el.attr('href', url);
+        // console.log($el.attr('href'));
+
+        $el.addClass('wpfredirect_ok');
+
+      }
     });
 
     return this;
@@ -277,11 +284,11 @@
         if (condition) { // To control contents out of the function or file
 
           if ($el.is(':checked')) {
-            $('#' + condition + '.isFalse').removeClass('in');
-            $('#' + condition + '.isTrue').addClass('in');
+            $('.' + condition + '.isFalse').removeClass('in');
+            $('.' + condition + '.isTrue').addClass('in');
           } else {
-            $('#' + condition + '.isTrue').removeClass('in');
-            $('#' + condition + '.isFalse').addClass('in');
+            $('.' + condition + '.isTrue').removeClass('in');
+            $('.' + condition + '.isFalse').addClass('in');
           }
 
         } else if ($block) {

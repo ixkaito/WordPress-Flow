@@ -24,7 +24,20 @@
 				<div class="collapse in">
 					<div class="file-body">
 
-						<div class="require_once" data-url="wp-load.html"></div>
+						<div class="if-block">
+							<div class="checkbox">
+								<label><input class="if" type="checkbox" checked /> ! isset($wp_did_header) </label>
+							</div>
+							<div class="isTrue">
+								<div class="require_once" data-url="wp-load.html"></div>
+
+								<div id="S62JekCI" class="isFalse">
+									<div class="function" data-function="wp" data-url="./wp-includes/functions.html"></div>
+
+									<div class="require_once" data-url="./wp-includes/template-loader.html"></div>
+								</div><!-- /#S62JekCI.isFalse -->
+							</div><!-- /.isTrue -->
+						</div><!-- /.if-block -->
 
 						<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 					</div>
