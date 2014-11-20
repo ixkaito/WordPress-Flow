@@ -38,7 +38,7 @@
     //     return result;
     // }
 
-    this.each(function() {
+    return this.each(function() {
 
       var $el = $(this);
       if (!$el.hasClass('wpfloading')) {
@@ -202,8 +202,6 @@
       }
 
     });
-
-    return this;
   };
 
   /*
@@ -213,7 +211,7 @@
   */
   $.fn.wpfredirect = function(option) {
 
-    this.each(function(){
+    return this.each(function(){
 
       var $el = $(this);
 
@@ -257,8 +255,6 @@
 
       }
     });
-
-    return this;
   };
 
   /*
@@ -268,10 +264,15 @@
   */
   $.fn.wpfcheckbox = function(option) {
 
-    this.each(function() {
-      var $el       = $(this);
-      var condition = $el.data('condition');
-      var $block    = $el.parent('label').parent('.checkbox').parent('.if-block');
+    var $el, condition, $block, n;
+
+    return this.each(function() {
+
+      $el       = $(this);
+      condition = $el.data('condition');
+      $block    = $el.parent('label').parent('.checkbox').parent('.if-block');
+
+      $el.addClass('wpfcheckbox');
 
       check();
 
@@ -279,34 +280,52 @@
         check();
       });
 
-      function check() {
+    });
 
-        if (condition) { // To control contents out of the function or file
+    function check() {
 
-          if ($el.is(':checked')) {
-            $('.' + condition + '.isFalse').removeClass('in');
-            $('.' + condition + '.isTrue').addClass('in');
-          } else {
-            $('.' + condition + '.isTrue').removeClass('in');
-            $('.' + condition + '.isFalse').addClass('in');
+      n = 0;
+
+
+      if (condition) { // To control contents out of the function or file
+
+        $('.wpfcheckbox').each(function() {
+          if ($(this).data('condition') === condition && $(this).is(':checked')) {
+            n++;
           }
+        });
 
-        } else if ($block) {
+        console.log(n);
 
-          if ($el.is(':checked')) {
-            $block.children('.isFalse').removeClass('in');
-            $block.children('.isTrue').addClass('in');
-          } else {
-            $block.children('.isTrue').removeClass('in');
-            $block.children('.isFalse').addClass('in');
-          }
+        if (n > 0) {
+          $('.' + condition + '.isFalse').removeClass('in');
+          $('.' + condition + '.isTrue').addClass('in');
+        } else {
+          $('.' + condition + '.isTrue').removeClass('in');
+          $('.' + condition + '.isFalse').addClass('in');
+        }
 
+        // if ($el.is(':checked')) {
+        //   $('.' + condition + '.isFalse').removeClass('in');
+        //   $('.' + condition + '.isTrue').addClass('in');
+        // } else {
+        //   $('.' + condition + '.isTrue').removeClass('in');
+        //   $('.' + condition + '.isFalse').addClass('in');
+        // }
+
+      } else if ($block) {
+
+        if ($el.is(':checked')) {
+          $block.children('.isFalse').removeClass('in');
+          $block.children('.isTrue').addClass('in');
+        } else {
+          $block.children('.isTrue').removeClass('in');
+          $block.children('.isFalse').addClass('in');
         }
 
       }
-    });
 
-    return this;
+    }
   };
 
   /*
@@ -316,7 +335,7 @@
   */
   $.fn.wpftab = function (option) {
 
-    this.each(function() {
+    return this.each(function() {
       var $el      = $(this);
       var index    = $el.index();
       var href     = $el.attr('href');
@@ -335,11 +354,7 @@
           $tabPane.eq(index).addClass('in').addClass('active');
         });
       }
-
     });
-
-    return this;
-
   };
 
 })(jQuery);

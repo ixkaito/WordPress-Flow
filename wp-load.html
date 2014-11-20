@@ -61,27 +61,26 @@
 												<label><input class="if" type="checkbox" data-condition="S62JekCI" checked /> false === strpos( $_SERVER['REQUEST_URI'], 'setup-config' ) </label>
 											</div>
 
-											<div id="S62JekCI" class="isTrue">
+											<div class="S62JekCI isTrue">
 												<a href="wp-admin/setup-config.html" class="redirect_to">wp-admin/setup-config.php</a>
 											</div><!-- /.isTrue -->
+
+											<div class="S62JekCI isFalse">
+												define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
+												require_once( ABSPATH . WPINC . '/version.php' );
+
+												wp_check_php_mysql_versions();
+												wp_load_translations_early();
+
+												// Die with an error message
+												$die  = __( "There doesn't seem to be a <code>wp-config.php</code> file. I need this before we can get started." ) . '</p>';
+												$die .= '<p>' . __( "Need more help? <a href='http://codex.wordpress.org/Editing_wp-config.php'>We got it</a>." ) . '</p>';
+												$die .= '<p>' . __( "You can create a <code>wp-config.php</code> file through a web interface, but this doesn't work for all server setups. The safest way is to manually create the file." ) . '</p>';
+												$die .= '<p><a href="' . $path . '" class="button button-large">' . __( "Create a Configuration File" ) . '</a>';
+
+												wp_die( $die, __( 'WordPress &rsaquo; Error' ) );
+											</div><!-- /.isFalse -->
 										</div><!-- /.if-block -->
-
-
-										<div id="S62JekCI" class="isFalse">
-											define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
-											require_once( ABSPATH . WPINC . '/version.php' );
-
-											wp_check_php_mysql_versions();
-											wp_load_translations_early();
-
-											// Die with an error message
-											$die  = __( "There doesn't seem to be a <code>wp-config.php</code> file. I need this before we can get started." ) . '</p>';
-											$die .= '<p>' . __( "Need more help? <a href='http://codex.wordpress.org/Editing_wp-config.php'>We got it</a>." ) . '</p>';
-											$die .= '<p>' . __( "You can create a <code>wp-config.php</code> file through a web interface, but this doesn't work for all server setups. The safest way is to manually create the file." ) . '</p>';
-											$die .= '<p><a href="' . $path . '" class="button button-large">' . __( "Create a Configuration File" ) . '</a>';
-
-											wp_die( $die, __( 'WordPress &rsaquo; Error' ) );
-										</div>
 
 									</div>
 								</div><!-- /.tab-content -->
