@@ -70,15 +70,15 @@
 								<label><input class="if" type="checkbox" data-condition="AolbyK8I" checked /> ! file_exists( ABSPATH . '.maintenance' ) || defined( 'WP_INSTALLING' ) </label>
 							</div>
 
-							<div class="AolbyK8I isFalse">
+							<div class="if_AolbyK8I_isFalse style_none">
 								<div class="include" data-url="../maintenance.html"></div>
 
 								<div class="if-block">
 									<div class="checkbox">
-										<label><input class="if" type="checkbox" data-condition="W7VOtYzJ" checked /> ( time() - $upgrading ) >= 600 </label>
+										<label><input class="if" type="checkbox" data-condition="W7VOtYzJ" /> ( time() - $upgrading ) &gt;= 600 </label>
 									</div>
 
-									<div class="W7VOtYzJ isFalse">
+									<div class="if_W7VOtYzJ_isFalse style_none">
 										//
 										<!-- <div class="checkbox">
 											<label><input class="if" type="checkbox" data-href="#AolbyK8I" rel="AolbyK8I" /> ( time() - $upgrading ) >= 600 <span class="comment">// the $upgrading timestamp is older than 10 minutes</span> </label>
@@ -107,9 +107,9 @@
 											</div>
 
 										</div> -->
-									</div><!-- /.isFalse -->
+									</div><!-- /.if_W7VOtYzJ_isFalse -->
 								</div><!-- /.if-block -->
-							</div>
+							</div><!-- /.if_AolbyK8I_isFalse -->
 							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->
 					</div><!-- /.collapse -->

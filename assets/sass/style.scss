@@ -431,6 +431,8 @@ code {
 	}
 }
 
+[class^="if_"],
+[class*=" if_"],
 .isTrue,
 .isFalse,
 .if-content {
@@ -507,6 +509,8 @@ code {
 		}
 	}
 
+	[class^="if_"],
+	[class*=" if_"],
 	.isTrue,
 	.isFalse,
 	.if-content {

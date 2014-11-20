@@ -61,11 +61,11 @@
 												<label><input class="if" type="checkbox" data-condition="S62JekCI" checked /> false === strpos( $_SERVER['REQUEST_URI'], 'setup-config' ) </label>
 											</div>
 
-											<div class="S62JekCI isTrue">
+											<div class="if_S62JekCI_isTrue">
 												<a href="wp-admin/setup-config.html" class="redirect_to">wp-admin/setup-config.php</a>
-											</div><!-- /.isTrue -->
+											</div><!-- /.if_S62JekCI_isTrue -->
 
-											<div class="S62JekCI isFalse">
+											<div class="if_S62JekCI_isFalse style_none">
 												define( 'WP_CONTENT_DIR', ABSPATH . 'wp-content' );
 												require_once( ABSPATH . WPINC . '/version.php' );
 
@@ -79,7 +79,7 @@
 												$die .= '<p><a href="' . $path . '" class="button button-large">' . __( "Create a Configuration File" ) . '</a>';
 
 												wp_die( $die, __( 'WordPress &rsaquo; Error' ) );
-											</div><!-- /.isFalse -->
+											</div><!-- /.if_S62JekCI_isFalse -->
 										</div><!-- /.if-block -->
 
 									</div>

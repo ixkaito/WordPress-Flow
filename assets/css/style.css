@@ -8451,7 +8451,9 @@ code .purple {
   margin-bottom: 0;
 }
 
-/* line 436, ../sass/style.scss */
+/* line 438, ../sass/style.scss */
+[class^="if_"],
+[class*=" if_"],
 .isTrue,
 .isFalse,
 .if-content {
@@ -8465,25 +8467,33 @@ code .purple {
   padding: 20px;
   margin: 20px 0;
 }
-/* line 443, ../sass/style.scss */
+/* line 445, ../sass/style.scss */
+[class^="if_"] > :first-child,
+[class*=" if_"] > :first-child,
 .isTrue > :first-child,
 .isFalse > :first-child,
 .if-content > :first-child {
   margin-top: 0;
 }
-/* line 447, ../sass/style.scss */
+/* line 449, ../sass/style.scss */
+[class^="if_"] > :last-child,
+[class*=" if_"] > :last-child,
 .isTrue > :last-child,
 .isFalse > :last-child,
 .if-content > :last-child {
   margin-bottom: 0;
 }
-/* line 451, ../sass/style.scss */
+/* line 453, ../sass/style.scss */
+[class^="if_"].in,
+[class*=" if_"].in,
 .isTrue.in,
 .isFalse.in,
 .if-content.in {
   display: block;
 }
-/* line 455, ../sass/style.scss */
+/* line 457, ../sass/style.scss */
+[class^="if_"].style_none,
+[class*=" if_"].style_none,
 .isTrue.style_none,
 .isFalse.style_none,
 .if-content.style_none {
@@ -8496,16 +8506,16 @@ code .purple {
   padding: 0;
 }
 
-/* line 462, ../sass/style.scss */
+/* line 464, ../sass/style.scss */
 .at {
   color: #9ea7b2;
 }
-/* line 465, ../sass/style.scss */
+/* line 467, ../sass/style.scss */
 .at:before {
   content: '// ';
 }
 
-/* line 470, ../sass/style.scss */
+/* line 472, ../sass/style.scss */
 .comment {
   color: #9ea7b2;
 }
@@ -8516,12 +8526,12 @@ code .purple {
 ================================================================================
 */
 @media (max-width: 768px) {
-  /* line 481, ../sass/style.scss */
+  /* line 483, ../sass/style.scss */
   .flow {
     padding: 10px;
   }
 
-  /* line 492, ../sass/style.scss */
+  /* line 494, ../sass/style.scss */
   .require,
   .require_once,
   .include,
@@ -8533,26 +8543,28 @@ code .purple {
     margin: 10px 0;
   }
 
-  /* line 498, ../sass/style.scss */
+  /* line 500, ../sass/style.scss */
   .file-body,
   .function-body,
   .class-body {
     padding: 0 10px;
   }
-  /* line 501, ../sass/style.scss */
+  /* line 503, ../sass/style.scss */
   .file-body > :first-child,
   .function-body > :first-child,
   .class-body > :first-child {
     margin-top: 10px;
   }
-  /* line 505, ../sass/style.scss */
+  /* line 507, ../sass/style.scss */
   .file-body > :last-child,
   .function-body > :last-child,
   .class-body > :last-child {
     margin-bottom: 10px;
   }
 
-  /* line 512, ../sass/style.scss */
+  /* line 516, ../sass/style.scss */
+  [class^="if_"],
+  [class*=" if_"],
   .isTrue,
   .isFalse,
   .if-content {
