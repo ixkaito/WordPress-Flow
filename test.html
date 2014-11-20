@@ -28,20 +28,30 @@
 							<label><input class="if" type="checkbox" data-condition="asdfasdf" checked /> Foo? </label>
 						</div>
 
-						<div class="asdfasdf qwerqwer isTrue isFale">
-							Foo is true || Bar is false
+						<div class="asdfasdf_isFalse if-content">
+							Foo is False
+							<div class="checkbox">
+								<label><input class="if" type="checkbox" data-condition="qwerqwer" checked /> Bar? </label>
+							</div>
+							<div class="qwerqwer_isFalse if-content">
+								Bar is False
+							</div>
+						</div>
+
+						<div class="asdfasdf_isTrue qwerqwer_isTrue if-content">
+							Foo is true || Bar is true
 						</div><!-- /.isTrue -->
 
-						<div class="asdfasdf isFalse">
+<!-- 						<div class="asdfasdf_isFalse if-content">
 							Foo is false
 							<div class="checkbox">
 								<label><input type="checkbox" class="if" data-condition="qwerqwer" checked /> Bar? </label>
 							</div>
-							<div class="qwerqwer isTrue">
+							<div class="qwerqwer_isTrue if-content">
 								Bar is true
 							</div>
 						</div>
-
+ -->
 						<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 					</div>
 				</div>

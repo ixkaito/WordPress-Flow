@@ -264,46 +264,103 @@
   */
   $.fn.wpfcheckbox = function(option) {
 
-    var $el, condition, $block, n;
+    $el = $(this);
 
     return this.each(function() {
 
-      $el       = $(this);
-      condition = $el.data('condition');
-      $block    = $el.parent('label').parent('.checkbox').parent('.if-block');
+      var $el       = $(this);
+      // var condition = $el.data('condition');
+      // var $block    = $el.parent('label').parent('.checkbox').parent('.if-block');
 
-      $el.addClass('wpfcheckbox');
+      // var wpfchkbx = {
+      //   $el : $(this)
+      // };
+      // wpfchkbx.condition = wpfchkbx.$el.data('condition');
+      // wpfchkbx.$block    = wpfchkbx.$el.parent('label').parent('.checkbox').parent('.if-block');
 
-      check();
+      // $el.addClass('wpfcheckbox');
+
+      check($el);
+
+      // add class "wpfcheckbox_ok" after initial check
+      $el.addClass('wpfcheckbox_ok');
 
       $el.on('click', function() {
-        check();
+        check($el);
       });
 
     });
 
-    function check() {
+    function check(el) {
 
-      n = 0;
+      // var $el       = wpfchkbx.$el;
+      // var condition = wpfchkbx.condition;
+      // var $block    = wpfchkbx.$block;
 
+      var $el       = el;
+      var condition = $el.data('condition');
+      var $block    = $el.parent('label').parent('.checkbox').parent('.if-block');
+
+      // n = 0;
 
       if (condition) { // To control contents out of the function or file
 
-        $('.wpfcheckbox').each(function() {
-          if ($(this).data('condition') === condition && $(this).is(':checked')) {
-            n++;
+        var $isTrue    = $('.' + condition + '_isTrue');
+        var $isFalse   = $('.' + condition + '_isFalse');
+        var isTrueVisibility  = $isTrue.data('visibility');
+            isTrueVisibility  = isTrueVisibility ? isTrueVisibility : 0;
+        var isFalseVisibility = $isFalse.data('visibility');
+            isFalseVisibility = isFalseVisibility ? isFalseVisibility : 0;
+
+        console.log(condition + '_isTrue (before): ' + isTrueVisibility);
+        console.log(condition + '_isFalse (before): ' + isFalseVisibility);
+
+        if ($el.hasClass('wpfcheckbox_ok')) {
+          if ($el.is(':checked')) {
+            isTrueVisibility++;
+            isFalseVisibility = isFalseVisibility > 0 ? isFalseVisibility -1 : 0;
+          } else {
+            isFalseVisibility++;
+            isTrueVisibility = isTrueVisibility > 0 ? isTrueVisibility - 1 : 0;
           }
-        });
-
-        console.log(n);
-
-        if (n > 0) {
-          $('.' + condition + '.isFalse').removeClass('in');
-          $('.' + condition + '.isTrue').addClass('in');
-        } else {
-          $('.' + condition + '.isTrue').removeClass('in');
-          $('.' + condition + '.isFalse').addClass('in');
+        } else { // initial check
+          if ($el.is(':checked')) {
+            isTrueVisibility++;
+          } else {
+            isFalseVisibility++;
+          }
         }
+
+        $isTrue.data('visibility', isTrueVisibility);
+        $isFalse.data('visibility', isFalseVisibility);
+
+        console.log(condition + '_isTrue (after): ' + $isTrue.data('visibility'));
+        console.log(condition + '_isFalse (after): ' + $isFalse.data('visibility'));
+
+        if ($isTrue.data('visibility') > 0) {
+          $isTrue.addClass('in');
+        } else {
+          $isTrue.removeClass('in');
+        }
+
+        if ($isFalse.data('visibility') > 0) {
+          $isFalse.addClass('in');
+        } else {
+          $isFalse.removeClass('in');
+        }
+        // $('.wpfcheckbox').each(function() {
+        //   if ($(this).data('condition') === condition && $(this).is(':checked')) {
+        //     n++;
+        //   }
+        // });
+
+        // if (n > 0) {
+        //   $('.' + condition + '_isFalse').removeClass('in');
+        //   $('.' + condition + '_isTrue').addClass('in');
+        // } else {
+        //   $('.' + condition + '_isTrue').removeClass('in');
+        //   $('.' + condition + '_isFalse').addClass('in');
+        // }
 
         // if ($el.is(':checked')) {
         //   $('.' + condition + '.isFalse').removeClass('in');
@@ -324,7 +381,6 @@
         }
 
       }
-
     }
   };
 
