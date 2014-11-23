@@ -436,7 +436,7 @@ code {
 .isTrue,
 .isFalse,
 .if-content {
-	display: none;
+	// display: none;
 	background: rgba($yellow, 0.1);
 	@include border-radius(3px);
 	padding: $padding;
@@ -448,6 +448,10 @@ code {
 
 	> :last-child {
 		margin-bottom: 0;
+	}
+
+	&.out {
+		display: none;
 	}
 
 	&.in {

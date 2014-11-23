@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>test</title>
+<link rel="stylesheet" href="./assets/css/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">window.jQuery || document.write( '<script src="./assets/js/jquery-1.11.1.min.js" type="text/javascript"><\/script>' )</script>
+<script src="./assets/js/plugins.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 flow">
+
+			<div id="file" class="file">
+				<div class="collapse-toggle">
+					<h1 class="file-name">index.php <i class="caret"></i></h1>
+				</div>
+				<div class="collapse in">
+					<div class="file-body">
+
+						<div class="tab-block">
+							<ul class="nav nav-tabs">
+								<li class="">
+									// test1
+								</li>
+								<li class="">
+									// test 2
+								</li>
+								<li class="active">
+									else
+								</li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane">
+									<div class="if-block">
+										<div class="checkbox">
+											<label><input class="if" type="checkbox" data-condition="asdf" /> Foo </label>
+										</div>
+										<div class="if_asdf_isFalse">
+											Foo is true
+										</div><!-- /.if_asdf_{6:isTrue} -->
+									</div><!-- /.if-block -->
+
+								</div>
+								<div class="tab-pane">// 2</div>
+								<div class="tab-pane active in">// 3</div>
+							</div><!-- .tab-content -->
+
+							<div class="if_asdf_isTrue">
+								Bar.
+							</div>
+
+						</div>
+
+						<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
+					</div>
+				</div>
+			</div><!-- /#file -->
+
+		</div><!-- /.col-md-12 -->
+	</div><!-- /.row -->
+</div><!-- /.container -->
+
+<script src="./assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="./assets/js/script.min.js" type="text/javascript"></script>
+</body>
+</html>

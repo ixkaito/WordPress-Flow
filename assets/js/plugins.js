@@ -330,15 +330,15 @@
         $isFalse.data('visibility', isFalseVisibility);
 
         if ($isTrue.data('visibility') > 0) {
-          $isTrue.addClass('in');
+          $isTrue.removeClass('out').addClass('in');
         } else {
-          $isTrue.removeClass('in');
+          $isTrue.removeClass('in').addClass('out');
         }
 
         if ($isFalse.data('visibility') > 0) {
-          $isFalse.addClass('in');
+          $isFalse.removeClass('out').addClass('in');
         } else {
-          $isFalse.removeClass('in');
+          $isFalse.removeClass('in').addClass('out');
         }
 
       /*
@@ -347,11 +347,11 @@
       } else if ($block) {
 
         if ($el.is(':checked')) {
-          $block.children('.isFalse').removeClass('in');
-          $block.children('.isTrue').addClass('in');
+          $block.children('.isFalse').removeClass('in').addClass('out');
+          $block.children('.isTrue').removeClass('out').addClass('in');
         } else {
-          $block.children('.isTrue').removeClass('in');
-          $block.children('.isFalse').addClass('in');
+          $block.children('.isTrue').removeClass('in').addClass('out');
+          $block.children('.isFalse').removeClass('out').addClass('in');
         }
 
       }
@@ -365,6 +365,16 @@
   */
   $.fn.wpftab = function (option) {
 
+    init();
+
+    function init() {
+      $('.tab-content > .tab-pane').each(function(){
+        if (!$(this).hasClass('in')) {
+          $(this).addClass('out');
+        }
+      });
+    }
+
     return this.each(function() {
       var $el      = $(this);
       var index    = $el.index();
@@ -374,14 +384,17 @@
       var $block   = $tabs.parent('.tab-block');
       var $tabPane = $tabs.next('.tab-content').children('.tab-pane');
 
+
       if (href || target) {
         $el.tab('show');
       } else if ($block) {
         $el.on('click', function() {
+          console.log(index);
+          console.log($tabPane.eq(index));
           $tabs.children().removeClass('active');
           $el.addClass('active');
-          $tabPane.removeClass('in').removeClass('active');
-          $tabPane.eq(index).addClass('in').addClass('active');
+          $tabPane.removeClass('in').removeClass('active').addClass('out');
+          $tabPane.eq(index).removeClass('out').addClass('in').addClass('active');
         });
       }
     });
