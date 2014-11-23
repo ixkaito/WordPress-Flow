@@ -375,7 +375,7 @@
   */
   $.fn.wpftab = function (option) {
 
-    var $checkbox = $('.if');
+    var checkboxClass = '.if';
 
     init();
 
@@ -386,7 +386,7 @@
         }
       });
 
-      $checkbox.wpfcheckbox();
+      $(checkboxClass).wpfcheckbox();
     }
 
     return this.each(function() {
@@ -404,7 +404,7 @@
           $el.addClass('active');
           $tabPane.removeClass('in').removeClass('active').addClass('out');
           $tabPane.eq(index).removeClass('out').addClass('in').addClass('active');
-          $checkbox.wpfcheckbox();
+          $tabPane.find(checkboxClass).wpfcheckbox();
         });
       }
     });
