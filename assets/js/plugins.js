@@ -181,7 +181,7 @@
             });
 
             // recall necessary methods;
-            $('.if').wpfcheckbox();
+            // $('.if').wpfcheckbox();
             $('.nav-tabs > li').wpftab();
             $('.redirect_to').wpfredirect();
 
@@ -268,12 +268,12 @@
 
       var $el = $(this);
 
-      /*
+      /**
        * Initial check
        */
       check($el);
 
-      /*
+      /**
        * Add class "wpfcheckbox_ok" after initial check
        */
       $el.addClass('wpfcheckbox_ok');
@@ -290,7 +290,7 @@
       var condition = $el.data('condition');
       var $block    = $el.parent('label').parent('.checkbox').parent('.if-block');
 
-      /*
+      /**
        * Control contents out of the function or file.
        */
       if (condition) {
@@ -303,48 +303,57 @@
         var isFalseVisibility = $isFalse.data('visibility');
             isFalseVisibility = isFalseVisibility ? isFalseVisibility : 0;
 
-        /*
-         * If this is not initial check
-         */
-        if ($el.hasClass('wpfcheckbox_ok')) {
-          if ($el.is(':checked')) {
-            isTrueVisibility++;
-            isFalseVisibility = isFalseVisibility > 0 ? isFalseVisibility -1 : 0;
+
+        if($el.closest('.out').length > 0) {
+
+          $isTrue.removeClass('out').removeClass('in');
+          $isFalse.removeClass('out').removeClass('in');
+
+        } else {
+
+          /**
+           * If this is not initial check
+           */
+          if ($el.hasClass('wpfcheckbox_ok')) {
+            if ($el.is(':checked')) {
+              isTrueVisibility++;
+              isFalseVisibility = isFalseVisibility > 0 ? isFalseVisibility -1 : 0;
+            } else {
+              isFalseVisibility++;
+              isTrueVisibility = isTrueVisibility > 0 ? isTrueVisibility - 1 : 0;
+            }
+          /**
+           * If this is the initial check
+           */
           } else {
-            isFalseVisibility++;
-            isTrueVisibility = isTrueVisibility > 0 ? isTrueVisibility - 1 : 0;
+            if ($el.is(':checked')) {
+              isTrueVisibility++;
+            } else {
+              isFalseVisibility++;
+            }
           }
 
-        /*
-         * If this is the initial check
-         */
-        } else {
-          if ($el.is(':checked')) {
-            isTrueVisibility++;
+          $isTrue.data('visibility', isTrueVisibility);
+          $isFalse.data('visibility', isFalseVisibility);
+
+          if ($isTrue.data('visibility') > 0) {
+            $isTrue.removeClass('out').addClass('in');
           } else {
-            isFalseVisibility++;
+            $isTrue.removeClass('in').addClass('out');
           }
+
+          if ($isFalse.data('visibility') > 0) {
+            $isFalse.removeClass('out').addClass('in');
+          } else {
+            $isFalse.removeClass('in').addClass('out');
+          }
+
         }
 
-        $isTrue.data('visibility', isTrueVisibility);
-        $isFalse.data('visibility', isFalseVisibility);
-
-        if ($isTrue.data('visibility') > 0) {
-          $isTrue.removeClass('out').addClass('in');
-        } else {
-          $isTrue.removeClass('in').addClass('out');
-        }
-
-        if ($isFalse.data('visibility') > 0) {
-          $isFalse.removeClass('out').addClass('in');
-        } else {
-          $isFalse.removeClass('in').addClass('out');
-        }
-
-      /*
+      /**
        * Only control contents in .if-block
        */
-      } else if ($block) {
+      } else if ($block.length > 0) {
 
         if ($el.is(':checked')) {
           $block.children('.isFalse').removeClass('in').addClass('out');
@@ -355,6 +364,7 @@
         }
 
       }
+
     }
   };
 
@@ -365,6 +375,8 @@
   */
   $.fn.wpftab = function (option) {
 
+    var $checkbox = $('.if');
+
     init();
 
     function init() {
@@ -373,6 +385,8 @@
           $(this).addClass('out');
         }
       });
+
+      $checkbox.wpfcheckbox();
     }
 
     return this.each(function() {
@@ -384,17 +398,13 @@
       var $block   = $tabs.parent('.tab-block');
       var $tabPane = $tabs.next('.tab-content').children('.tab-pane');
 
-
-      if (href || target) {
-        $el.tab('show');
-      } else if ($block) {
+      if ($block.length > 0) {
         $el.on('click', function() {
-          console.log(index);
-          console.log($tabPane.eq(index));
           $tabs.children().removeClass('active');
           $el.addClass('active');
           $tabPane.removeClass('in').removeClass('active').addClass('out');
           $tabPane.eq(index).removeClass('out').addClass('in').addClass('active');
+          $checkbox.wpfcheckbox();
         });
       }
     });

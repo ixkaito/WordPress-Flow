@@ -4,7 +4,7 @@
   });
 
   $('.require, .require_once, .include, .include_once, .function, .class').wpfload();
-  $('.if').wpfcheckbox();
+  // $('.if').wpfcheckbox();
   $('.nav-tabs > li').wpftab();
   $('.redirect_to').wpfredirect();
 
