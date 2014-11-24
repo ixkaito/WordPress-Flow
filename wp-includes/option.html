@@ -39,35 +39,131 @@
 					<div class="collapse in">
 						<div class="function-body">
 
-							<div class="function" data-function="apply_filters" data-params="<span class='yellow'>'pre_option'</span> . $option, <span class='purple'>false</span>" data-callback="" data-url="../wp-includes/plugin.html"></div>
+							<div class="function" data-function="apply_filters" data-params="<span class='yellow'>'pre_option'</span> <span class='red'>.</span> $option, <span class='purple'>false</span>" data-callback="" data-url="../wp-includes/plugin.html"></div>
 
 							<div class="if-block">
 								<div class="checkbox">
 									<label><input class="if" type="checkbox" /> empty( $option ) </label>
 								</div>
-								<div class="isFalse">
+								<div class="isTrue">
+									return false;
+								</div>
+								<div class="isFalse style_none">
 
 									<div class="if-block">
 										<div class="checkbox">
 											<label><input class="if" type="checkbox" /> false !== $pre </label>
 										</div>
-
-										<div class="isFalse">
+										<div class="isTrue">
+											return $pre;
+										</div>
+										<div class="isFalse style_none">
 
 											<div class="if-block">
 												<div class="checkbox">
 													<label><input class="if" type="checkbox" checked /> defined( 'WP_SETUP_CONFIG' ) </label>
 												</div>
+												<div class="isTrue">
+													return false;
+												</div>
+												<div class="isFalse style_none">
 
-												<div class="isFalse">
+													<div class="tab-block">
+														<ul class="nav nav-tabs">
+															<li class="active">
+																! defined( 'WP_INSTALLING' )
+															</li>
+															<li>
+																else
+															</li>
+														</ul>
+														<div class="tab-content">
+															<div class="tab-pane active in">
+																<div class="function" data-function="wp_cache_get" data-url="../wp-includes/cache.html"></div>
 
-													<div class="if-block">
+																<div class="checkbox">
+																	<label><input class="if" type="checkbox" data-condition="RlToFnd8" checked /> isset( $notoptions[$option] ) </label>
+																</div>
+																<div class="if_RlToFnd8_isTrue">
+																	<div class="function" data-function="apply_filters" data-params="<span class='yellow'>'default_option_'</span> <span class='red'>.</span> $option, $default" data-url="../wp-includes/plugin.html"></div>
+																</div><!-- /.if_RlToFnd8_isTrue -->
+
+																<div class="if_RlToFnd8_isFalse style_none">
+																	<div class="function" data-function="wp_load_alloptions" data-url="../wp-includes/option.html"></div>
+
+																	<div class="tab-block">
+																		<ul class="nav nav-tabs">
+																			<li class="active">
+																				isset( $alloptions[$option] )
+																			</li>
+																			<li>
+																				else
+																			</li>
+																		</ul>
+																		<div class="tab-content">
+																			<div class="tab-pane active in">
+																				$value = $alloptions[$option];
+																			</div>
+																			<div class="tab-pane">
+			$value = wp_cache_get( $option, 'options' );
+
+			if ( false === $value ) {
+				$row = $wpdb->get_row( $wpdb->prepare( "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1", $option ) );
+
+				// Has to be get_row instead of get_var because of funkiness with 0, false, null values
+				if ( is_object( $row ) ) {
+					$value = $row->option_value;
+					wp_cache_add( $option, $value, 'options' );
+				} else { // option does not exist, so we must cache its non-existence
+					$notoptions[$option] = true;
+					wp_cache_set( 'notoptions', $notoptions, 'options' );
+
+					/** This filter is documented in wp-includes/option.php */
+					return apply_filters( 'default_option_' . $option, $default );
+				}
+			}
+																			</div>
+																		</div><!-- .tab-content -->
+																	</div><!-- .tab-block -->
+
+																</div><!-- .if_RlToFnd8_isFalse -->
+
+															</div>
+															<div class="tab-pane">
+		$suppress = $wpdb->suppress_errors();
+		$row = $wpdb->get_row( $wpdb->prepare( "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1", $option ) );
+		$wpdb->suppress_errors( $suppress );
+		if ( is_object( $row ) ) {
+			$value = $row->option_value;
+		} else {
+			/** This filter is documented in wp-includes/option.php */
+			return apply_filters( 'default_option_' . $option, $default );
+		}
+															</div>
+														</div><!-- .tab-content -->
+													</div><!-- .tab-block -->
+
+													<div class="if-block if_RlToFnd8_isFalse style_none">
 														<div class="checkbox">
-															<label><input class="if" type="checkbox" checked /> ! defined( 'WP_INSTALLING' ) </label>
+															<label><input class="if" type="checkbox" checked /> 'home' == $option &amp;&amp; '' == $value </label>
 														</div>
 														<div class="isTrue">
-															<div class="function" data-function="wp_cache_get" data-url="../wp-includes/cache.html"></div>
+															<!-- <div class="function" data-function="get_option" data-url="../wp-includes/option.html" data-params="<span class='yellow'>siteurl</span>"></div> -->
 														</div><!-- /.isTrue -->
+														<div class="isFalse style_none">
+
+															<div class="if-block">
+																<div class="checkbox">
+																	<label><input class="if" type="checkbox" checked /> in_array( $option, array('siteurl', 'home', 'category_base', 'tag_base') ) </label>
+																</div>
+																<div class="isTrue">
+																	$value = untrailingslashit( $value );
+																</div><!-- /.isTrue -->
+															</div><!-- /.if-block -->
+
+															<div class="function" data-function="apply_filters" data-params="<span class='yellow'>'option_'</span> <span class='red'>.</span> $option, maybe_unserialize( $value )" data-url="../wp-includes/plugin.html"></div>
+
+														</div>
 													</div><!-- /.if-block -->
 
 												</div><!-- /.isFalse -->
