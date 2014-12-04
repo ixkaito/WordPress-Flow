@@ -7,6 +7,52 @@
     wpfload
   ================================================================================
   */
+  $.fn.skipinitload = function() {
+
+    if ($(this).closest('.tab-pane').length > 0) {
+      return true;
+    }
+
+    if ($(this).closest('.isTrue, isFalse').length > 0) {
+      return true;
+    }
+
+    if ($(this).closest('[class^="if_"], [class*=" if_"]').length > 0) {
+      return true;
+    }
+
+    return false;
+
+  };
+
+  $.fn.wpfinitload = function (option) {
+
+    return this.each(function() {
+
+      var $el = $(this);
+
+      if (!$el.skipinitload()) {
+        $el.wpfload();
+      }
+
+    });
+
+  };
+
+  $.fn.skipload = function() {
+
+    if ($(this).hasClass('wpfloading')) {
+      return true;
+    }
+
+    if ($(this).closest('.out').length > 0) {
+      return true;
+    }
+
+    return false;
+
+  };
+
   $.fn.wpfload = function(option) {
 
     // Longest-common subsequence
@@ -41,7 +87,8 @@
     return this.each(function() {
 
       var $el = $(this);
-      if (!$el.hasClass('wpfloading')) {
+
+      if (!$el.skipload()) {
 
         $el.addClass('wpfloading');
 
@@ -200,7 +247,6 @@
         });
 
       }
-
     });
   };
 
@@ -286,9 +332,9 @@
 
     function check(el) {
 
-      var $el       = el;
-      var condition = $el.data('condition');
-      var $block    = $el.parent('label').parent('.checkbox').parent('.if-block');
+      var $el          = el;
+      var condition    = $el.data('condition');
+      var $block       = $el.parent('label').parent('.checkbox').parent('.if-block');
 
       /**
        * Control contents out of the function or file.
@@ -306,8 +352,11 @@
 
         if($el.closest('.out').length > 0) {
 
-          $isTrue.removeClass('out').removeClass('in');
-          $isFalse.removeClass('out').removeClass('in');
+          /**
+           * If the checkbox is hidden, disable controlling contents out of the function or file.
+           */
+          $isTrue.removeClass('out').removeClass('in').find(wpfloadClass).wpfload();
+          $isFalse.removeClass('out').removeClass('in').find(wpfloadClass).wpfload();
 
         } else {
 
@@ -337,13 +386,13 @@
           $isFalse.data('visibility', isFalseVisibility);
 
           if ($isTrue.data('visibility') > 0) {
-            $isTrue.removeClass('out').addClass('in');
+            $isTrue.removeClass('out').addClass('in').find(wpfloadClass).wpfload();
           } else {
             $isTrue.removeClass('in').addClass('out');
           }
 
           if ($isFalse.data('visibility') > 0) {
-            $isFalse.removeClass('out').addClass('in');
+            $isFalse.removeClass('out').addClass('in').find(wpfloadClass).wpfload();
           } else {
             $isFalse.removeClass('in').addClass('out');
           }
@@ -357,10 +406,10 @@
 
         if ($el.is(':checked')) {
           $block.children('.isFalse').removeClass('in').addClass('out');
-          $block.children('.isTrue').removeClass('out').addClass('in');
+          $block.children('.isTrue').removeClass('out').addClass('in').find(wpfloadClass).wpfload();
         } else {
           $block.children('.isTrue').removeClass('in').addClass('out');
-          $block.children('.isFalse').removeClass('out').addClass('in');
+          $block.children('.isFalse').removeClass('out').addClass('in').find(wpfloadClass).wpfload();
         }
 
       }
@@ -379,16 +428,6 @@
 
     init();
 
-    function init() {
-      $('.tab-content > .tab-pane').each(function(){
-        if (!$(this).hasClass('in')) {
-          $(this).addClass('out');
-        }
-      });
-
-      $(checkboxClass).wpfcheckbox();
-    }
-
     return this.each(function() {
       var $el      = $(this);
       var index    = $el.index();
@@ -404,10 +443,27 @@
           $el.addClass('active');
           $tabPane.removeClass('in').removeClass('active').addClass('out');
           $tabPane.eq(index).removeClass('out').addClass('in').addClass('active');
+          /**
+           * Re-check check boxes in the tab panes
+           */
           $tabPane.find(checkboxClass).wpfcheckbox();
+          $tabPane.find(wpfloadClass).wpfload();
         });
       }
     });
+
+    function init() {
+      $('.tab-content > .tab-pane').each(function(){
+        if (!$(this).hasClass('in')) {
+          $(this).addClass('out');
+        }
+      });
+
+      /**
+       * Check all check boxes first
+       */
+      $(checkboxClass).wpfcheckbox();
+    }
   };
 
 })(jQuery);

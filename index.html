@@ -10,7 +10,9 @@
 <link rel="stylesheet" href="./assets/css/style.css" type="text/css" media="all" />
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">window.jQuery || document.write( '<script src="./assets/js/jquery-1.11.1.min.js" type="text/javascript"><\/script>' )</script>
+<script src="./assets/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="./assets/js/plugins.min.js" type="text/javascript"></script>
+<script src="./assets/js/script.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="container">
@@ -26,7 +28,7 @@
 
 						<div class="require" data-url="wp-blog-header.html"></div>
 
-						<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
+						<script type="text/javascript">wpfinit();</script>
 					</div>
 				</div>
 			</div><!-- /#file -->
@@ -35,7 +37,5 @@
 	</div><!-- /.row -->
 </div><!-- /.container -->
 
-<script src="./assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="./assets/js/script.min.js" type="text/javascript"></script>
 </body>
 </html>

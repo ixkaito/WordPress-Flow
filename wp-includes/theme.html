@@ -10,7 +10,9 @@
 <link rel="stylesheet" href="../assets/css/style.css" type="text/css" media="all" />
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">window.jQuery || document.write( '<script src="../assets/js/jquery-1.11.1.min.js" type="text/javascript"><\/script>' )</script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="../assets/js/plugins.min.js" type="text/javascript"></script>
+<script src="../assets/js/script.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="container">
@@ -24,20 +26,20 @@
 				<div class="collapse-toggle">
 					<h1 class="file-name">wp-includes/theme.php <i class="caret"></i></h1>
 				</div>
-				<div class="collapse">
+				<div class="collapse out">
 					<div class="file-body">
 
-						<div class="function VrNJYvxt" data-function="add_action" data-tag="setup_theme" data-callback="preview_theme" data-url="../wp-includes/plugin.html"></div>
+						<div class="function" data-function="add_action" data-tag="setup_theme" data-callback="preview_theme" data-url="../wp-includes/plugin.html"></div>
 
-						<div class="function VrNJYvxt" data-function="add_action" data-tag="wp_loaded" data-callback="_custom_header_background_just_in_time" data-url="../wp-includes/plugin.html"></div>
+						<div class="function" data-function="add_action" data-tag="wp_loaded" data-callback="_custom_header_background_just_in_time" data-url="../wp-includes/plugin.html"></div>
 
-						<div class="function VrNJYvxt" data-function="add_action" data-tag="delete_attachment" data-callback="_delete_attachment_theme_mod" data-url="../wp-includes/plugin.html"></div>
+						<div class="function" data-function="add_action" data-tag="delete_attachment" data-callback="_delete_attachment_theme_mod" data-url="../wp-includes/plugin.html"></div>
 
-						<div class="function VrNJYvxt" data-function="add_action" data-tag="plugins_loaded" data-callback="_wp_customize_include" data-url="../wp-includes/plugin.html"></div>
+						<div class="function" data-function="add_action" data-tag="plugins_loaded" data-callback="_wp_customize_include" data-url="../wp-includes/plugin.html"></div>
 
-						<div class="function VrNJYvxt" data-function="add_action" data-tag="admin_enqueue_scripts" data-callback="_wp_customize_loader_settings" data-url="../wp-includes/plugin.html"></div>
+						<div class="function" data-function="add_action" data-tag="admin_enqueue_scripts" data-callback="_wp_customize_loader_settings" data-url="../wp-includes/plugin.html"></div>
 
-						<script type="text/javascript">$('.VrNJYvxt').wpfload();</script>
+						<script type="text/javascript">wpfinit();</script>
 
 					</div>
 				</div>
@@ -53,7 +55,5 @@
 	</div><!-- /.row -->
 </div><!-- /.container -->
 
-<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="../assets/js/script.min.js" type="text/javascript"></script>
 </body>
 </html>
