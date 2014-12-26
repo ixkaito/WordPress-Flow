@@ -77,9 +77,26 @@
 									<label><input class="if" type="checkbox" checked /> !defined( 'COOKIEHASH' ) </label>
 								</div>
 								<div class="isTrue">
-									<div class="function" data-function="get_site_option" data-url="../wp-includes/option.html"></div>
+									<div class="function" data-function="get_site_option" data-params="<span class='yello'>'siteurl'</span>" data-url="../wp-includes/option.html"></div>
 								</div><!-- /.isTrue -->
 							</div><!-- /.if-block -->
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if" type="checkbox" checked /> ! defined( 'COOKIEPATH' ) </label>
+								</div>
+								<div class="isTrue">
+									<div class="function" data-function="get_option" data-params="<span class='yellow'>'home'</span>" data-url="../wp-includes/option.html"></div>
+								</div><!-- /.isTrue -->
+							</div><!-- /.if-block -->
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if" type="checkbox" checked /> ! defined( 'SITECOOKIEPATH' ) </label>
+								</div>
+								<div class="isTrue">
+									<div class="function" data-function="get_option" data-params="<span class='yellow'>'siteurl'</span>" data-url="../wp-includes/option.html"></div>
+								</div><!-- /.isTrue -->
+							</div><!-- /.if-block -->
+
 
 							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->

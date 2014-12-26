@@ -182,6 +182,64 @@
 					</div><!-- /.collapse -->
 				</div><!-- /#get_option.function -->
 
+				<!--
+				// function get_site_option(){}
+				-->
+				<div id="get_site_option" class="function">
+					<div class="collapse-toggle">
+						<h1 class="function-name"><code>get_site_option()</code> <i class="caret"></i></h1>
+					</div>
+					<div class="collapse in">
+						<div class="function-body">
+
+							<div class="function" data-function="apply_filters" data-params="<span class='yellow'>'pre_site_option_'</span> <span class='red'>.</span> $option, <span class='purple'>false</span>" data-url="../wp-includes/plugin.html"></div>
+
+							<div class="function" data-function="wp_cache_get" data-params="$notoptions_key, <span class='yellow'>site-options</span>" data-url="../wp-includes/cache.html"></div>
+
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if" type="checkbox" /> isset( $notoptions[$option] ) </label>
+								</div>
+								<div class="isTrue">
+									<div class="function" data-function="apply_filters" data-params="<span class='yellow'>'default_site_option_'</span> <span class='red'>.</span> $option, $default" data-url="../wp-includes/plugin.html"></div>
+								</div><!-- /.isTrue -->
+							</div><!-- /.if-block -->
+
+	if ( ! is_multisite() ) {
+
+		/** This filter is documented in wp-includes/option.php */
+		$default = apply_filters( 'default_site_option_' . $option, $default );
+		$value = get_option($option, $default);
+	} else {
+		$cache_key = "{$wpdb->siteid}:$option";
+		if ( $use_cache )
+			$value = wp_cache_get($cache_key, 'site-options');
+
+		if ( !isset($value) || (false === $value) ) {
+			$row = $wpdb->get_row( $wpdb->prepare("SELECT meta_value FROM $wpdb->sitemeta WHERE meta_key = %s AND site_id = %d", $option, $wpdb->siteid ) );
+
+			// Has to be get_row instead of get_var becuase of funkiness with 0, false, null values
+			if ( is_object( $row ) ) {
+				$value = $row->meta_value;
+				$value = maybe_unserialize( $value );
+				wp_cache_set( $cache_key, $value, 'site-options' );
+			} else {
+				$notoptions[$option] = true;
+				wp_cache_set( $notoptions_key, $notoptions, 'site-options' );
+
+				/** This filter is documented in wp-includes/option.php */
+				$value = apply_filters( 'default_site_option_' . $option, $default );
+			}
+		}
+	}
+
+							<div class="function" data-function="apply_filters" data-params="<span class='yellow'>'site_option_'</span> <span class='red'>.</span> $option, $default" data-url="../wp-includes/plugin.html"></div>
+
+							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
+						</div><!-- /.function-body -->
+					</div><!-- /.collapse -->
+				</div><!-- /#get_site_option.function -->
+
 			</div><!-- /.hidden -->
 
 		</div><!-- /.col-md-12 -->
