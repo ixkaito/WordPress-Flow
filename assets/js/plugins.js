@@ -173,12 +173,12 @@
               var $funcname = isFunction ? $el.find('.function-name') : $el.find('.class-name');
               var filename  = data.match(/<title.*>(.*)<\/title>/);
                   filename  = filename[1];
-              var variable, params, funcname;
+              var funcname  = $funcname.find('code').text();
+              var variable, params;
               // $funcname.append(' <span class="at">' + filename + '</span>');
               $funcname.find('code').attr('title', filename);
 
               if (isFunction && (hasParams || isHook)) {
-                funcname = $funcname.find('code').text();
 
                 if (hasParams) {
                   params   = $el.data('params');
@@ -206,6 +206,12 @@
                 variable = $el.data('var');
 
                 if (hasMethod) {
+
+                  if (hasParams) {
+                    params = $el.data('params');
+                    $funcname.find('code').text(funcname.replace('()', '')).append('( ' + params + ' )');
+                  }
+
                   variable = variable ? variable + '<span class="red">-&gt;</span>' : '';
                   $funcname.find('code').prepend(variable);
 
