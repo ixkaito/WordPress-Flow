@@ -71,10 +71,29 @@
 					<div class="collapse in">
 						<div class="class-body">
 
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if" type="checkbox" /></label><!--
+									--><div class="class method" data-class="WP_Object_Cache" data-var="$this" data-method="_exists" data-params="$key, $group" data-url="../wp-includes/cache.html"></div>
+								</div>
+								<div class="isTrue">
+									<p>if ( is_object($this->cache[$group][$key]) )<br />
+										&nbsp;&nbsp;return clone $this->cache[$group][$key];<br />
+										else<br />
+										&nbsp;&nbsp;return $this->cache[$group][$key];</p>
+								</div><!-- /.isTrue -->
+							</div><!-- /.if-block -->
 							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.class-body -->
 					</div><!-- /.collapse -->
 				</div><!-- /#WP_Object_Cache-get.class -->
+
+				<!--
+				// class WP_Object_Cache->_exists()
+				-->
+				<div id="WP_Object_Cache-_exists" class="class">
+					<h1 class="class-name"><code>_exists()</code></h1>
+				</div>
 
 				<!--
 				// function wp_cache_get(){}
