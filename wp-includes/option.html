@@ -205,33 +205,43 @@
 								</div><!-- /.isTrue -->
 							</div><!-- /.if-block -->
 
-	if ( ! is_multisite() ) {
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if" type="checkbox" checked /></label><!--
+									-->! <div class="function" data-function="is_multisite" data-url="../wp-includes/load.html"></div>
+								</div>
+								<div class="isTrue">
+									<div class="function" data-function="get_option" data-params="$option, $default" data-url="../wp-includes/option.html"></div>
+								</div><!-- /.isTrue -->
+								<div class="isFalse">
+									<div class="if-block">
+										<div class="checkbox">
+											<label><input class="if" type="checkbox" /> $use_cache </label>
+										</div>
+										<div class="isTrue">
+											<div class="function" data-function="wp_cache_get" data-url="../wp-includes/cache.html"></div>
+											$value = wp_cache_get($cache_key, 'site-options');
+										</div><!-- /.isTrue -->
+									</div><!-- /.if-block -->
 
-		/** This filter is documented in wp-includes/option.php */
-		$default = apply_filters( 'default_site_option_' . $option, $default );
-		$value = get_option($option, $default);
-	} else {
-		$cache_key = "{$wpdb->siteid}:$option";
-		if ( $use_cache )
-			$value = wp_cache_get($cache_key, 'site-options');
+									if ( !isset($value) || (false === $value) ) {
+										$row = $wpdb->get_row( $wpdb->prepare("SELECT meta_value FROM $wpdb->sitemeta WHERE meta_key = %s AND site_id = %d", $option, $wpdb->siteid ) );
 
-		if ( !isset($value) || (false === $value) ) {
-			$row = $wpdb->get_row( $wpdb->prepare("SELECT meta_value FROM $wpdb->sitemeta WHERE meta_key = %s AND site_id = %d", $option, $wpdb->siteid ) );
+										// Has to be get_row instead of get_var becuase of funkiness with 0, false, null values
+										if ( is_object( $row ) ) {
+											$value = $row->meta_value;
+											$value = maybe_unserialize( $value );
+											wp_cache_set( $cache_key, $value, 'site-options' );
+										} else {
+											$notoptions[$option] = true;
+											wp_cache_set( $notoptions_key, $notoptions, 'site-options' );
 
-			// Has to be get_row instead of get_var becuase of funkiness with 0, false, null values
-			if ( is_object( $row ) ) {
-				$value = $row->meta_value;
-				$value = maybe_unserialize( $value );
-				wp_cache_set( $cache_key, $value, 'site-options' );
-			} else {
-				$notoptions[$option] = true;
-				wp_cache_set( $notoptions_key, $notoptions, 'site-options' );
-
-				/** This filter is documented in wp-includes/option.php */
-				$value = apply_filters( 'default_site_option_' . $option, $default );
-			}
-		}
-	}
+											/** This filter is documented in wp-includes/option.php */
+											$value = apply_filters( 'default_site_option_' . $option, $default );
+										}
+									}
+								</div>
+							</div><!-- /.if-block -->
 
 							<div class="function" data-function="apply_filters" data-params="<span class='yellow'>'site_option_'</span> <span class='red'>.</span> $option, $default" data-url="../wp-includes/plugin.html"></div>
 
