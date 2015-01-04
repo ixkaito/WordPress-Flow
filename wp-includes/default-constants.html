@@ -119,7 +119,7 @@
 								<div class="isTrue">
 									<div class="if-block">
 										<div class="checkbox">
-											<label><input class="if" type="checkbox" checked /></label><!--
+											<label><input class="if" type="checkbox" /></label><!--
 											-->'https' === parse_url( <div class="function" data-function="get_option" data-params="<span class='yellow'>'siteurl'</span>" data-url="../wp-includes/option.html"></div> ), PHP_URL_SCHEME )
 										</div>
 										<div class="isTrue">
@@ -133,15 +133,17 @@
 								</div><!-- /.isTrue -->
 							</div><!-- /.if-block -->
 
-							force_ssl_admin( FORCE_SSL_ADMIN );
+							<div class="function" data-function="force_ssl_admin" data-params="<span class='purple'>FORCE_SSL_ADMIN</span>" data-url="../wp-includes/functions.html"></div>
 
-							/**
-							 * @since 2.6.0
-							 * @deprecated 4.0.0
-							 */
-							if ( defined( 'FORCE_SSL_LOGIN' ) && FORCE_SSL_LOGIN ) {
-								force_ssl_admin( true );
-							}
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if" type="checkbox" /> defined( 'FORCE_SSL_LOGIN' ) &amp;&amp; FORCE_SSL_LOGIN </label>
+								</div>
+								<div class="isTrue">
+									<div class="function" data-function="force_ssl_admin" data-params="<span class='purple'>true</span>" data-url="../wp-includes/functions.html"></div>
+								</div><!-- /.isTrue -->
+							</div><!-- /.if-block -->
+
 							<script type="text/javascript">$('.require, .require_once, .include, .include_once, .function, .class').wpfload();</script>
 						</div><!-- /.function-body -->
 					</div><!-- /.collapse -->
