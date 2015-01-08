@@ -26,7 +26,7 @@
 				<div class="collapse-toggle">
 					<h1 class="file-name">wp-includes/vars.php <i class="caret"></i></h1>
 				</div>
-				<div class="collapse out">
+				<div class="collapse in">
 					<div class="file-body">
 
 						<div class="if-block">
@@ -35,7 +35,30 @@
 								--><div class="function" data-function="is_admin" data-url="../wp-includes/load.html"></div>
 							</div>
 							<div class="isTrue">
-								//
+								<div class="tab-block">
+									<ul class="nav nav-tabs">
+										<li>
+											<div class="function" data-function="is_network_admin" data-url="../wp-includes/load.html"></div>
+										</li>
+										<li>
+											is_user_admin()
+										</li>
+										<li class="active">
+											else
+										</li>
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane">
+											preg_match('#/wp-admin/network/?(.*?)$#i', $_SERVER['PHP_SELF'], $self_matches);
+										</div>
+										<div class="tab-pane">
+											//
+										</div>
+										<div class="tab-pane active in">
+											//
+										</div>
+									</div><!-- .tab-content -->
+								</div><!-- .tab-block -->
 							</div><!-- /.isTrue -->
 							<div class="isFalse">
 								//
