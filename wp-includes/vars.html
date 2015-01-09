@@ -41,7 +41,7 @@
 											<div class="function" data-function="is_network_admin" data-url="../wp-includes/load.html"></div>
 										</li>
 										<li>
-											is_user_admin()
+											<div class="function" data-function="is_user_admin" data-url="../wp-includes/load.html"></div>
 										</li>
 										<li class="active">
 											else
@@ -52,16 +52,37 @@
 											preg_match('#/wp-admin/network/?(.*?)$#i', $_SERVER['PHP_SELF'], $self_matches);
 										</div>
 										<div class="tab-pane">
-											//
+											preg_match('#/wp-admin/user/?(.*?)$#i', $_SERVER['PHP_SELF'], $self_matches);
 										</div>
 										<div class="tab-pane active in">
-											//
+											preg_match('#/wp-admin/?(.*?)$#i', $_SERVER['PHP_SELF'], $self_matches);
 										</div>
 									</div><!-- .tab-content -->
 								</div><!-- .tab-block -->
+								$pagenow = $self_matches[1];
+								$pagenow = trim($pagenow, '/');
+								$pagenow = preg_replace('#\?.*?$#', '', $pagenow);
+								if ( '' === $pagenow || 'index' === $pagenow || 'index.php' === $pagenow ) {
+									$pagenow = 'index.php';
+								} else {
+									preg_match('#(.*?)(/|$)#', $pagenow, $self_matches);
+									$pagenow = strtolower($self_matches[1]);
+									if ( '.php' !== substr($pagenow, -4, 4) )
+										$pagenow .= '.php'; // for Options +Multiviews: /wp-admin/themes/index.php (themes.php is queried)
+								}
 							</div><!-- /.isTrue -->
 							<div class="isFalse">
-								//
+								<div class="if-block">
+									<div class="checkbox">
+										<label><input class="if" type="checkbox" checked /> preg_match('#([^/]+\.php)([?/].*?)?$#i', $_SERVER['PHP_SELF'], $self_matches) </label>
+									</div>
+									<div class="isTrue">
+										$pagenow = strtolower($self_matches[1]);
+									</div><!-- /.isTrue -->
+									<div class="isFalse">
+										$pagenow = 'index.php';
+									</div><!-- /.isFalse -->
+								</div><!-- /.if-block -->
 							</div><!-- /.isFalse -->
 						</div><!-- /.if-block -->
 
