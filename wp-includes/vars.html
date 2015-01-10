@@ -123,21 +123,27 @@
 											$is_lynx = true;
 										</div>
 										<div class="tab-pane active in">
-											if ( stripos( $_SERVER['HTTP_USER_AGENT'], 'chromeframe' ) !== false ) {
-												$is_admin = is_admin();
-												/**
-												 * Filter whether Google Chrome Frame should be used, if available.
-												 *
-												 * @since 3.2.0
-												 *
-												 * @param bool $is_admin Whether to use the Google Chrome Frame. Default is the value of is_admin().
-												 */
-												if ( $is_chrome = apply_filters( 'use_google_chrome_frame', $is_admin ) )
-													header( 'X-UA-Compatible: chrome=1' );
-												$is_winIE = ! $is_chrome;
-											} else {
-												$is_chrome = true;
-											}
+											<div class="if-block">
+												<div class="checkbox">
+													<label><input class="if" type="checkbox" />stripos( $_SERVER['HTTP_USER_AGENT'], 'chromeframe' ) !== false</label>
+												</div>
+												<div class="isTrue">
+													<div class="function" data-function="is_admin" data-url="../wp-includes/load.html"></div>
+													<div class="if-block">
+														<div class="checkbox">
+															<label><input class="if" type="checkbox" /></label><!--
+															-->$is_chrome = <div class="function" data-function="apply_filters" data-params="<span class='yellow'>'use_google_chrome_frame'</span>, $is_admin" data-url="../wp-includes/plugin.html"></div>
+														</div>
+														<div class="isTrue">
+															header( 'X-UA-Compatible: chrome=1' );
+														</div><!-- /.isTrue -->
+													</div><!-- /.if-block -->
+													$is_winIE = ! $is_chrome;
+												</div><!-- /.isTrue -->
+												<div class="isFalse">
+													$is_chrome = true;
+												</div>
+											</div><!-- /.if-block -->
 										</div>
 										<div class="tab-pane">
 											$is_safari = true;
