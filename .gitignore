@@ -21,3 +21,4 @@ doc/
 
 # Ignore Sass cache files.
 *.scssc
+/node_modules
