@@ -50,6 +50,17 @@
 					</div>
 					<div class="collapse in">
 						<div class="function-body">
+
+							<div class="if-block">
+								<div class="checkbox">
+									<label><input class="if" type="checkbox" checked /></label><!--
+									-->! <div class="function" data-function="did_action" data-params="init" data-url="../wp-includes/plugin.html"></div>
+								</div>
+								<div class="isTrue">
+									$rewrite = array( 'category' => false, 'post_tag' => false, 'post_format' => false );
+								</div><!-- /.isTrue -->
+							</div><!-- /.if-block -->
+
 							if ( ! did_action( 'init' ) ) {
 								$rewrite = array( 'category' => false, 'post_tag' => false, 'post_format' => false );
 							} else {
