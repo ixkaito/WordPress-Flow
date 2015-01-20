@@ -59,45 +59,12 @@
 								<div class="isTrue">
 									$rewrite = array( 'category' => false, 'post_tag' => false, 'post_format' => false );
 								</div><!-- /.isTrue -->
+								<div class="isFalse">
+									<div class="function" data-function="apply_filters" data-tag="post_format_rewrite_base" data-callback="type" data-url="../wp-includes/plugin.html"></div>
+								</div>
 							</div><!-- /.if-block -->
 
-							if ( ! did_action( 'init' ) ) {
-								$rewrite = array( 'category' => false, 'post_tag' => false, 'post_format' => false );
-							} else {
-
-								/**
-								 * Filter the post formats rewrite base.
-								 *
-								 * @since 3.1.0
-								 *
-								 * @param string $context Context of the rewrite base. Default 'type'.
-								 */
-								$post_format_base = apply_filters( 'post_format_rewrite_base', 'type' );
-								$rewrite = array(
-									'category' => array(
-										'hierarchical' => true,
-										'slug' => get_option('category_base') ? get_option('category_base') : 'category',
-										'with_front' => ! get_option('category_base') || $wp_rewrite->using_index_permalinks(),
-										'ep_mask' => EP_CATEGORIES,
-									),
-									'post_tag' => array(
-										'slug' => get_option('tag_base') ? get_option('tag_base') : 'tag',
-										'with_front' => ! get_option('tag_base') || $wp_rewrite->using_index_permalinks(),
-										'ep_mask' => EP_TAGS,
-									),
-									'post_format' => $post_format_base ? array( 'slug' => $post_format_base ) : false,
-								);
-							}
-
-							register_taxonomy( 'category', 'post', array(
-								'hierarchical' => true,
-								'query_var' => 'category_name',
-								'rewrite' => $rewrite['category'],
-								'public' => true,
-								'show_ui' => true,
-								'show_admin_column' => true,
-								'_builtin' => true,
-							) );
+							<div class="function" data-function="register_taxonomy" params="<span class='yellow'>'category'</span>, <span class='yellow'>'post'</span>, <span class='blue'>array</span>()" data-url="../wp-includes/taxonomy.html"></div>
 
 							register_taxonomy( 'post_tag', 'post', array(
 							 	'hierarchical' => false,
